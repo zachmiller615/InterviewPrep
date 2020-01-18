@@ -2,10 +2,10 @@
 // Created by Zach Miller on 17/01/2020.
 //
 
-private class Node<T> where T: Equatable {
+private class LinkedListNode<T> where T: Equatable {
     // Properties
     let data: T
-    var next: Node?
+    var next: LinkedListNode?
 
     // Initializer
     init(data: T) {
@@ -15,12 +15,12 @@ private class Node<T> where T: Equatable {
 
 class LinkedList<T> where T: Equatable {
     // Properties
-    private var head: Node<T>?
+    private var head: LinkedListNode<T>?
 
     // Methods
     func toArray() -> [T] {
         var resultArray: [T] = []
-        var optionalCurrentNode: Node<T>? = head
+        var optionalCurrentNode: LinkedListNode<T>? = head
         while let currentNode = optionalCurrentNode {
             resultArray.append(currentNode.data)
             optionalCurrentNode = currentNode.next
@@ -29,7 +29,7 @@ class LinkedList<T> where T: Equatable {
     }
 
     func prepend(_ data: T) {
-        let newNode = Node(data: data)
+        let newNode = LinkedListNode(data: data)
         newNode.next = self.head
         self.head = newNode
     }
@@ -39,7 +39,7 @@ class LinkedList<T> where T: Equatable {
             self.prepend(data)
             return
         }
-        let newNode = Node(data: data)
+        let newNode = LinkedListNode(data: data)
         var currentNode = head
         while let nextNode = currentNode.next {
             currentNode = nextNode

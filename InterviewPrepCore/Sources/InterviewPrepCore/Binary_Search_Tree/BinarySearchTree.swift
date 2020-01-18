@@ -2,11 +2,11 @@
 // Created by Zach Miller on 18/01/2020.
 //
 
-private class Node<T> where T: Comparable {
+private class BinaryTreeNode<T> where T: Comparable {
     // Properties
     let data: T
-    var leftChild: Node?
-    var rightChild: Node?
+    var leftChild: BinaryTreeNode?
+    var rightChild: BinaryTreeNode?
     
     // Initializer
     init(data: T) {
@@ -16,14 +16,14 @@ private class Node<T> where T: Comparable {
 
 class BinarySearchTree<T> where T: Comparable {
     // Properties
-    private var root: Node<T>?
+    private var root: BinaryTreeNode<T>?
 
     // Methods
     func insert(_ data: T) {
         if let root = self.root {
             self.insert(data, into: root)
         } else {
-            self.root = Node(data: data)
+            self.root = BinaryTreeNode(data: data)
         }
     }
 
@@ -49,27 +49,27 @@ class BinarySearchTree<T> where T: Comparable {
 
 // Private Methods
 private extension BinarySearchTree {
-    func shouldSearchLeft(data: T, in node: Node<T>) -> Bool {
+    func shouldSearchLeft(data: T, in node: BinaryTreeNode<T>) -> Bool {
         (data < node.data)
     }
 
-    func insert(_ data: T, into node: Node<T>) {
+    func insert(_ data: T, into node: BinaryTreeNode<T>) {
         if self.shouldSearchLeft(data: data, in: node) {
             if let leftChild = node.leftChild {
                 self.insert(data, into: leftChild)
             } else {
-                node.leftChild = Node(data: data)
+                node.leftChild = BinaryTreeNode(data: data)
             }
         } else {
             if let rightChild = node.rightChild {
                 self.insert(data, into: rightChild)
             } else {
-                node.rightChild = Node(data: data)
+                node.rightChild = BinaryTreeNode(data: data)
             }
         }
     }
 
-    func contains(_ data: T, in node: Node<T>) -> Bool {
+    func contains(_ data: T, in node: BinaryTreeNode<T>) -> Bool {
         if (data == node.data) {
             return true
         } else if self.shouldSearchLeft(data: data, in: node) {
@@ -87,7 +87,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func printInOrderTraversal(of node: Node<T>) {
+    func printInOrderTraversal(of node: BinaryTreeNode<T>) {
         if let leftChild = node.leftChild {
             self.printInOrderTraversal(of: leftChild)
         }
@@ -97,7 +97,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func printPreOrderTraversal(of node: Node<T>) {
+    func printPreOrderTraversal(of node: BinaryTreeNode<T>) {
         print(node.data)
         if let leftChild = node.leftChild {
             self.printPreOrderTraversal(of: leftChild)
@@ -107,7 +107,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func printPostOrderTraversal(of node: Node<T>) {
+    func printPostOrderTraversal(of node: BinaryTreeNode<T>) {
         if let leftChild = node.leftChild {
             self.printPostOrderTraversal(of: leftChild)
         }
