@@ -8,7 +8,12 @@ public struct CommandLineTool {
 
     // Methods
     public func run() {
-        let recursiveRunTimes = RecursiveRunTimes()
-        recursiveRunTimes.printWorkForExponentialTimeAlgorithm(input: 4)
+        let graph = Graph<Int>()
+        graph.addEdge(item1: 1, item2: 2)
+        graph.addEdge(item1: 1, item2: 3)
+        graph.addEdge(item1: 4, item2: 5)
+        graph.addEdge(item1: 2, item2: 5)
+        graph.addEdge(item1: 6, item2: nil)
+        print(graph)
     }
 }

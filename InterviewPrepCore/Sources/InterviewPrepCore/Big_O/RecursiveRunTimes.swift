@@ -13,6 +13,7 @@ struct RecursiveRunTimes {
 
 // Private Methods
 private extension RecursiveRunTimes {
+    @discardableResult
     func exponentialTimeAlgorithm(number: Int) -> Int {
         print("recursiveFunction(\(number))")
         if (number <= 1) {
