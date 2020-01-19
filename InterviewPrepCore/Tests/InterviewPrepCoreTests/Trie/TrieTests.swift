@@ -35,7 +35,7 @@ class TrieTests: XCTestCase {
 extension TrieTests {
     func test_ContainsWordWithPrefix_True() {
         // When
-        let computedResult = self.trie.containsWordWithPrefix("ab")
+        let computedResult = self.trie.contains(text: "ab", searchType: .prefix)
 
         // Then
         XCTAssertTrue(computedResult)
@@ -43,7 +43,7 @@ extension TrieTests {
 
     func test_ContainsWordWithPrefix_False() {
         // When
-        let computedResult = self.trie.containsWordWithPrefix("lo")
+        let computedResult = self.trie.contains(text: "lo", searchType: .prefix)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -54,7 +54,7 @@ extension TrieTests {
 extension TrieTests {
     func test_ContainsWholeWord_True_Example_1() {
         // When
-        let computedResult = self.trie.containsWordWithPrefix("lmn")
+        let computedResult = self.trie.contains(text: "lmn", searchType: .wholeWord)
 
         // Then
         XCTAssertTrue(computedResult)
@@ -62,7 +62,7 @@ extension TrieTests {
 
     func test_ContainsWholeWord_True_Example_2() {
         // When
-        let computedResult = self.trie.containsWordWithPrefix("cdf")
+        let computedResult = self.trie.contains(text: "cdf", searchType: .wholeWord)
 
         // Then
         XCTAssertTrue(computedResult)
@@ -70,7 +70,7 @@ extension TrieTests {
 
     func test_ContainsWholeWord_False_Example_1() {
         // When
-        let computedResult = self.trie.containsWordWithPrefix("ab")
+        let computedResult = self.trie.contains(text: "ab", searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -78,7 +78,7 @@ extension TrieTests {
 
     func test_ContainsWholeWord_False_Example_2() {
         // When
-        let computedResult = self.trie.containsWordWithPrefix("ghi")
+        let computedResult = self.trie.contains(text: "ghi", searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -90,11 +90,11 @@ extension TrieTests {
     func test_DeleteWholeWord_ExistingWord_Example_1() {
         // Given
         let word = "abc"
-        XCTAssertTrue(self.trie.containsWholeWord(word))
+        XCTAssertTrue(self.trie.contains(text: word, searchType: .wholeWord))
 
         // When
         self.trie.deleteWholeWord(word)
-        let computedResult = self.trie.containsWholeWord(word)
+        let computedResult = self.trie.contains(text: word, searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -103,11 +103,11 @@ extension TrieTests {
     func test_DeleteWholeWord_ExistingWord_Example_2() {
         // Given
         let word = "abgl"
-        XCTAssertTrue(self.trie.containsWholeWord(word))
+        XCTAssertTrue(self.trie.contains(text: word, searchType: .wholeWord))
 
         // When
         self.trie.deleteWholeWord(word)
-        let computedResult = self.trie.containsWholeWord(word)
+        let computedResult = self.trie.contains(text: word, searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -116,11 +116,11 @@ extension TrieTests {
     func test_DeleteWholeWord_ExistingWord_Example_3() {
         // Given
         let word = "abcd"
-        XCTAssertTrue(self.trie.containsWholeWord(word))
+        XCTAssertTrue(self.trie.contains(text: word, searchType: .wholeWord))
 
         // When
         self.trie.deleteWholeWord(word)
-        let computedResult = self.trie.containsWholeWord(word)
+        let computedResult = self.trie.contains(text: word, searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -129,12 +129,12 @@ extension TrieTests {
     func test_DeleteWholeWord_InputIsExistingPrefix() {
         // Given
         let word = "ab"
-        XCTAssertTrue(self.trie.containsWordWithPrefix(word))
-        XCTAssertFalse(self.trie.containsWholeWord(word))
+        XCTAssertTrue(self.trie.contains(text: word, searchType: .prefix))
+        XCTAssertFalse(self.trie.contains(text: word, searchType: .wholeWord))
 
         // When
         self.trie.deleteWholeWord(word)
-        let computedResult = self.trie.containsWholeWord(word)
+        let computedResult = self.trie.contains(text: word, searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
@@ -143,11 +143,11 @@ extension TrieTests {
     func test_DeleteWholeWord_InputDoesNotExist() {
         // Given
         let word = "abcde"
-        XCTAssertFalse(self.trie.containsWordWithPrefix(word))
+        XCTAssertFalse(self.trie.contains(text: word, searchType: .wholeWord))
 
         // When
         self.trie.deleteWholeWord(word)
-        let computedResult = self.trie.containsWholeWord(word)
+        let computedResult = self.trie.contains(text: word, searchType: .wholeWord)
 
         // Then
         XCTAssertFalse(computedResult)
