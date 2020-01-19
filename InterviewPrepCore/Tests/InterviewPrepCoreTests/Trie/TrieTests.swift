@@ -102,7 +102,7 @@ extension TrieTests {
 
     func test_DeleteWholeWord_ExistingWord_Example_2() {
         // Given
-        let word = "abgl"
+        let word = "adgl"
         XCTAssertTrue(self.trie.contains(text: word, searchType: .wholeWord))
 
         // When
