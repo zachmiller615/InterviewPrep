@@ -39,4 +39,17 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example4(inputA: [Int], inputB: [Int]) {
+        print("-----")
+        for indexA in 0..<inputA.count {
+            for indexB in 0..<inputB.count {
+                print("If Check")
+                if (inputA[indexA] < inputB[indexB]) {
+                    print("\(inputA[indexA]), \(inputB[indexB])")
+                }
+            }
+        }
+        print("-----")
+    }
 }
