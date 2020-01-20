@@ -17,10 +17,10 @@ class Queue<T> {
     }
 
     func dequeue() -> T? {
-
+        nil
     }
 
     func peek() -> T? {
-
+        nil
     }
 }

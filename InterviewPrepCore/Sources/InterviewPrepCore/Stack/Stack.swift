@@ -8,18 +8,22 @@ class Stack<T> {
 
     // Methods
     func isEmpty() -> Bool {
-        false
+        (self.top == nil)
     }
 
     func push(_ data: T) {
-
+        let newNode = ListNode(data: data)
+        newNode.next = self.top
+        self.top = newNode
     }
 
     func pop() -> T? {
-        nil
+        let data = self.top?.data
+        self.top = self.top?.next
+        return data
     }
 
     func peek() -> T? {
-        nil
+        self.top?.data
     }
 }
