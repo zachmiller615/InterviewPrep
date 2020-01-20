@@ -19,4 +19,14 @@ struct BigOExamples {
         print("Sum: \(sum), Product: \(product)")
         print("-----")
     }
+
+    func example2(input: [Int]) {
+        print("-----")
+        for number1 in input {
+            for number2 in input {
+                print("\(number1), \(number2)")
+            }
+        }
+        print("-----")
+    }
 }
