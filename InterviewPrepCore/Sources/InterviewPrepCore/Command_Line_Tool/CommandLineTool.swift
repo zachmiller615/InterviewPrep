@@ -8,12 +8,7 @@ public struct CommandLineTool {
 
     // Methods
     public func run() {
-        let graph = Graph<Int>()
-        graph.addEdge(item1: 1, item2: 2)
-        graph.addEdge(item1: 1, item2: 3)
-        graph.addEdge(item1: 4, item2: 5)
-        graph.addEdge(item1: 2, item2: 5)
-        graph.addEdge(item1: 6, item2: nil)
-        print(graph)
+        let bigOExamples = BigOExamples()
+        bigOExamples.example1(input: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     }
 }
