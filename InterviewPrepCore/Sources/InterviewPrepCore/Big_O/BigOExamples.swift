@@ -29,4 +29,14 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example3(input: [Int]) {
+        print("-----")
+        for index1 in 0..<input.count {
+            for index2 in ((index1 + 1)..<input.count) {
+                print("\(input[index1]), \(input[index2])")
+            }
+        }
+        print("-----")
+    }
 }
