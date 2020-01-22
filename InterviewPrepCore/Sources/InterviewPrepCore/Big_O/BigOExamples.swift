@@ -64,4 +64,17 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example6(input: [Int]) {
+        print("-----")
+        var array = input
+        for index in (0..<(array.count / 2)) {
+            print("Index \(index)")
+            let other = array.count - index - 1
+            let temp = array[index]
+            array[index] = array[other]
+            array[other] = temp
+        }
+        print("-----")
+    }
 }
