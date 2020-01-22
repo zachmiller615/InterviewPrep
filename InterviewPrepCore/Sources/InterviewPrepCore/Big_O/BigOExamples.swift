@@ -57,7 +57,7 @@ struct BigOExamples {
         print("-----")
         for numberA in inputA {
             for numberB in inputB {
-                for numberC in 0..<100000 {
+                for _ in 0..<100000 {
                     print("\(numberA), \(numberB)")
                 }
             }

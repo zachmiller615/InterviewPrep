@@ -14,7 +14,7 @@ class Queue<T> {
 
     func enqueue(_ data: T) {
         let newNode = ListNode(data: data)
-        guard let head = self.head, let tail = self.tail else {
+        guard let _ = self.head, let tail = self.tail else {
             self.head = newNode
             self.tail = newNode
             return
