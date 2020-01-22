@@ -20,7 +20,9 @@ class Heap<ElementType> where ElementType: Comparable {
     func add(_ element: ElementType) {
         self.data.append(element)
         let elementIndex = (self.data.count - 1)
-        let parentIndex = self.parentIndex(childIndex: elementIndex)
+        guard let parentIndex = self.parentIndex(childIndex: elementIndex) else {
+            return
+        }
         let elementShouldSwimUp = self.elementShouldSwimUp(element: element, parentIndex: parentIndex)
         if elementShouldSwimUp {
             self.swapElements(index1: elementIndex, index2: parentIndex)
@@ -48,9 +50,11 @@ private extension Heap {
         }
     }
 
-    func parentIndex(childIndex: Int) -> Int {
-        let potentialParentIndex = (childIndex / 2)
-        return potentialParentIndex
+    func parentIndex(childIndex: Int) -> Int? {
+        guard (childIndex > 0) else {
+            return nil
+        }
+        return ((childIndex - 1) / 2)
     }
 }
 
