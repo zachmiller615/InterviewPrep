@@ -52,4 +52,16 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example5(inputA: [Int], inputB: [Int]) {
+        print("-----")
+        for numberA in inputA {
+            for numberB in inputB {
+                for numberC in 0..<100000 {
+                    print("\(numberA), \(numberB)")
+                }
+            }
+        }
+        print("-----")
+    }
 }
