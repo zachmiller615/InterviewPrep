@@ -13,10 +13,71 @@ class Heap<ElementType> where ElementType: Comparable {
     }
 
     // Methods
+    func peek() -> ElementType? {
+        self.data.first
+    }
+
     func add(_ element: ElementType) {
-        if (data.isEmpty) {
-            data.append(element)
+        guard (!self.data.isEmpty) else {
+            self.data.append(element)
             return
         }
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
