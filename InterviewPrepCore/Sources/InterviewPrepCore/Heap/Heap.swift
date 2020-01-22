@@ -19,13 +19,15 @@ class Heap<ElementType> where ElementType: Comparable {
 
     func add(_ element: ElementType) {
         self.data.append(element)
-        let elementIndex = (self.data.count - 1)
-        guard let parentIndex = self.parentIndex(childIndex: elementIndex) else {
-            return
-        }
-        let elementShouldSwimUp = self.elementShouldSwimUp(element: element, parentIndex: parentIndex)
-        if elementShouldSwimUp {
-            self.swapElements(index1: elementIndex, index2: parentIndex)
+
+        var currentIndex = (self.data.count - 1)
+        while (self.parentExists(childIndex: currentIndex) &&
+                self.elementShouldSwimUp(
+                        childIndex: currentIndex,
+                        parentIndex: self.parentIndex(childIndex: currentIndex))) {
+            let parentIndex = self.parentIndex(childIndex: currentIndex)
+            self.swapElements(index1: currentIndex, index2: parentIndex)
+            currentIndex = parentIndex
         }
     }
 }
@@ -41,72 +43,24 @@ private extension Heap {
         self.data[index2] = originalValueAtIndex1
     }
 
-    func elementShouldSwimUp(element: ElementType, parentIndex: Int) -> Bool {
+    func elementShouldSwimUp(childIndex: Int, parentIndex: Int) -> Bool {
+        guard (self.data.indexIsValid(childIndex) && self.data.indexIsValid(parentIndex)) else {
+            return false
+        }
         switch self.type {
         case .min:
-            return (element < self.data[parentIndex])
+            return (self.data[childIndex] < self.data[parentIndex])
         case .max:
-            return (element > self.data[parentIndex])
+            return (self.data[childIndex] > self.data[parentIndex])
         }
     }
 
-    func parentIndex(childIndex: Int) -> Int? {
-        guard (childIndex > 0) else {
-            return nil
-        }
-        return ((childIndex - 1) / 2)
+    func parentExists(childIndex: Int) -> Bool {
+        let potentialParentIndex = self.parentIndex(childIndex: childIndex)
+        return ((childIndex > 0) && self.data.indexIsValid(potentialParentIndex))
+    }
+
+    func parentIndex(childIndex: Int) -> Int {
+        ((childIndex - 1) / 2)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
