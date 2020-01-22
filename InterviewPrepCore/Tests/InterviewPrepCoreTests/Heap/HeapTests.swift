@@ -50,6 +50,37 @@ extension HeapTests {
         // Then
         XCTAssertEqual(computedResult, expectedResult)
     }
+
+    func test_Add_ChangeMinOneTime() {
+        // Given
+        let heap = Heap<Int>(type: .min)
+        heap.add(10)
+        heap.add(5)
+        let expectedResult = 5
+
+        // When
+        heap.add(7)
+        let computedResult = heap.peek()
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Add_SwimUpTwoTimes() {
+        // Given
+        let heap = Heap<Int>(type: .min)
+        heap.add(10)
+        heap.add(5)
+        heap.add(7)
+        let expectedResult = 3
+
+        // When
+        heap.add(expectedResult)
+        let computedResult = heap.peek()
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
 }
 
 

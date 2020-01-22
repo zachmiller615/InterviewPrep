@@ -23,15 +23,22 @@ class Heap<ElementType> where ElementType: Comparable {
         let parentIndex = self.parentIndex(childIndex: elementIndex)
         let elementShouldSwimUp = self.elementShouldSwimUp(element: element, parentIndex: parentIndex)
         if elementShouldSwimUp {
-
-        } else {
-
+            self.swapElements(index1: elementIndex, index2: parentIndex)
         }
     }
 }
 
 // Private Methods
 private extension Heap {
+    func swapElements(index1: Int, index2: Int) {
+        guard (self.data.indexIsValid(index1) && self.data.indexIsValid(index2)) else {
+            return
+        }
+        let originalValueAtIndex1 = self.data[index1]
+        self.data[index1] = self.data[index2]
+        self.data[index2] = originalValueAtIndex1
+    }
+
     func elementShouldSwimUp(element: ElementType, parentIndex: Int) -> Bool {
         switch self.type {
         case .min:
