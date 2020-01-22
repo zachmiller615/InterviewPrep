@@ -17,18 +17,25 @@ class Heap<ElementType> where ElementType: Comparable {
         self.data.first
     }
 
-    func add(_ element: ElementType) {
+    func push(_ element: ElementType) {
         self.data.append(element)
-
-        var currentIndex = (self.data.count - 1)
-        while (self.parentExists(childIndex: currentIndex) &&
-                self.elementShouldSwimUp(
-                        childIndex: currentIndex,
-                        parentIndex: self.parentIndex(childIndex: currentIndex))) {
-            let parentIndex = self.parentIndex(childIndex: currentIndex)
-            self.swapElements(index1: currentIndex, index2: parentIndex)
-            currentIndex = parentIndex
+        var childIndex = (self.data.count - 1)
+        var parentIndex = self.parentIndex(childIndex: childIndex)
+        while (self.parentExists(childIndex: childIndex) &&
+                self.elementShouldSwimUp(childIndex: childIndex, parentIndex: parentIndex)) {
+            self.swapElements(index1: childIndex, index2: parentIndex)
+            childIndex = parentIndex
+            parentIndex = self.parentIndex(childIndex: childIndex)
         }
+    }
+
+    func poll() -> ElementType? {
+        guard !self.data.isEmpty else {
+            return nil
+        }
+        let elementToReturn = self.data[self.data.count - 1]
+        // Heapify down
+        return elementToReturn
     }
 }
 
