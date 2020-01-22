@@ -77,4 +77,19 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example7(input: [Int]) {
+        guard !input.isEmpty else {
+            return
+        }
+        print("-----")
+        let array = input[0..<(input.count / 2)]
+        for number in input {
+            print(number)
+        }
+        for number in array {
+            print(number)
+        }
+        print("-----")
+    }
 }
