@@ -34,76 +34,22 @@ private extension HashTable {
     }
 
     func getValue(forKey key: Key, atBucketIndex bucketIndex: Int) -> Value? {
-        let bucket = self.data[bucketIndex]
-        let element = bucket.first {
+        let element = self.data[bucketIndex].first {
             $0.key == key
         }
         return element?.value
     }
 
     func setValue(_ newValue: Value?, forKey key: Key, atBucketIndex bucketIndex: Int) {
-        var bucket = self.data[bucketIndex]
-        let elementIndex = bucket.firstIndex {
+        let elementIndex = self.data[bucketIndex].firstIndex {
             $0.key == key
         }
         if let newValue = newValue, let elementIndex = elementIndex {
-            bucket[elementIndex].value = newValue // Update
+            self.data[bucketIndex][elementIndex].value = newValue // Update
         } else if let newValue = newValue {
-            bucket.append((key, newValue)) // Insert
+            self.data[bucketIndex].append((key, newValue)) // Insert
         } else if let elementIndex = elementIndex {
-            bucket.remove(at: elementIndex) // Delete
+            self.data[bucketIndex].remove(at: elementIndex) // Delete
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
