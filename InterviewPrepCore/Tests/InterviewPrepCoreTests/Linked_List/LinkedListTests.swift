@@ -137,3 +137,22 @@ extension LinkedListTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Remove Duplicates
+extension LinkedListTests {
+    func test_RemoveDuplicates() {
+        // Given
+        let linkedList = LinkedList<String>()
+        for letter in ["A", "B", "C", "A", "B", "C", "D", "A"] {
+            linkedList.append(letter)
+        }
+        let expectedResult: [String] = ["A", "B", "C", "D"]
+
+        // When
+        linkedList.removeDuplicates()
+        let computedResult = linkedList.toArray()
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
