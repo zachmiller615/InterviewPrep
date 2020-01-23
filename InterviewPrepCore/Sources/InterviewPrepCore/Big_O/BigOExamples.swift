@@ -92,4 +92,20 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example8(input: inout [String]) {
+        print("-----")
+        for index in 0..<input.count {
+            print("Iteration through input - Index \(index)")
+            print("Sorting \(input[index])")
+            let sortedCharacters = input[index].sorted()
+            let sortedString = sortedCharacters.reduce(into: "") {
+                $0.append($1)
+            }
+            input[index] = sortedString
+        }
+        print("Sorting \(input)")
+        input.sort()
+        print("-----")
+    }
 }
