@@ -8,36 +8,51 @@ class HashTable<Key, Value> where Key: Hashable {
     typealias Bucket = [Element]
 
     // Properties
-    private var data: [Bucket] = []
     private let dataCapacity = 1000
+    private lazy var data: [Bucket] = Array(repeating: [], count: self.dataCapacity)
 
     // Subscript
     subscript(key: Key) -> Value? {
         get {
-            let hashValue = self.getHashValue(from: key)
-            let bucketIndex = self.getBucketIndex(fromHashValue: hashValue)
+            let bucketIndex = self.getBucketIndex(from: key)
             return self.getValue(forKey: key, atBucketIndex: bucketIndex)
         }
-        set {
-
+        set(newValue) {
+            let bucketIndex = self.getBucketIndex(from: key)
+            self.setValue(newValue, forKey: key, atBucketIndex: bucketIndex)
         }
     }
 }
 
 // Private Methods
 private extension HashTable {
-    func getHashValue(from key: Key) -> Int {
+    func getBucketIndex(from key: Key) -> Int {
         var hasher = Hasher()
         key.hash(into: &hasher)
-        return hasher.finalize()
+        let hashValue = hasher.finalize()
+        return (abs(hashValue) % self.dataCapacity)
     }
 
-    func getBucketIndex(fromHashValue hashValue: Int) -> Int {
-        (abs(hashValue) % self.dataCapacity)
+    func getValue(forKey key: Key, atBucketIndex bucketIndex: Int) -> Value? {
+        let bucket = self.data[bucketIndex]
+        let element = bucket.first {
+            $0.key == key
+        }
+        return element?.value
     }
 
-    func getValue(forKey: Key, atBucketIndex: Int) -> Value? {
-
+    func setValue(_ newValue: Value?, forKey key: Key, atBucketIndex bucketIndex: Int) {
+        var bucket = self.data[bucketIndex]
+        let elementIndex = bucket.firstIndex {
+            $0.key == key
+        }
+        if let newValue = newValue, let elementIndex = elementIndex {
+            bucket[elementIndex].value = newValue // Update
+        } else if let newValue = newValue {
+            bucket.append((key, newValue)) // Insert
+        } else if let elementIndex = elementIndex {
+            bucket.remove(at: elementIndex) // Delete
+        }
     }
 }
 
