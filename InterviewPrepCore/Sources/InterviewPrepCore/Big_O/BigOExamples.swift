@@ -108,4 +108,13 @@ struct BigOExamples {
         input.sort()
         print("-----")
     }
+
+    func example9(input: BinaryTreeNode<Int>?) -> Int {
+        print(input?.data as Any)
+        if let node = input {
+            return self.example9(input: node.leftChild) + node.data + self.example9(input: node.rightChild)
+        } else {
+            return 0
+        }
+    }
 }

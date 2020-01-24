@@ -2,18 +2,6 @@
 // Created by Zach Miller on 18/01/2020.
 //
 
-private class BinaryTreeNode<T> where T: Comparable {
-    // Properties
-    let data: T
-    var leftChild: BinaryTreeNode?
-    var rightChild: BinaryTreeNode?
-    
-    // Initializer
-    init(data: T) {
-        self.data = data
-    }
-}
-
 class BinarySearchTree<T> where T: Comparable {
     // Properties
     private var root: BinaryTreeNode<T>?

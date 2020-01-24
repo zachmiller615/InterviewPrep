@@ -2,25 +2,14 @@
 // Created by Zach Miller on 17/01/2020.
 //
 
-private class LinkedListNode<Element> where Element: Hashable {
-    // Properties
-    let data: Element
-    var next: LinkedListNode?
-
-    // Initializer
-    init(data: Element) {
-        self.data = data
-    }
-}
-
 class LinkedList<Element> where Element: Hashable {
     // Properties
-    private var head: LinkedListNode<Element>?
+    private var head: ListNode<Element>?
 
     // Methods
     func toArray() -> [Element] {
         var resultArray: [Element] = []
-        var optionalCurrentNode: LinkedListNode<Element>? = head
+        var optionalCurrentNode: ListNode<Element>? = head
         while let currentNode = optionalCurrentNode {
             resultArray.append(currentNode.data)
             optionalCurrentNode = currentNode.next
@@ -29,7 +18,7 @@ class LinkedList<Element> where Element: Hashable {
     }
 
     func prepend(_ data: Element) {
-        let newNode = LinkedListNode(data: data)
+        let newNode = ListNode(data: data)
         newNode.next = self.head
         self.head = newNode
     }
@@ -39,7 +28,7 @@ class LinkedList<Element> where Element: Hashable {
             self.prepend(data)
             return
         }
-        let newNode = LinkedListNode(data: data)
+        let newNode = ListNode(data: data)
         var currentNode = head
         while let nextNode = currentNode.next {
             currentNode = nextNode
@@ -78,7 +67,7 @@ class LinkedList<Element> where Element: Hashable {
         }
         var seenElements = Set<Element>()
         seenElements.insert(head.data)
-        var optionalCurrentNode: LinkedListNode? = head
+        var optionalCurrentNode: ListNode? = head
         while let currentNode = optionalCurrentNode, let nextNode = currentNode.next {
             if seenElements.contains(nextNode.data) {
                 currentNode.next = nextNode.next
