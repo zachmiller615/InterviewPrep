@@ -21,6 +21,14 @@ class Graph<T> where T: Hashable {
             self.vertices.insert(vertex2)
         }
     }
+
+    func hasPath_DepthFirstSearch(source: T, target: T) -> Bool {
+        false
+    }
+
+    func hasPath_BreadthFirstSearch(source: T, target: T) -> Bool {
+        false
+    }
 }
 
 // Vertex Class
