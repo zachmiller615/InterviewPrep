@@ -4,31 +4,39 @@
 
 class Graph<Element> where Element: Hashable {
     // Properties
+    private let directionType: EdgeDirectionType
     private var vertices = Set<Vertex<Element>>()
 
+    // Initializer
+    init(directionType: EdgeDirectionType) {
+        self.directionType = directionType
+    }
+
     // Methods
-    func addEdge(item1: Element, item2: Element?) {
-        let vertex1 = self.getVertex(withData: item1) ?? Vertex(data: item1)
-        self.vertices.insert(vertex1)
-        if let item2 = item2 {
-            let vertex2 = self.getVertex(withData: item2) ?? Vertex(data: item2)
-            vertex1.neighbors.insert(vertex2)
-            vertex2.neighbors.insert(vertex1)
-            self.vertices.insert(vertex2)
+    func addEdge(from sourceData: Element, to targetData: Element?) {
+        let sourceVertex = self.getVertex(withData: sourceData) ?? Vertex(data: sourceData)
+        self.vertices.insert(sourceVertex)
+        if let targetData = targetData {
+            let targetVertex = self.getVertex(withData: targetData) ?? Vertex(data: targetData)
+            self.vertices.insert(targetVertex)
+            sourceVertex.neighbors.insert(targetVertex)
+            if (self.directionType == .undirected) {
+                targetVertex.neighbors.insert(sourceVertex)
+            }
         }
     }
 
-    func hasPath_DepthFirstSearch(source: Element, target: Element) -> Bool {
-        if let sourceVertex = self.getVertex(withData: source), let targetVertex = self.getVertex(withData: target) {
+    func hasPath_DepthFirstSearch(from sourceData: Element, to targetData: Element) -> Bool {
+        if let sourceVertex = self.getVertex(withData: sourceData), let targetVertex = self.getVertex(withData: targetData) {
             var visitedVertices = Set<Vertex<Element>>()
-            return self.hasPath_DepthFirstSearch_Recursive(currentVertex: sourceVertex, targetVertex: targetVertex, visitedVertices: &visitedVertices)
+            return self.hasPath_DepthFirstSearch_Recursive(from: sourceVertex, to: targetVertex, visitedVertices: &visitedVertices)
         } else {
             return false
         }
     }
 
-    func hasPath_BreadthFirstSearch(source: Element, target: Element) -> Bool {
-        guard let sourceVertex = self.getVertex(withData: source), let targetVertex = self.getVertex(withData: target) else {
+    func hasPath_BreadthFirstSearch(from sourceData: Element, to targetData: Element) -> Bool {
+        guard let sourceVertex = self.getVertex(withData: sourceData), let targetVertex = self.getVertex(withData: targetData) else {
             return false
         }
         var visitedVertices = Set<Vertex<Element>>()
@@ -61,7 +69,7 @@ private extension Graph {
         }
     }
 
-    func hasPath_DepthFirstSearch_Recursive(currentVertex: Vertex<Element>, targetVertex: Vertex<Element>, visitedVertices: inout Set<Vertex<Element>>) -> Bool {
+    func hasPath_DepthFirstSearch_Recursive(from currentVertex: Vertex<Element>, to targetVertex: Vertex<Element>, visitedVertices: inout Set<Vertex<Element>>) -> Bool {
         if (currentVertex == targetVertex) {
             return true
         }
@@ -70,7 +78,7 @@ private extension Graph {
         }
         visitedVertices.insert(currentVertex)
         for neighbor in currentVertex.neighbors {
-            if self.hasPath_DepthFirstSearch_Recursive(currentVertex: neighbor, targetVertex: targetVertex, visitedVertices: &visitedVertices) {
+            if self.hasPath_DepthFirstSearch_Recursive(from: neighbor, to: targetVertex, visitedVertices: &visitedVertices) {
                 return true
             }
         }
