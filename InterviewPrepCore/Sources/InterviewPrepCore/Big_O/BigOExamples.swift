@@ -117,4 +117,19 @@ struct BigOExamples {
             return 0
         }
     }
+
+    func example10(input: Int) -> Bool {
+        print("-----")
+        var number = 2
+        while (number * number <= input) {
+            print(number)
+            if (input % number == 0) {
+                print("-----")
+                return false
+            }
+            number += 1
+        }
+        print("-----")
+        return true
+    }
 }
