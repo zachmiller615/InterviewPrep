@@ -36,3 +36,20 @@ extension BitManipulatorTests {
         XCTAssertFalse(computedResult)
     }
 }
+
+// Test Cases for Set Bit Value
+extension BitManipulatorTests {
+    func test_SetBitValue() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 85
+        let index = 5
+        let expectedResult = 117
+
+        // When
+        let computedResult = bitManipulator.setBitValue(atIndex: index, inBitVector: bitVector)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
