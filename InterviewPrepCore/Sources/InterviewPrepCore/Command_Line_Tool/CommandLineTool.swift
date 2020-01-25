@@ -9,6 +9,6 @@ public struct CommandLineTool {
     // Methods
     public func run() {
         let bigOExamples = BigOExamples()
-        let _ = bigOExamples.example10(input: 23)
+        let _ = bigOExamples.example11(input: 10)
     }
 }

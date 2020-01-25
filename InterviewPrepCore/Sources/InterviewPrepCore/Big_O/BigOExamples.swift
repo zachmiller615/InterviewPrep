@@ -132,4 +132,15 @@ struct BigOExamples {
         print("-----")
         return true
     }
+
+    func example11(input: Int) -> Int {
+        print(input)
+        if (input < 0) {
+            return -1
+        } else if (input == 0) {
+            return 1
+        } else {
+            return input * self.example11(input: input - 1)
+        }
+    }
 }
