@@ -70,3 +70,37 @@ extension BitManipulatorTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Clear Bits Starting From MSB
+extension BitManipulatorTests {
+    func test_ClearBitsStartingFromMSB() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 85
+        let index = 4
+        let expectedResult = 5
+
+        // When
+        let computedResult = bitManipulator.clearBitsStartingFromMSB(throughIndex: index, inBitVector: bitVector)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
+
+// Test Cases for Clear Bits Starting From LSB
+extension BitManipulatorTests {
+    func test_ClearBitsStartingFromLSB() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 85
+        let index = 3
+        let expectedResult = 80
+
+        // When
+        let computedResult = bitManipulator.clearBitsStartingFromLSB(throughIndex: index, inBitVector: bitVector)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
