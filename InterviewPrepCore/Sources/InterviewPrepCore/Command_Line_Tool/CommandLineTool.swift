@@ -8,7 +8,11 @@ public struct CommandLineTool {
 
     // Methods
     public func run() {
-        let bigOExamples = BigOExamples()
-        let _ = bigOExamples.example16(input: 10)
+        let bigOExercises = BigOExercises()
+        print("-----")
+        let result = bigOExercises.product(firstOperand: 5, secondOperand: 10)
+        print("-----")
+        print("Result: \(result)")
+        print("-----")
     }
 }
