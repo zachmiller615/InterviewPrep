@@ -14,4 +14,9 @@ struct BitManipulator {
         let bitMask = (1 << index)
         return (bitVector | bitMask)
     }
+
+    func clearBitValue(atIndex index: Int, inBitVector bitVector: Int) -> Int {
+        let bitMask = ~(1 << index)
+        return (bitVector & bitMask)
+    }
 }

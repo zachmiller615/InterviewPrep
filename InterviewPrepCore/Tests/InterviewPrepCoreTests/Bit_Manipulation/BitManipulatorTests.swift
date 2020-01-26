@@ -53,3 +53,20 @@ extension BitManipulatorTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Clear Bit Value
+extension BitManipulatorTests {
+    func test_ClearBitValue() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 85
+        let index = 6
+        let expectedResult = 21
+
+        // When
+        let computedResult = bitManipulator.clearBitValue(atIndex: index, inBitVector: bitVector)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
