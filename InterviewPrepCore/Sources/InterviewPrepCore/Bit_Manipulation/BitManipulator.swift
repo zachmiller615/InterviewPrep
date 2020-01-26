@@ -36,4 +36,22 @@ struct BitManipulator {
         let bitMask = (newBitValue << index)
         return (bitVectorClearedAtIndex | bitMask)
     }
+
+    func insert(smallerBitVector: Int, intoLargerBitVector largerBitVector: Int, fromLeastIndex leastIndex: Int, toMostIndex mostIndex: Int) -> Int? {
+        guard (leastIndex <= mostIndex) &&
+                      (0 <= leastIndex) &&
+                      (leastIndex <= smallerBitVector.bitWidth) &&
+                      (0 <= mostIndex) &&
+                      (mostIndex <= smallerBitVector.bitWidth) else {
+            return nil
+        }
+        let rangeEnd = (mostIndex - leastIndex)
+        var resultBitVector = largerBitVector
+        for indexForSmallerBitVector in 0...rangeEnd {
+            let indexForResultBitVector = leastIndex + indexForSmallerBitVector
+            let newBitValue = self.getBitValue(atIndex: indexForSmallerBitVector, inBitVector: smallerBitVector)
+            resultBitVector = self.updateBitValue(atIndex: indexForResultBitVector, inBitVector: resultBitVector, bitIs1: newBitValue)
+        }
+        return resultBitVector
+    }
 }
