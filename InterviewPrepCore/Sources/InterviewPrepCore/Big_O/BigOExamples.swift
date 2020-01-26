@@ -143,4 +143,39 @@ struct BigOExamples {
             return input * self.example11(input: input - 1)
         }
     }
+
+    func example12(input: String) {
+        self.example12Helper(text: input, prefix: "")
+        print("-----")
+    }
+}
+
+// Private Methods
+private extension BigOExamples {
+    func example12Helper(text: String, prefix: String) {
+        print("-----")
+        print("Current Text: \(text)")
+        print("Current Prefix: \(prefix)")
+        if text.isEmpty {
+            print("Base Case")
+        } else {
+            for index in 0..<text.count {
+                print("-----")
+                print("Text Index: \(index)")
+                let prefixEnd = String.Index(utf16Offset: index, in: text)
+                let suffixStart = text.index(after: prefixEnd)
+                let part1 = text[..<prefixEnd]
+                let part2 = text[prefixEnd]
+                let part3 = text[suffixStart..<text.endIndex]
+                let newText = String(part1 + part3)
+                let newPrefix = prefix + String(part2)
+                print("Part 1: \(part1)")
+                print("Part 2: \(part2)")
+                print("Part 3: \(part3)")
+                print("New Text: \(newText)")
+                print("New Prefix: \(newPrefix)")
+                self.example12Helper(text: newText, prefix: newPrefix)
+            }
+        }
+    }
 }
