@@ -104,3 +104,62 @@ extension BitManipulatorTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Update Bit Value
+extension BitManipulatorTests {
+    func test_UpdateBitValue_SetTo1_Case1() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 85
+        let index = 5
+        let expectedResult = 117
+
+        // When
+        let computedResult = bitManipulator.updateBitValue(atIndex: index, inBitVector: bitVector, bitIs1: true)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_UpdateBitValue_SetTo1_Case2() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 5
+        let index = 1
+        let expectedResult = 7
+
+        // When
+        let computedResult = bitManipulator.updateBitValue(atIndex: index, inBitVector: bitVector, bitIs1: true)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_UpdateBitValue_SetTo0_Case1() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 85
+        let index = 6
+        let expectedResult = 21
+
+        // When
+        let computedResult = bitManipulator.updateBitValue(atIndex: index, inBitVector: bitVector, bitIs1: false)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_UpdateBitValue_SetTo0_Case2() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let bitVector = 5
+        let index = 2
+        let expectedResult = 1
+
+        // When
+        let computedResult = bitManipulator.updateBitValue(atIndex: index, inBitVector: bitVector, bitIs1: false)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}

@@ -29,4 +29,11 @@ struct BitManipulator {
         let bitMask = (-1 << (index + 1))
         return (bitVector & bitMask)
     }
+
+    func updateBitValue(atIndex index: Int, inBitVector originalBitVector: Int, bitIs1: Bool) -> Int {
+        let bitVectorClearedAtIndex = self.clearBitValue(atIndex: index, inBitVector: originalBitVector)
+        let newBitValue = bitIs1 ? 1 : 0
+        let bitMask = (newBitValue << index)
+        return (bitVectorClearedAtIndex | bitMask)
+    }
 }
