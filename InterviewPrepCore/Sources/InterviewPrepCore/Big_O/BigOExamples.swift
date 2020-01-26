@@ -148,6 +148,17 @@ struct BigOExamples {
         self.example12Helper(text: input, prefix: "")
         print("-----")
     }
+
+    func example13(input: Int) -> Int {
+        print(input)
+        if (input <= 0) {
+            return 0
+        } else if (input == 1) {
+            return 1
+        } else {
+            return self.example13(input: input - 1) + self.example13(input: input - 2)
+        }
+    }
 }
 
 // Private Methods
