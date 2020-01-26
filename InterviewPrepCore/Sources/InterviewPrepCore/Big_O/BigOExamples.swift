@@ -159,6 +159,15 @@ struct BigOExamples {
             return self.example13(input: input - 1) + self.example13(input: input - 2)
         }
     }
+
+    func example14(input: Int) {
+        print("-----")
+        for index in 0..<input {
+            let result = self.example13(input: index)
+            print("Fib(\(index)): \(result)")
+        }
+        print("-----")
+    }
 }
 
 // Private Methods
