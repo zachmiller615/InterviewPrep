@@ -162,8 +162,18 @@ struct BigOExamples {
 
     func example14(input: Int) {
         print("-----")
-        for index in 0..<input {
+        for index in 0...input {
             let result = self.example13(input: index)
+            print("Fib(\(index)): \(result)")
+        }
+        print("-----")
+    }
+
+    func example15(input: Int) {
+        var cache = Array(repeating: 0, count: input + 1)
+        for index in 0...input {
+            print("-----")
+            let result = self.example15Helper(number: index, cache: &cache)
             print("Fib(\(index)): \(result)")
         }
         print("-----")
@@ -196,6 +206,22 @@ private extension BigOExamples {
                 print("New Prefix: \(newPrefix)")
                 self.example12Helper(text: newText, prefix: newPrefix)
             }
+        }
+    }
+
+    func example15Helper(number: Int, cache: inout [Int]) -> Int {
+        print("Recursive Call: \(number)")
+        if (number <= 0) {
+            return 0
+        } else if (number == 1) {
+            return 1
+        } else if (cache[number] > 0) {
+            return cache[number]
+        } else {
+            cache[number] =
+                    self.example15Helper(number: number - 1, cache: &cache) +
+                            self.example15Helper(number: number - 2, cache: &cache)
+            return cache[number]
         }
     }
 }
