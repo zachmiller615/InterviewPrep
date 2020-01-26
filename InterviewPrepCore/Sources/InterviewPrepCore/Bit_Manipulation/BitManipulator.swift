@@ -37,21 +37,12 @@ struct BitManipulator {
         return (bitVectorClearedAtIndex | bitMask)
     }
 
-    func insert(smallerBitVector: Int, intoLargerBitVector largerBitVector: Int, fromLeastIndex leastIndex: Int, toMostIndex mostIndex: Int) -> Int? {
-        guard (leastIndex <= mostIndex) &&
-                      (0 <= leastIndex) &&
-                      (leastIndex <= smallerBitVector.bitWidth) &&
-                      (0 <= mostIndex) &&
-                      (mostIndex <= smallerBitVector.bitWidth) else {
-            return nil
-        }
-        let rangeEnd = (mostIndex - leastIndex)
-        var resultBitVector = largerBitVector
-        for indexForSmallerBitVector in 0...rangeEnd {
-            let indexForResultBitVector = leastIndex + indexForSmallerBitVector
-            let newBitValue = self.getBitValue(atIndex: indexForSmallerBitVector, inBitVector: smallerBitVector)
-            resultBitVector = self.updateBitValue(atIndex: indexForResultBitVector, inBitVector: resultBitVector, bitIs1: newBitValue)
-        }
-        return resultBitVector
+    func insert(smallerBitVector: Int, intoLargerBitVector largerBitVector: Int, fromLeastIndex leastIndex: Int, toMostIndex mostIndex: Int) -> Int {
+        let leftSideOfMask = (-1 << (mostIndex + 1))
+        let rightSideOfMask = ((1 << leastIndex) - 1)
+        let mask = (leftSideOfMask | rightSideOfMask)
+        let largerBitVectorWithRangeCleared = (largerBitVector & mask)
+        let smallerBitVectorShiftedIntoPosition = (smallerBitVector << leastIndex)
+        return (largerBitVectorWithRangeCleared | smallerBitVectorShiftedIntoPosition)
     }
 }

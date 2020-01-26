@@ -166,7 +166,27 @@ extension BitManipulatorTests {
 
 // Test Cases for Insert
 extension BitManipulatorTests {
-    func test_Insert_BasicCase() {
+    func test_Insert_Example1() {
+        // Given
+        let bitManipulator = BitManipulator()
+        let smallerBitVector = 0b0110
+        let largerBitVector = 0b01101001
+        let leastIndex = 2
+        let mostIndex = 5
+        let expectedResult = 0b01011001
+
+        // When
+        let computedResult = bitManipulator.insert(
+                smallerBitVector: smallerBitVector,
+                intoLargerBitVector: largerBitVector,
+                fromLeastIndex: leastIndex,
+                toMostIndex: mostIndex)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Insert_Example2() {
         // Given
         let bitManipulator = BitManipulator()
         let smallerBitVector = 0b10011
@@ -184,100 +204,5 @@ extension BitManipulatorTests {
 
         // Then
         XCTAssertEqual(computedResult, expectedResult)
-    }
-
-    func test_Insert_InvalidRange() {
-        // Given
-        let bitManipulator = BitManipulator()
-        let smallerBitVector = 0b10011
-        let largerBitVector = 0b10000000000
-        let leastIndex = 7
-        let mostIndex = 6
-
-        // When
-        let computedResult = bitManipulator.insert(
-                smallerBitVector: smallerBitVector,
-                intoLargerBitVector: largerBitVector,
-                fromLeastIndex: leastIndex,
-                toMostIndex: mostIndex)
-
-        // Then
-        XCTAssertNil(computedResult)
-    }
-
-    func test_Insert_LeastIndexTooSmall() {
-        // Given
-        let bitManipulator = BitManipulator()
-        let smallerBitVector = 0b10011
-        let largerBitVector = 0b10000000000
-        let leastIndex = -1
-        let mostIndex = 6
-
-        // When
-        let computedResult = bitManipulator.insert(
-                smallerBitVector: smallerBitVector,
-                intoLargerBitVector: largerBitVector,
-                fromLeastIndex: leastIndex,
-                toMostIndex: mostIndex)
-
-        // Then
-        XCTAssertNil(computedResult)
-    }
-
-    func test_Insert_MostIndexTooSmall() {
-        // Given
-        let bitManipulator = BitManipulator()
-        let smallerBitVector = 0b10011
-        let largerBitVector = 0b10000000000
-        let leastIndex = 2
-        let mostIndex = -1
-
-        // When
-        let computedResult = bitManipulator.insert(
-                smallerBitVector: smallerBitVector,
-                intoLargerBitVector: largerBitVector,
-                fromLeastIndex: leastIndex,
-                toMostIndex: mostIndex)
-
-        // Then
-        XCTAssertNil(computedResult)
-    }
-
-    func test_Insert_LeastIndexTooBig() {
-        // Given
-        let bitManipulator = BitManipulator()
-        let smallerBitVector = 0b10011
-        let largerBitVector = 0b10000000000
-        let leastIndex = 65
-        let mostIndex = 6
-
-        // When
-        let computedResult = bitManipulator.insert(
-                smallerBitVector: smallerBitVector,
-                intoLargerBitVector: largerBitVector,
-                fromLeastIndex: leastIndex,
-                toMostIndex: mostIndex)
-
-        // Then
-        XCTAssertNil(computedResult)
-    }
-
-    func test_Insert_MostIndexTooBig() {
-        // Given
-        let bitManipulator = BitManipulator()
-        let smallerBitVector = 0b10011
-        let largerBitVector = 0b10000000000
-        let leastIndex = 2
-        let mostIndex = 65
-
-        // When
-        let computedResult = bitManipulator.insert(
-                smallerBitVector: smallerBitVector,
-                intoLargerBitVector: largerBitVector,
-                fromLeastIndex: leastIndex,
-                toMostIndex: mostIndex)
-
-        // Then
-        XCTAssertNil(computedResult)
     }
 }
