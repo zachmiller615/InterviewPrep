@@ -178,6 +178,20 @@ struct BigOExamples {
         }
         print("-----")
     }
+
+    func example16(input: Int) -> Int {
+        if (input < 1) {
+            return 0
+        } else if (input == 1) {
+            print(1)
+            return 1
+        } else {
+            let previous = self.example16(input: input / 2)
+            let current = previous * 2
+            print(current)
+            return current
+        }
+    }
 }
 
 // Private Methods
