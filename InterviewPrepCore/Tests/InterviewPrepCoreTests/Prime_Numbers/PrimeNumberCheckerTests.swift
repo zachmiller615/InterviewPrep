@@ -8,104 +8,69 @@ import XCTest
 class PrimeNumberCheckerTests: XCTestCase {
 }
 
-// Test Cases for Is Prime Naive Solution
+// Test Cases for Number Is Prime
 extension PrimeNumberCheckerTests {
-    func test_IsPrimeNaiveSolution_BasicCase_True() {
+    func test_NumberIsPrime_BasicCase_True() {
         // Given
         let primeNumberChecker = PrimeNumberChecker()
         let number = 23
 
         // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+        let computedResult = primeNumberChecker.numberIsPrime(number)
 
         // Then
         XCTAssertTrue(computedResult)
     }
 
-    func test_IsPrimeNaiveSolution_BasicCase_False() {
+    func test_NumberIsPrime_BasicCase_False() {
         // Given
         let primeNumberChecker = PrimeNumberChecker()
         let number = 24
 
         // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+        let computedResult = primeNumberChecker.numberIsPrime(number)
 
         // Then
         XCTAssertFalse(computedResult)
     }
 
-    func test_IsPrimeNaiveSolution_SpecialCase_True() {
+    func test_NumberIsPrime_SpecialCase_True() {
         // Given
         let primeNumberChecker = PrimeNumberChecker()
         let number = 2
 
         // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+        let computedResult = primeNumberChecker.numberIsPrime(number)
 
         // Then
         XCTAssertTrue(computedResult)
     }
 
-    func test_IsPrimeNaiveSolution_SpecialCase_False() {
+    func test_NumberIsPrime_SpecialCase_False() {
         // Given
         let primeNumberChecker = PrimeNumberChecker()
         let number = 1
 
         // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+        let computedResult = primeNumberChecker.numberIsPrime(number)
 
         // Then
         XCTAssertFalse(computedResult)
     }
 }
 
-// Test Cases for Is Prime Slightly Better Solution
+// Test Cases for Sieve of Eratosthenes
 extension PrimeNumberCheckerTests {
-    func test_IsPrimeSlightlyBetterSolution_BasicCase_True() {
+    func test_SieveOfEratosthenes() {
         // Given
         let primeNumberChecker = PrimeNumberChecker()
-        let number = 23
+        let max = 25
+        let expectedResult = [false, false, true, true, false, true, false, true, false, false, false, true, false, true, false, false, false, true, false, true, false, false, false, true, false, false]
 
         // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+        let computedResult = primeNumberChecker.sieveOfEratosthenes(max: max)
 
         // Then
-        XCTAssertTrue(computedResult)
-    }
-
-    func test_IsPrimeSlightlyBetterSolution_BasicCase_False() {
-        // Given
-        let primeNumberChecker = PrimeNumberChecker()
-        let number = 24
-
-        // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
-
-        // Then
-        XCTAssertFalse(computedResult)
-    }
-
-    func test_IsPrimeSlightlyBetterSolution_SpecialCase_True() {
-        // Given
-        let primeNumberChecker = PrimeNumberChecker()
-        let number = 2
-
-        // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
-
-        // Then
-        XCTAssertTrue(computedResult)
-    }
-
-    func test_IsPrimeSlightlyBetterSolution_SpecialCase_False() {
-        // Given
-        let primeNumberChecker = PrimeNumberChecker()
-        let number = 1
-
-        // When
-        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
-
-        // Then
-        XCTAssertFalse(computedResult)
+        XCTAssertEqual(computedResult, expectedResult)
     }
 }
