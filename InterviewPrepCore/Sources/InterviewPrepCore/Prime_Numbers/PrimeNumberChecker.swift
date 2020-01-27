@@ -44,7 +44,7 @@ private extension PrimeNumberChecker {
 
     func getNextPrimeNumber(afterCurrentPrimeNumber currentPrimeNumber: Int, using flags: [Bool]) -> Int {
         var possiblePrimeNumber = (currentPrimeNumber + 1)
-        while (!flags[possiblePrimeNumber]) {
+        while ((possiblePrimeNumber < flags.count) && !flags[possiblePrimeNumber]) {
             possiblePrimeNumber += 1
         }
         return possiblePrimeNumber
