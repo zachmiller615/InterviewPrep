@@ -17,4 +17,19 @@ struct PrimeNumberChecker {
         }
         return true
     }
+
+    func isPrime_SlightlyBetterSolution(number: Int) -> Bool {
+        if (number < 2) {
+            return false
+        } else if (number == 2) {
+            return true
+        }
+        let numberSquareRoot = Int(Double(number).squareRoot())
+        for smallerNumber in (2..<numberSquareRoot) {
+            if ((number % smallerNumber) == 0) {
+                return false
+            }
+        }
+        return true
+    }
 }

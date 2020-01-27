@@ -58,3 +58,54 @@ extension PrimeNumberCheckerTests {
         XCTAssertFalse(computedResult)
     }
 }
+
+// Test Cases for Is Prime Slightly Better Solution
+extension PrimeNumberCheckerTests {
+    func test_IsPrimeSlightlyBetterSolution_BasicCase_True() {
+        // Given
+        let primeNumberChecker = PrimeNumberChecker()
+        let number = 23
+
+        // When
+        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsPrimeSlightlyBetterSolution_BasicCase_False() {
+        // Given
+        let primeNumberChecker = PrimeNumberChecker()
+        let number = 24
+
+        // When
+        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_IsPrimeSlightlyBetterSolution_SpecialCase_True() {
+        // Given
+        let primeNumberChecker = PrimeNumberChecker()
+        let number = 2
+
+        // When
+        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsPrimeSlightlyBetterSolution_SpecialCase_False() {
+        // Given
+        let primeNumberChecker = PrimeNumberChecker()
+        let number = 1
+
+        // When
+        let computedResult = primeNumberChecker.isPrime_NaiveSolution(number: number)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+}
