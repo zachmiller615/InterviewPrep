@@ -43,6 +43,12 @@ struct Sorter {
         self.mergeSort(mainArray: &resultArray, helperArray: &helperArray, mainArrayFirstIndex: 0, mainArrayLastIndex: (resultArray.count - 1))
         return resultArray
     }
+
+    func quickSort<Element: Comparable>(_ originalArray: [Element]) -> [Element] {
+        var resultArray = originalArray
+        self.quickSort(mainArray: &resultArray, mainArrayFirstIndex: 0, mainArrayLastIndex: (resultArray.count - 1))
+        return resultArray
+    }
 }
 
 // Private Methods - Merge Sort
@@ -52,8 +58,8 @@ private extension Sorter {
             return
         }
         let leftArrayLastIndex = ((mainArrayFirstIndex + mainArrayLastIndex) / 2)
-        self.mergeSort(mainArray: &mainArray, helperArray: &helperArray, mainArrayFirstIndex: mainArrayFirstIndex, mainArrayLastIndex: leftArrayLastIndex)
-        self.mergeSort(mainArray: &mainArray, helperArray: &helperArray, mainArrayFirstIndex: (leftArrayLastIndex + 1), mainArrayLastIndex: mainArrayLastIndex)
+        self.mergeSort(mainArray: &mainArray, helperArray: &helperArray, mainArrayFirstIndex: mainArrayFirstIndex, mainArrayLastIndex: leftArrayLastIndex) // Sort the left half
+        self.mergeSort(mainArray: &mainArray, helperArray: &helperArray, mainArrayFirstIndex: (leftArrayLastIndex + 1), mainArrayLastIndex: mainArrayLastIndex) // Sort the right half
         self.merge(mainArray: &mainArray, helperArray: &helperArray, leftArrayFirstIndex: mainArrayFirstIndex, leftArrayLastIndex: leftArrayLastIndex, rightArrayLastIndex: mainArrayLastIndex)
     }
 
@@ -88,5 +94,57 @@ private extension Sorter {
             currentMainArrayIndex += 1
             currentLeftArrayIndex += 1
         }
+    }
+}
+
+// Private Methods - Quick Sort
+private extension Sorter {
+    func quickSort<Element: Comparable>(mainArray: inout [Element], mainArrayFirstIndex: Int, mainArrayLastIndex: Int) {
+        let rightArrayFirstIndex = self.partition(mainArray: &mainArray, mainArrayFirstIndex: mainArrayFirstIndex, mainArrayLastIndex: mainArrayLastIndex)
+        let leftArrayLastIndex = (rightArrayFirstIndex - 1)
+        let leftArrayHasMultipleElements = (mainArrayFirstIndex < leftArrayLastIndex)
+        let rightArrayHasMultipleElements = (rightArrayFirstIndex < mainArrayLastIndex)
+        if leftArrayHasMultipleElements {
+            // Sort the left side of the partition
+            self.quickSort(mainArray: &mainArray, mainArrayFirstIndex: mainArrayFirstIndex, mainArrayLastIndex: leftArrayLastIndex)
+        }
+        if rightArrayHasMultipleElements {
+            // Sort the right side of the partition
+            self.quickSort(mainArray: &mainArray, mainArrayFirstIndex: rightArrayFirstIndex, mainArrayLastIndex: mainArrayLastIndex)
+        }
+    }
+
+    func partition<Element: Comparable>(mainArray: inout [Element], mainArrayFirstIndex: Int, mainArrayLastIndex: Int) -> Int {
+        let pivotIndex = self.getPivotIndex(arrayFirstIndex: mainArrayFirstIndex, arrayLastIndex: mainArrayLastIndex)
+        let pivotValue = mainArray[pivotIndex]
+
+        // Declare running variables
+        var currentLeftArrayIndex = mainArrayFirstIndex
+        var currentRightArrayIndex = mainArrayLastIndex
+
+        // Continue iterating while the left and right current indices have not crossed each other
+        while (currentLeftArrayIndex <= currentRightArrayIndex) {
+            // Find element from left side that is out of place
+            while (mainArray[currentLeftArrayIndex] < pivotValue) {
+                currentLeftArrayIndex += 1
+            }
+
+            // Find element from right side that is out of place
+            while (mainArray[currentRightArrayIndex] > pivotValue) {
+                currentRightArrayIndex -= 1
+            }
+
+            if (currentLeftArrayIndex <= currentRightArrayIndex) {
+                mainArray.swapElements(index1: currentLeftArrayIndex, index2: currentRightArrayIndex)
+                currentLeftArrayIndex += 1
+                currentRightArrayIndex -= 1
+            }
+        }
+
+        return currentLeftArrayIndex
+    }
+
+    func getPivotIndex(arrayFirstIndex: Int, arrayLastIndex: Int) -> Int {
+        ((arrayFirstIndex + arrayLastIndex) / 2)
     }
 }

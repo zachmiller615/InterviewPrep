@@ -94,3 +94,32 @@ extension SorterTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Quick Sort
+extension SorterTests {
+    func test_QuickSort_BasicCase() {
+        // Given
+        let sorter = Sorter()
+        let array = [6, 2, 4, 1, 5, 7, 3, 8]
+        let expectedResult = [1, 2, 3, 4, 5, 6, 7, 8]
+
+        // When
+        let computedResult = sorter.quickSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_QuickSort_InputReverselySorted() {
+        // Given
+        let sorter = Sorter()
+        let array = [4, 3, 2, 1]
+        let expectedResult = [1, 2, 3, 4]
+
+        // When
+        let computedResult = sorter.quickSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
