@@ -23,7 +23,7 @@ class Heap<ElementType> where ElementType: Comparable {
         var parentIndex = self.parentIndex(childIndex: childIndex)
         while (self.parentExists(childIndex: childIndex) &&
                 self.heapInvariantIsBroken(childIndex: childIndex, parentIndex: parentIndex)) {
-            self.swapElements(index1: childIndex, index2: parentIndex)
+            self.data.swapElements(index1: childIndex, index2: parentIndex)
             childIndex = parentIndex
             parentIndex = self.parentIndex(childIndex: childIndex)
         }
@@ -44,7 +44,7 @@ class Heap<ElementType> where ElementType: Comparable {
                 break
             }
             if self.heapInvariantIsBroken(childIndex: preferredChildIndex, parentIndex: parentIndex) {
-                self.swapElements(index1: preferredChildIndex, index2: parentIndex)
+                self.data.swapElements(index1: preferredChildIndex, index2: parentIndex)
                 parentIndex = preferredChildIndex
                 leftChildIndex = self.leftChildIndex(parentIndex: parentIndex)
                 rightChildIndex = self.rightChildIndex(parentIndex: parentIndex)
@@ -58,15 +58,6 @@ class Heap<ElementType> where ElementType: Comparable {
 
 // Private Methods
 private extension Heap {
-    func swapElements(index1: Int, index2: Int) {
-        guard (self.data.indexIsValid(index1) && self.data.indexIsValid(index2)) else {
-            return
-        }
-        let originalValueAtIndex1 = self.data[index1]
-        self.data[index1] = self.data[index2]
-        self.data[index2] = originalValueAtIndex1
-    }
-
     func heapInvariantIsBroken(childIndex: Int, parentIndex: Int) -> Bool {
         guard (self.data.indexIsValid(childIndex) && self.data.indexIsValid(parentIndex)) else {
             return false
