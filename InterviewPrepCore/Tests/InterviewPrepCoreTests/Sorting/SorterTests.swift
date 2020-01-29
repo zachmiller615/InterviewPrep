@@ -36,3 +36,32 @@ extension SorterTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Selection Sort
+extension SorterTests {
+    func test_SelectionSort_BasicCase() {
+        // Given
+        let sorter = Sorter()
+        let array = [6, 2, 4, 1, 5, 7, 3, 8]
+        let expectedResult = [1, 2, 3, 4, 5, 6, 7, 8]
+
+        // When
+        let computedResult = sorter.selectionSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_SelectionSort_InputReverselySorted() {
+        // Given
+        let sorter = Sorter()
+        let array = [4, 3, 2, 1]
+        let expectedResult = [1, 2, 3, 4]
+
+        // When
+        let computedResult = sorter.selectionSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}

@@ -20,4 +20,20 @@ struct Sorter {
         }
         return resultArray
     }
+
+    func selectionSort<Element: Comparable>(_ originalArray: [Element]) -> [Element] {
+        var resultArray = originalArray
+        for outerLoopIndex in (0..<resultArray.count) {
+            var currentMinimumIndex = outerLoopIndex
+            for innerLoopIndex in (outerLoopIndex..<resultArray.count) {
+                if (resultArray[innerLoopIndex] < resultArray[currentMinimumIndex]) {
+                    currentMinimumIndex = innerLoopIndex
+                }
+            }
+            if (currentMinimumIndex != outerLoopIndex) {
+                resultArray.swapElements(index1: outerLoopIndex, index2: currentMinimumIndex)
+            }
+        }
+        return resultArray
+    }
 }
