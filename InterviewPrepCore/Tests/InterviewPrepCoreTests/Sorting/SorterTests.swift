@@ -123,3 +123,43 @@ extension SorterTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Counting Sort
+extension SorterTests {
+    func test_CountingSort_BasicCase() {
+        // Given
+        let sorter = Sorter()
+        let array = [6, 2, 4, 1, 5, 7, 3, 8, 0, 9, 3, 5, 7, 3]
+        let expectedResult = [0, 1, 2, 3, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9]
+
+        // When
+        let computedResult = sorter.countingSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_CountingSort_InputElementTooLarge() {
+        // Given
+        let sorter = Sorter()
+        let array = [8, 0, 9, 3, 5, 7, 3, 10]
+
+        // When
+        let computedResult = sorter.countingSort(array)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+
+    func test_CountingSort_InputElementTooSmall() {
+        // Given
+        let sorter = Sorter()
+        let array = [8, 0, 9, 3, 5, 7, 3, -1]
+
+        // When
+        let computedResult = sorter.countingSort(array)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+}

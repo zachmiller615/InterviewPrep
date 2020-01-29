@@ -49,6 +49,35 @@ struct Sorter {
         self.quickSort(mainArray: &resultArray, mainArrayFirstIndex: 0, mainArrayLastIndex: (resultArray.count - 1))
         return resultArray
     }
+
+    func countingSort(_ originalArray: [Int]) -> [Int]? {
+        // Validate input
+        for number in originalArray {
+            if ((number < 0) || (number > 9)) {
+                return nil
+            }
+        }
+
+        var countsArray = Array(repeating: 0, count: 10)
+        var resultArray = Array(repeating: -1, count: originalArray.count)
+
+        // Fill counts array
+        for number in originalArray {
+            countsArray[number] += 1
+        }
+        for index in (1..<countsArray.count) {
+            countsArray[index] = countsArray[index - 1] + countsArray[index]
+        }
+
+        // Fill result array
+        for number in originalArray {
+            let resultArrayIndex = (countsArray[number] - 1)
+            resultArray[resultArrayIndex] = number
+            countsArray[number] -= 1
+        }
+
+        return resultArray
+    }
 }
 
 // Private Methods - Merge Sort
