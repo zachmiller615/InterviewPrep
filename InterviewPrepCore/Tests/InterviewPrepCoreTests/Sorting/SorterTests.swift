@@ -65,3 +65,32 @@ extension SorterTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Merge Sort
+extension SorterTests {
+    func test_MergeSort_BasicCase() {
+        // Given
+        let sorter = Sorter()
+        let array = [6, 2, 4, 1, 5, 7, 3, 8]
+        let expectedResult = [1, 2, 3, 4, 5, 6, 7, 8]
+
+        // When
+        let computedResult = sorter.mergeSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_MergeSort_InputReverselySorted() {
+        // Given
+        let sorter = Sorter()
+        let array = [4, 3, 2, 1]
+        let expectedResult = [1, 2, 3, 4]
+
+        // When
+        let computedResult = sorter.mergeSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
