@@ -3,6 +3,9 @@
 //
 
 struct Sorter {
+    // Type Aliases
+    typealias CountingSortKeyExtractor<Element> = (Element) -> Int
+
     // Methods
     func bubbleSort<Element: Comparable>(_ originalArray: [Element]) -> [Element] {
         var resultArray = originalArray
@@ -50,35 +53,39 @@ struct Sorter {
         return resultArray
     }
 
-    func countingSort(_ originalArray: [Int], elementRange: ClosedRange<Int>) -> [Int]? {
+    func countingSort<Element>(array originalArray: [Element], keyExtractor: CountingSortKeyExtractor<Element>, keyRange: ClosedRange<Int>) -> [Element]? {
         // Validate input
-        for number in originalArray {
-            if ((number < elementRange.lowerBound) || (number > elementRange.upperBound)) {
+        for element in originalArray {
+            let key = keyExtractor(element)
+            if ((key < keyRange.lowerBound) || (key > keyRange.upperBound)) {
                 return nil
             }
         }
 
-        var countsArray = Array(repeating: 0, count: elementRange.count)
-        var resultArray = Array(repeating: -1, count: originalArray.count)
+        var resultIndexIndicator = Array(repeating: 0, count: keyRange.count)
+        var resultArray: [Element?] = Array(repeating: nil, count: originalArray.count)
 
-        // Fill counts array
-        for number in originalArray {
-            let countsArrayIndex = (number - elementRange.lowerBound)
-            countsArray[countsArrayIndex] += 1
+        // Set up result index indicator
+        for element in originalArray {
+            let index = (keyExtractor(element) - keyRange.lowerBound)
+            resultIndexIndicator[index] += 1
         }
-        for index in (1..<countsArray.count) {
-            countsArray[index] = countsArray[index - 1] + countsArray[index]
+        for index in (1..<resultIndexIndicator.count) {
+            resultIndexIndicator[index] = (resultIndexIndicator[index - 1] + resultIndexIndicator[index])
         }
+        resultIndexIndicator.insert(0, at: 0)
 
         // Fill result array
-        for number in originalArray {
-            let countsArrayIndex = (number - elementRange.lowerBound)
-            let resultArrayIndex = (countsArray[countsArrayIndex] - 1)
-            resultArray[resultArrayIndex] = number
-            countsArray[countsArrayIndex] -= 1
+        for element in originalArray {
+            let indexForIndicatorArray = (keyExtractor(element) - keyRange.lowerBound)
+            let indexForResultArray = resultIndexIndicator[indexForIndicatorArray]
+            resultArray[indexForResultArray] = element
+            resultIndexIndicator[indexForIndicatorArray] += 1
         }
 
-        return resultArray
+        return (resultArray.compactMap {
+            $0
+        })
     }
 }
 

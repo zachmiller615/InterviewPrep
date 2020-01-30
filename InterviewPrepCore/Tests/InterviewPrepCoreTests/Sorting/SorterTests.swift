@@ -133,7 +133,7 @@ extension SorterTests {
         let expectedResult = [0, 1, 2, 3, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9]
 
         // When
-        let computedResult = sorter.countingSort(array, elementRange: (0...9))
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0 }, keyRange: (0...9))
 
         // Then
         XCTAssertEqual(computedResult, expectedResult)
@@ -145,7 +145,7 @@ extension SorterTests {
         let array = [8, 0, 9, 3, 5, 7, 3, 10]
 
         // When
-        let computedResult = sorter.countingSort(array, elementRange: (0...9))
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0 }, keyRange: (0...9))
 
         // Then
         XCTAssertNil(computedResult)
@@ -157,7 +157,7 @@ extension SorterTests {
         let array = [8, 0, 9, 3, 5, 7, 3, -1]
 
         // When
-        let computedResult = sorter.countingSort(array, elementRange: (0...9))
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0 }, keyRange: (0...9))
 
         // Then
         XCTAssertNil(computedResult)
@@ -170,7 +170,47 @@ extension SorterTests {
         let expectedResult = [10, 17, 21, 25]
 
         // When
-        let computedResult = sorter.countingSort(array, elementRange: (10...25))
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0 }, keyRange: (10...25))
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_CountingSort_KeyExtractor() {
+        // Given
+        let sorter = Sorter()
+        let array = [Person(name: "Zach", age: 27), Person(name: "Eitan", age: 26), Person(name: "Sydney", age: 24), Person(name: "Shoshi", age: 22), Person(name: "Zoe", age: 15)]
+        let expectedResult = [Person(name: "Zoe", age: 15), Person(name: "Shoshi", age: 22), Person(name: "Sydney", age: 24), Person(name: "Eitan", age: 26), Person(name: "Zach", age: 27)]
+
+        // When
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0.age }, keyRange: (15...27))
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_CountingSort_Stability() {
+        // Given
+        let sorter = Sorter()
+        let array = [Person(name: "Zach", age: 27),
+                     Person(name: "Eitan", age: 26),
+                     Person(name: "Alice", age: 27),
+                     Person(name: "Sydney", age: 24),
+                     Person(name: "Bob", age: 26),
+                     Person(name: "Shoshi", age: 22),
+                     Person(name: "Abe", age: 24),
+                     Person(name: "Zoe", age: 15)]
+        let expectedResult = [Person(name: "Zoe", age: 15),
+                              Person(name: "Shoshi", age: 22),
+                              Person(name: "Sydney", age: 24),
+                              Person(name: "Abe", age: 24),
+                              Person(name: "Eitan", age: 26),
+                              Person(name: "Bob", age: 26),
+                              Person(name: "Zach", age: 27),
+                              Person(name: "Alice", age: 27)]
+
+        // When
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0.age }, keyRange: (15...27))
 
         // Then
         XCTAssertEqual(computedResult, expectedResult)
