@@ -133,7 +133,7 @@ extension SorterTests {
         let expectedResult = [0, 1, 2, 3, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9]
 
         // When
-        let computedResult = sorter.countingSort(array)
+        let computedResult = sorter.countingSort(array, elementRange: (0...9))
 
         // Then
         XCTAssertEqual(computedResult, expectedResult)
@@ -145,7 +145,7 @@ extension SorterTests {
         let array = [8, 0, 9, 3, 5, 7, 3, 10]
 
         // When
-        let computedResult = sorter.countingSort(array)
+        let computedResult = sorter.countingSort(array, elementRange: (0...9))
 
         // Then
         XCTAssertNil(computedResult)
@@ -157,9 +157,22 @@ extension SorterTests {
         let array = [8, 0, 9, 3, 5, 7, 3, -1]
 
         // When
-        let computedResult = sorter.countingSort(array)
+        let computedResult = sorter.countingSort(array, elementRange: (0...9))
 
         // Then
         XCTAssertNil(computedResult)
+    }
+
+    func test_CountingSort_ElementRangeOffsetFromZero() {
+        // Given
+        let sorter = Sorter()
+        let array = [17, 21, 10, 25]
+        let expectedResult = [10, 17, 21, 25]
+
+        // When
+        let computedResult = sorter.countingSort(array, elementRange: (10...25))
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
     }
 }

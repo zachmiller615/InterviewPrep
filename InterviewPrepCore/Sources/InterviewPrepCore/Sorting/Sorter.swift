@@ -50,20 +50,21 @@ struct Sorter {
         return resultArray
     }
 
-    func countingSort(_ originalArray: [Int]) -> [Int]? {
+    func countingSort(_ originalArray: [Int], elementRange: ClosedRange<Int>) -> [Int]? {
         // Validate input
         for number in originalArray {
-            if ((number < 0) || (number > 9)) {
+            if ((number < elementRange.lowerBound) || (number > elementRange.upperBound)) {
                 return nil
             }
         }
 
-        var countsArray = Array(repeating: 0, count: 10)
+        var countsArray = Array(repeating: 0, count: elementRange.count)
         var resultArray = Array(repeating: -1, count: originalArray.count)
 
         // Fill counts array
         for number in originalArray {
-            countsArray[number] += 1
+            let countsArrayIndex = (number - elementRange.lowerBound)
+            countsArray[countsArrayIndex] += 1
         }
         for index in (1..<countsArray.count) {
             countsArray[index] = countsArray[index - 1] + countsArray[index]
@@ -71,9 +72,10 @@ struct Sorter {
 
         // Fill result array
         for number in originalArray {
-            let resultArrayIndex = (countsArray[number] - 1)
+            let countsArrayIndex = (number - elementRange.lowerBound)
+            let resultArrayIndex = (countsArray[countsArrayIndex] - 1)
             resultArray[resultArrayIndex] = number
-            countsArray[number] -= 1
+            countsArray[countsArrayIndex] -= 1
         }
 
         return resultArray
