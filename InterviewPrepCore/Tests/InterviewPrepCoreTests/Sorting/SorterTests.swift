@@ -257,3 +257,34 @@ extension SorterTests {
         XCTAssertNil(computedResult)
     }
 }
+
+// Test Cases for Sorted Merge
+extension SorterTests {
+    func test_SortedMerge_LargerArrayContainsSmallestElement() {
+        // Given
+        let sorter = Sorter()
+        var largerArray = [1, 2, 6, 8, 12, 17, 25, 30, nil, nil, nil, nil]
+        let smallerArray = [5, 10, 15, 20]
+        let expectedResult = [1, 2, 5, 6, 8, 10, 12, 15, 17, 20, 25, 30]
+
+        // When
+        sorter.sortedMerge(largerArray: &largerArray, smallerArray: smallerArray)
+
+        // Then
+        XCTAssertEqual(largerArray, expectedResult)
+    }
+
+    func test_SortedMerge_SmallerArrayContainsSmallestElement() {
+        // Given
+        let sorter = Sorter()
+        var largerArray = [2, 4, 5, 6, nil, nil]
+        let smallerArray = [1, 3]
+        let expectedResult = [1, 2, 3, 4, 5, 6]
+
+        // When
+        sorter.sortedMerge(largerArray: &largerArray, smallerArray: smallerArray)
+
+        // Then
+        XCTAssertEqual(largerArray, expectedResult)
+    }
+}

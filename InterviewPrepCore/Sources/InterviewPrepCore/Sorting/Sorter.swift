@@ -107,6 +107,28 @@ struct Sorter {
         }
         return resultArray
     }
+
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// You are given two sorted arrays, A and B, where A has a large enough buffer at the end to hold B.
+    /// Write a method to merge B into A in sorted order.
+    func sortedMerge<Element: Comparable>(largerArray: inout [Element?], smallerArray: [Element]) {
+        var insertionIndex = (largerArray.count - 1)
+        var largerArrayIndex = (insertionIndex - smallerArray.count)
+        var smallerArrayIndex = (smallerArray.count - 1)
+
+        while (smallerArrayIndex >= 0) {
+            let shouldInsertFromSmallerArray = (largerArrayIndex < 0) || ((largerArray[largerArrayIndex] != nil) && (smallerArray[smallerArrayIndex] > largerArray[largerArrayIndex]!))
+            if (shouldInsertFromSmallerArray) {
+                largerArray[insertionIndex] = smallerArray[smallerArrayIndex]
+                smallerArrayIndex -= 1
+            } else {
+                largerArray[insertionIndex] = largerArray[largerArrayIndex]
+                largerArrayIndex -= 1
+            }
+
+            insertionIndex -= 1
+        }
+    }
 }
 
 // Private Methods - Merge Sort
