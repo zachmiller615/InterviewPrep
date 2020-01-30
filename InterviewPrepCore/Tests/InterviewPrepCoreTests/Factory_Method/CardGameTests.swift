@@ -10,7 +10,7 @@ class CardGameTests: XCTestCase {
 
 // Test Cases for Create Card Game
 extension CardGameTests {
-    func test_CardGame_CreateCardGame_Poker() {
+    func test_CreateCardGame_Poker() {
         // Given
         let cardGame = CardGame.createCardGame(ofType: .poker)
 
@@ -21,7 +21,7 @@ extension CardGameTests {
         XCTAssertTrue(cardGameIsPoker)
     }
 
-    func test_CardGame_CreateCardGame_BlackJack() {
+    func test_CreateCardGame_BlackJack() {
         // Given
         let cardGame = CardGame.createCardGame(ofType: .blackjack)
 

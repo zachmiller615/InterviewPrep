@@ -10,7 +10,7 @@ class RestaurantTests: XCTestCase {
 
 // Test Cases for Shared Instance
 extension RestaurantTests {
-    func test_Restaurant_SharedInstance() {
+    func test_SharedInstance() {
         // Given
         let restaurant1 = Restaurant.sharedInstance
         let restaurant2 = Restaurant.sharedInstance
