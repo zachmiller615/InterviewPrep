@@ -57,7 +57,7 @@ struct Sorter {
         // Validate input
         for element in originalArray {
             let key = keyExtractor(element)
-            if ((key < keyRange.lowerBound) || (key > keyRange.upperBound)) {
+            if (!keyRange.contains(key)) {
                 return nil
             }
         }

@@ -215,4 +215,17 @@ extension SorterTests {
         // Then
         XCTAssertEqual(computedResult, expectedResult)
     }
+
+    func test_CountingSort_NegativeNumbers() {
+        // Given
+        let sorter = Sorter()
+        let array = [-17, -21, -10, -25]
+        let expectedResult = [-25, -21, -17, -10]
+
+        // When
+        let computedResult = sorter.countingSort(array: array, keyExtractor: { $0 }, keyRange: ((-25)...(-10)))
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
 }
