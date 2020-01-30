@@ -229,3 +229,31 @@ extension SorterTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Radix Sort
+extension SorterTests {
+    func test_RadixSort_BasicCase() {
+        // Given
+        let sorter = Sorter()
+        let array = [53, 89, 150, 36, 633, 233]
+        let expectedResult = [36, 53, 89, 150, 233, 633]
+
+        // When
+        let computedResult = sorter.radixSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_RadixSort_InputElementTooSmall() {
+        // Given
+        let sorter = Sorter()
+        let array = [53, 89, 150, 36, 633, 233, -1]
+
+        // When
+        let computedResult = sorter.radixSort(array)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+}

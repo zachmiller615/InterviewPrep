@@ -87,6 +87,26 @@ struct Sorter {
             $0
         })
     }
+
+    func radixSort(_ originalArray: [Int]) -> [Int]? {
+        // Validate input
+        for number in originalArray {
+            if (number < 0) {
+                return nil
+            }
+        }
+        guard let max = originalArray.max() else {
+            return nil
+        }
+        let maxNumberOfDigits = max.numberOfDigits
+        var resultArray = originalArray
+        for offsetFromOnesPlace in (0..<maxNumberOfDigits) {
+            resultArray = (self.countingSort(array: resultArray, keyExtractor: {
+                ($0.getDigitValue(offsetFromOnesPlace: offsetFromOnesPlace) ?? 0)
+            }, keyRange: (0...9)) ?? [])
+        }
+        return resultArray
+    }
 }
 
 // Private Methods - Merge Sort
