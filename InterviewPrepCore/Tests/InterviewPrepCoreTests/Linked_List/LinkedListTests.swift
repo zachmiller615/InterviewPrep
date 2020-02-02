@@ -92,7 +92,7 @@ extension LinkedListTests {
         for letter in ["A", "B", "C", "A", "B", "C", "A", "B", "C"] {
             linkedList.append(letter)
         }
-        let expectedResult: [String] = ["B", "C", "B", "C", "B", "C"]
+        let expectedResult = ["B", "C", "B", "C", "B", "C"]
 
         // When
         linkedList.removeAllOccurrences(of: "A")
@@ -127,7 +127,7 @@ extension LinkedListTests {
         for letter in ["A", "A", "A", "B", "C", "A"] {
             linkedList.append(letter)
         }
-        let expectedResult: [String] = ["B", "C", "A"]
+        let expectedResult = ["B", "C", "A"]
 
         // When
         linkedList.removeOccurrencesFromStart(of: "A")
@@ -146,11 +146,31 @@ extension LinkedListTests {
         for letter in ["A", "B", "C", "A", "B", "C", "D", "A"] {
             linkedList.append(letter)
         }
-        let expectedResult: [String] = ["A", "B", "C", "D"]
+        let expectedResult = ["A", "B", "C", "D"]
 
         // When
         linkedList.removeDuplicates()
         let computedResult = linkedList.toArray()
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
+
+// Test Cases for Element From Last
+extension LinkedListTests {
+    func test_ElementFromLast() {
+        // Given
+        let linkedList = LinkedList<String>()
+        for letter in ["A", "B", "C", "D", "E", "F", "G"] {
+            linkedList.append(letter)
+        }
+        let offsetFromLastElement = 2
+        let expectedResult = "E"
+
+        // When
+        linkedList.removeDuplicates()
+        let computedResult = linkedList.elementFromLast(offsetFromLastElement: offsetFromLastElement)
 
         // Then
         XCTAssertEqual(computedResult, expectedResult)

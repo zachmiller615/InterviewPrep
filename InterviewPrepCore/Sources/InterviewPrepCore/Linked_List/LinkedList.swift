@@ -77,4 +77,25 @@ class LinkedList<Element> where Element: Hashable {
             }
         }
     }
+
+    func elementFromLast(offsetFromLastElement: Int) -> Element? {
+        guard let head = self.head else {
+            return nil
+        }
+        var fastRunner = head
+        var slowRunner = head
+        for _ in (0..<offsetFromLastElement) {
+            if let fastRunnerNext = fastRunner.next {
+                fastRunner = fastRunnerNext
+            } else {
+                return nil
+            }
+        }
+        while let fastRunnerNext = fastRunner.next,
+              let slowRunnerNext = slowRunner.next {
+            fastRunner = fastRunnerNext
+            slowRunner = slowRunnerNext
+        }
+        return slowRunner.data
+    }
 }
