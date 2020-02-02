@@ -2,28 +2,29 @@
 // Created by Zach Miller on 20/01/2020.
 //
 
-class Stack<T> {
+class Stack<Element> {
     // Properties
-    private var top: ListNode<T>?
+    private var top: ListNode<Element>?
 
     // Methods
     func isEmpty() -> Bool {
         (self.top == nil)
     }
 
-    func push(_ data: T) {
+    func push(_ data: Element) {
         let newNode = ListNode(data: data)
         newNode.next = self.top
         self.top = newNode
     }
 
-    func pop() -> T? {
+    @discardableResult
+    func pop() -> Element? {
         let data = self.top?.data
         self.top = self.top?.next
         return data
     }
 
-    func peek() -> T? {
+    func peek() -> Element? {
         self.top?.data
     }
 }

@@ -92,4 +92,3 @@ extension StackTests {
         XCTAssertNil(computedResult)
     }
 }
-
