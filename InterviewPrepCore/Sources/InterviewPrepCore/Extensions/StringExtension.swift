@@ -14,4 +14,26 @@ extension String {
         }
         return true
     }
+
+    func isPermutation(of otherString: String) -> Bool {
+        guard (self.count == otherString.count) else {
+            return false
+        }
+        var characterCounts: [Character: Int] = [:]
+        for character in self {
+            if let count = characterCounts[character] {
+                characterCounts[character] = (count + 1)
+            } else {
+                characterCounts[character] = 1
+            }
+        }
+        for character in otherString {
+            if let count = characterCounts[character], (count > 0) {
+                characterCounts[character] = (count - 1)
+            } else {
+                return false
+            }
+        }
+        return true
+    }
 }
