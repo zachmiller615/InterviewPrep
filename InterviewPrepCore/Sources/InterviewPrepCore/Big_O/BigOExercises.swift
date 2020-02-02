@@ -12,4 +12,17 @@ struct BigOExercises {
         }
         return sum // O(1)
     }
+
+    func power(base: Int, exponent: Int) -> Int? { // O(exponent)
+        print("Exponent: \(exponent)") // O(1)
+        if (exponent < 0) { // O(1)
+            return nil // O(1)
+        } else if (exponent == 0) { // O(1)
+            return 1 // O(1)
+        } else if let previousResult = self.power(base: base, exponent: (exponent - 1)) { // O(exponent)
+            return base * previousResult // O(1)
+        } else { // O(1)
+            return nil // O(1)
+        }
+    }
 }

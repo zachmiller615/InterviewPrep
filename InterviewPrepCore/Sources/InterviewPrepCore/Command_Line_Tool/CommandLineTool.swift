@@ -10,9 +10,9 @@ public struct CommandLineTool {
     public func run() {
         let bigOExercises = BigOExercises()
         print("-----")
-        let result = bigOExercises.product(firstOperand: 5, secondOperand: 10)
+        let result = bigOExercises.power(base: 2, exponent: 10)
         print("-----")
-        print("Result: \(result)")
+        print("Result: \(String(describing: result))")
         print("-----")
     }
 }
