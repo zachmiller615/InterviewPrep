@@ -20,6 +20,13 @@ class BinarySearchTree<Element> where Element: Comparable {
         return self.contains(data, in: root)
     }
 
+    func depth(of data: Element) -> Int? {
+        guard let root = self.root else {
+            return nil
+        }
+        return self.depth(of: data, in: root)
+    }
+
     func printTraversal(with traversalType: BinaryTreeTraversalType) {
         guard let root = self.root else { return }
         print("----------")
@@ -48,6 +55,7 @@ class BinarySearchTree<Element> where Element: Comparable {
         for element in insertionOrderArray {
             binarySearchTree.insert(element)
         }
+
         return binarySearchTree
     }
 }
@@ -92,6 +100,24 @@ private extension BinarySearchTree {
         }
     }
 
+    func depth(of data: Element, in node: BinaryTreeNode<Element>) -> Int? {
+        if (data == node.data) {
+            return 0
+        } else if self.shouldSearchLeft(data: data, in: node) {
+            if let leftChild = node.leftChild, let leftDepth = self.depth(of: data, in: leftChild) {
+                return (1 + leftDepth)
+            } else {
+                return nil
+            }
+        } else {
+            if let rightChild = node.rightChild, let rightDepth = self.depth(of: data, in: rightChild) {
+                return (1 + rightDepth)
+            } else {
+                return nil
+            }
+        }
+    }
+
     func printInOrderTraversal(of node: BinaryTreeNode<Element>) {
         if let leftChild = node.leftChild {
             self.printInOrderTraversal(of: leftChild)
@@ -126,7 +152,7 @@ private extension BinarySearchTree {
 // Private Static Functions
 private extension BinarySearchTree {
     static func createInsertionOrderForMinimalHeight(sortedArray: [Element], sortedArrayFirstIndex: Int, sortedArrayLastIndex: Int, insertionOrderArray: inout [Element]) {
-        if (sortedArrayFirstIndex < sortedArrayLastIndex) {
+        if (sortedArrayLastIndex < sortedArrayFirstIndex) {
             return
         }
         let sortedArrayMiddleIndex = ((sortedArrayFirstIndex + sortedArrayLastIndex + 1) / 2)

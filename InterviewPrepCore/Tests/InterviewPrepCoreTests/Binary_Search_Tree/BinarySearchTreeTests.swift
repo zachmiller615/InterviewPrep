@@ -61,3 +61,99 @@ extension BinarySearchTreeTests {
         XCTAssertFalse(computedResult)
     }
 }
+
+// Test Cases for Depth
+extension BinarySearchTreeTests {
+    func test_Depth_0() {
+        // Given
+        let expectedResult = 0
+
+        // When
+        let computedResult = self.fullBinarySearchTree.depth(of: 3)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Depth_1() {
+        // Given
+        let expectedResult = 1
+
+        // When
+        let computedResult = self.fullBinarySearchTree.depth(of: 2)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Depth_2() {
+        // Given
+        let expectedResult = 2
+
+        // When
+        let computedResult = self.fullBinarySearchTree.depth(of: 1)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Depth_3() {
+        // Given
+        let expectedResult = 3
+
+        // When
+        let computedResult = self.fullBinarySearchTree.depth(of: 5)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Depth_EmptyTree_Nil() {
+        // When
+        let computedResult = self.emptyBinarySearchTree.depth(of: 9)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+
+    func test_Depth_FullTree_Nil() {
+        // When
+        let computedResult = self.fullBinarySearchTree.depth(of: 9)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+}
+
+// Test Cases for Create With Minimal Height
+extension BinarySearchTreeTests {
+    func test_CreateWithMinimalHeight_OddNumberOfElements() {
+        // Given
+        let sortedElements = [1, 2, 3, 4, 5, 6, 7]
+        let expectedHeight = 2
+
+        // When
+        let binarySearchTree = BinarySearchTree.createWithMinimalHeight(sortedElements: sortedElements)
+        let computedHeight = sortedElements.compactMap {
+            binarySearchTree.depth(of: $0)
+        }.max()
+
+        // Then
+        XCTAssertEqual(computedHeight, expectedHeight)
+    }
+
+    func test_CreateWithMinimalHeight_EvenNumberOfElements() {
+        // Given
+        let sortedElements = [1, 2, 3, 4, 5, 6, 7, 8]
+        let expectedHeight = 3
+
+        // When
+        let binarySearchTree = BinarySearchTree.createWithMinimalHeight(sortedElements: sortedElements)
+        let computedHeight = sortedElements.compactMap {
+            binarySearchTree.depth(of: $0)
+        }.max()
+
+        // Then
+        XCTAssertEqual(computedHeight, expectedHeight)
+    }
+}
