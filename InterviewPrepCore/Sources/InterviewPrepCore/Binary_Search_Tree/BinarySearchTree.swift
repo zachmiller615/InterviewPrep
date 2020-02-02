@@ -2,12 +2,12 @@
 // Created by Zach Miller on 18/01/2020.
 //
 
-class BinarySearchTree<T> where T: Comparable {
+class BinarySearchTree<Element> where Element: Comparable {
     // Properties
-    private var root: BinaryTreeNode<T>?
+    private var root: BinaryTreeNode<Element>?
 
     // Methods
-    func insert(_ data: T) {
+    func insert(_ data: Element) {
         if let root = self.root {
             self.insert(data, into: root)
         } else {
@@ -15,7 +15,7 @@ class BinarySearchTree<T> where T: Comparable {
         }
     }
 
-    func contains(_ data: T) -> Bool {
+    func contains(_ data: Element) -> Bool {
         guard let root = self.root else { return false }
         return self.contains(data, in: root)
     }
@@ -33,15 +33,32 @@ class BinarySearchTree<T> where T: Comparable {
         }
         print("----------")
     }
+
+    // Static Functions
+    static func createWithMinimalHeight(sortedElements: [Element]) -> BinarySearchTree<Element> {
+        let binarySearchTree = BinarySearchTree()
+        var insertionOrderArray: [Element] = []
+
+        BinarySearchTree.createInsertionOrderForMinimalHeight(
+                sortedArray: sortedElements,
+                sortedArrayFirstIndex: 0,
+                sortedArrayLastIndex: (sortedElements.count - 1),
+                insertionOrderArray: &insertionOrderArray)
+
+        for element in insertionOrderArray {
+            binarySearchTree.insert(element)
+        }
+        return binarySearchTree
+    }
 }
 
 // Private Methods
 private extension BinarySearchTree {
-    func shouldSearchLeft(data: T, in node: BinaryTreeNode<T>) -> Bool {
+    func shouldSearchLeft(data: Element, in node: BinaryTreeNode<Element>) -> Bool {
         (data < node.data)
     }
 
-    func insert(_ data: T, into node: BinaryTreeNode<T>) {
+    func insert(_ data: Element, into node: BinaryTreeNode<Element>) {
         if self.shouldSearchLeft(data: data, in: node) {
             if let leftChild = node.leftChild {
                 self.insert(data, into: leftChild)
@@ -57,7 +74,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func contains(_ data: T, in node: BinaryTreeNode<T>) -> Bool {
+    func contains(_ data: Element, in node: BinaryTreeNode<Element>) -> Bool {
         if (data == node.data) {
             return true
         } else if self.shouldSearchLeft(data: data, in: node) {
@@ -75,7 +92,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func printInOrderTraversal(of node: BinaryTreeNode<T>) {
+    func printInOrderTraversal(of node: BinaryTreeNode<Element>) {
         if let leftChild = node.leftChild {
             self.printInOrderTraversal(of: leftChild)
         }
@@ -85,7 +102,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func printPreOrderTraversal(of node: BinaryTreeNode<T>) {
+    func printPreOrderTraversal(of node: BinaryTreeNode<Element>) {
         print(node.data)
         if let leftChild = node.leftChild {
             self.printPreOrderTraversal(of: leftChild)
@@ -95,7 +112,7 @@ private extension BinarySearchTree {
         }
     }
 
-    func printPostOrderTraversal(of node: BinaryTreeNode<T>) {
+    func printPostOrderTraversal(of node: BinaryTreeNode<Element>) {
         if let leftChild = node.leftChild {
             self.printPostOrderTraversal(of: leftChild)
         }
@@ -103,5 +120,32 @@ private extension BinarySearchTree {
             self.printPostOrderTraversal(of: rightChild)
         }
         print(node.data)
+    }
+}
+
+// Private Static Functions
+private extension BinarySearchTree {
+    static func createInsertionOrderForMinimalHeight(sortedArray: [Element], sortedArrayFirstIndex: Int, sortedArrayLastIndex: Int, insertionOrderArray: inout [Element]) {
+        if (sortedArrayFirstIndex < sortedArrayLastIndex) {
+            return
+        }
+        let sortedArrayMiddleIndex = ((sortedArrayFirstIndex + sortedArrayLastIndex + 1) / 2)
+        let sortedArrayMiddleElement = sortedArray[sortedArrayMiddleIndex]
+        insertionOrderArray.append(sortedArrayMiddleElement)
+
+        // Go left
+        BinarySearchTree.createInsertionOrderForMinimalHeight(
+                sortedArray: sortedArray,
+                sortedArrayFirstIndex: sortedArrayFirstIndex,
+                sortedArrayLastIndex: (sortedArrayMiddleIndex - 1),
+                insertionOrderArray: &insertionOrderArray)
+
+        // Go right
+        BinarySearchTree.createInsertionOrderForMinimalHeight(
+                sortedArray: sortedArray,
+                sortedArrayFirstIndex: (sortedArrayMiddleIndex + 1),
+                sortedArrayLastIndex: sortedArrayLastIndex,
+                insertionOrderArray: &insertionOrderArray)
+
     }
 }
