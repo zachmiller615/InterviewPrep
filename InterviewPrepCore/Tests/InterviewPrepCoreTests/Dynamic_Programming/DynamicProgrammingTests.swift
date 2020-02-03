@@ -100,3 +100,33 @@ extension DynamicProgrammingTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Robot In A Grid
+extension DynamicProgrammingTests {
+    func test_RobotInAGrid() {
+        // Given
+        let dynamicProgramming = DynamicProgramming()
+        let numberOfRows = 4
+        let numberOfColumns = 4
+        let offLimitCells: Set<GridPoint> =
+                [GridPoint(row: 0, column: 3),
+                 GridPoint(row: 1, column: 1),
+                 GridPoint(row: 2, column: 1),
+                 GridPoint(row: 2, column: 3),
+                 GridPoint(row: 3, column: 0)]
+        let expectedResult: GridPath =
+                [GridPoint(row: 0, column: 0),
+                 GridPoint(row: 0, column: 1),
+                 GridPoint(row: 0, column: 2),
+                 GridPoint(row: 1, column: 2),
+                 GridPoint(row: 2, column: 2),
+                 GridPoint(row: 3, column: 2),
+                 GridPoint(row: 3, column: 3)]
+
+        // When
+        let computedResult = dynamicProgramming.robotInAGrid(numberOfRows: numberOfRows, numberOfColumns: numberOfColumns, offLimitCells: offLimitCells)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
