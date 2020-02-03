@@ -2,6 +2,7 @@
 // Created by Zach Miller on 19/01/2020.
 //
 
+/// Inspired by "Cracking the Coding Interview" by Gayle Laakmann Mcdowell
 struct RecursiveRunTimes {
     // Methods
     func printWorkForExponentialTimeAlgorithm(input: Int) {

@@ -2,6 +2,7 @@
 // Created by Zach Miller on 18/01/2020.
 //
 
+/// Inspired by "Cracking the Coding Interview" by Gayle Laakmann Mcdowell
 struct MultiPartAlgorithms {
     // Methods
     func printWorkForAddingTheRunTimes(array1: [Int], array2: [Int]) {

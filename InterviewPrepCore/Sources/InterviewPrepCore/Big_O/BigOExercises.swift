@@ -2,6 +2,7 @@
 // Created by Zach Miller on 26/01/2020.
 //
 
+/// Inspired by "Cracking the Coding Interview" by Gayle Laakmann Mcdowell
 struct BigOExercises {
     // Methods
     func product(firstOperand: Int, secondOperand: Int) -> Int { // O(secondOperand)

@@ -2,6 +2,7 @@
 // Created by Zach Miller on 18/01/2020.
 //
 
+/// Inspired by "Cracking the Coding Interview" by Gayle Laakmann Mcdowell
 struct DropTheConstants {
     // Methods
     func printWorkForOneForLoop() {

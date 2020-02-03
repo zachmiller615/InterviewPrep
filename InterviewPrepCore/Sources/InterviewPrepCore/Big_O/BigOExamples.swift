@@ -2,6 +2,7 @@
 // Created by Zach Miller on 20/01/2020.
 //
 
+/// Inspired by "Cracking the Coding Interview" by Gayle Laakmann Mcdowell
 struct BigOExamples {
     // Methods
     func example1(input: [Int]) {

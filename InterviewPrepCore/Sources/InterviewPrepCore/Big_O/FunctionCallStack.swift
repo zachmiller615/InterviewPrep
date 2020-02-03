@@ -2,6 +2,7 @@
 // Created by Zach Miller on 17/01/2020.
 //
 
+/// Inspired by "Cracking the Coding Interview" by Gayle Laakmann Mcdowell
 struct FunctionCallStack {
     // Properties
     private var stack: [String] = [] {
