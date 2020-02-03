@@ -288,3 +288,29 @@ extension SorterTests {
         XCTAssertEqual(largerArray, expectedResult)
     }
 }
+
+// Test Cases for Group Anagrams
+extension SorterTests {
+    func test_GroupAnagrams() {
+        // Given
+        let sorter = Sorter()
+        let array = ["binary", "adobe", "brainy", "abode"]
+
+        // When
+        let computedResult = sorter.groupAnagrams(array)
+
+        // Then
+        switch computedResult.first {
+        case "binary":
+            XCTAssertEqual(computedResult[1], "brainy")
+        case "adobe":
+            XCTAssertEqual(computedResult[1], "abode")
+        case "brainy":
+            XCTAssertEqual(computedResult[1], "binary")
+        case "abode":
+            XCTAssertEqual(computedResult[1], "adobe")
+        default:
+            break
+        }
+    }
+}

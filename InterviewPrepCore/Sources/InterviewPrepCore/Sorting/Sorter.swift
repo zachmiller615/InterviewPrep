@@ -129,6 +129,23 @@ struct Sorter {
             insertionIndex -= 1
         }
     }
+
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// Write a method to sort an array of strings so that all the anagrams are next to each other.
+    func groupAnagrams(_ array: [String]) -> [String] {
+        var groupedAnagrams: [String: [String]] = [:]
+        for text in array {
+            let key = String(text.sorted())
+            if let _ = groupedAnagrams[key] {
+                groupedAnagrams[key]?.append(text)
+            } else {
+                groupedAnagrams[key] = [text]
+            }
+        }
+        return groupedAnagrams.values.flatMap {
+            $0
+        }
+    }
 }
 
 // Private Methods - Merge Sort

@@ -15,4 +15,17 @@ extension Array {
         self[index1] = self[index2]
         self[index2] = originalValueAtIndex1
     }
+
+    func mapSort<MapResult: Comparable>(mapCallback: (Element) -> MapResult) -> [Element] {
+        self.enumerated()
+                .map {
+                    (index: $0, value: mapCallback($1))
+                }
+                .sorted {
+                    $0.value < $1.value
+                }
+                .map {
+                    self[$0.index]
+                }
+    }
 }
