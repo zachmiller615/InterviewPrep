@@ -2,7 +2,7 @@
 // Created by Zach Miller on 17/01/2020.
 //
 
-class LinkedList<Element> where Element: Hashable {
+class LinkedList<Element> {
     // Properties
     private var head: ListNode<Element>?
 
@@ -36,6 +36,35 @@ class LinkedList<Element> where Element: Hashable {
         currentNode.next = newNode
     }
 
+    func elementFromLast(offsetFromLastElement: Int) -> Element? {
+        guard let head = self.head else {
+            return nil
+        }
+        var fastRunner = head
+        var slowRunner = head
+        for _ in (0..<offsetFromLastElement) {
+            if let fastRunnerNext = fastRunner.next {
+                fastRunner = fastRunnerNext
+            } else {
+                return nil
+            }
+        }
+        while let fastRunnerNext = fastRunner.next,
+              let slowRunnerNext = slowRunner.next {
+            fastRunner = fastRunnerNext
+            slowRunner = slowRunnerNext
+        }
+        return slowRunner.data
+    }
+}
+
+extension LinkedList: Equatable where Element: Equatable {
+    static func == (lhs: LinkedList<Element>, rhs: LinkedList<Element>) -> Bool {
+        (lhs.toArray() == rhs.toArray())
+    }
+}
+
+extension LinkedList where Element: Equatable {
     func removeAllOccurrences(of data: Element) {
         self.removeOccurrencesFromStart(of: data)
         guard let head = self.head else { return }
@@ -60,7 +89,9 @@ class LinkedList<Element> where Element: Hashable {
             }
         }
     }
+}
 
+extension LinkedList where Element: Hashable {
     func removeDuplicates() {
         guard let head = self.head else {
             return
@@ -76,26 +107,5 @@ class LinkedList<Element> where Element: Hashable {
                 optionalCurrentNode = currentNode.next
             }
         }
-    }
-
-    func elementFromLast(offsetFromLastElement: Int) -> Element? {
-        guard let head = self.head else {
-            return nil
-        }
-        var fastRunner = head
-        var slowRunner = head
-        for _ in (0..<offsetFromLastElement) {
-            if let fastRunnerNext = fastRunner.next {
-                fastRunner = fastRunnerNext
-            } else {
-                return nil
-            }
-        }
-        while let fastRunnerNext = fastRunner.next,
-              let slowRunnerNext = slowRunner.next {
-            fastRunner = fastRunnerNext
-            slowRunner = slowRunnerNext
-        }
-        return slowRunner.data
     }
 }
