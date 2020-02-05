@@ -8,6 +8,9 @@ public struct CommandLineTool {
 
     // Methods
     public func run() {
-
+        let bigOExercises = BigOExercises()
+        let result = bigOExercises.modulo(dividend: 16, divisor: 7)
+        print(result)
+        print("-----")
     }
 }

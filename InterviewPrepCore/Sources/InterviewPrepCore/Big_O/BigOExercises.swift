@@ -26,4 +26,15 @@ struct BigOExercises {
             return nil // O(1)
         }
     }
+
+    func modulo(dividend: Int, divisor: Int) -> Int? { // O(1)
+        print("-----") // O(1)
+        print("\(dividend) modulo \(divisor)...") // O(1)
+        guard (divisor > 0) else { // O(1)
+            return nil // O(1)
+        }
+        let quotient = (dividend / divisor) // O(1)
+        let remainder = (dividend - (quotient * divisor)) // O(1)
+        return remainder // O(1)
+    }
 }
