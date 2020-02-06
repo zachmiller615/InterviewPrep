@@ -51,4 +51,27 @@ struct BigOExercises {
         }
         return count // O(1)
     }
+
+    func integerSquareRoot(number: Int) -> Int? { // O(log number)
+        print("-----") // O(1)
+        return self.integerSquareRoot(number: number, min: 1, max: number) // O(log number)
+    }
+}
+
+// Private Methods
+private extension BigOExercises {
+    func integerSquareRoot(number: Int, min: Int, max: Int) -> Int? { // O(log number)
+        print("Min: \(min), Max: \(max)") // O(1)
+        guard (max >= min) else { // O(1)
+            return nil // O(1)
+        }
+        let guess = ((min + max) / 2) // O(1)
+        if ((guess * guess) == number) { // O(1)
+            return guess // O(1)
+        } else if ((guess * guess) < number) { // O(1)
+            return self.integerSquareRoot(number: number, min: (guess + 1), max: max) // O(log number)
+        } else { // O(1)
+            return self.integerSquareRoot(number: number, min: min, max: (guess - 1)) // O(log number)
+        }
+    }
 }
