@@ -37,4 +37,18 @@ struct BigOExercises {
         let remainder = (dividend - (quotient * divisor)) // O(1)
         return remainder // O(1)
     }
+
+    func integerDivision(dividend: Int, divisor: Int) -> Int? { // O(dividend / divisor)
+        guard ((dividend >= 0) && (divisor > 0)) else { // O(1)
+            return nil // O(1)
+        }
+        var count = 0 // O(1)
+        var sum = divisor // O(1)
+        while (sum <= dividend) { // O(dividend / divisor)
+            print("Iteration - Sum: \(sum)") // O(1)
+            sum += divisor // O(1)
+            count += 1 // O(1)
+        }
+        return count // O(1)
+    }
 }
