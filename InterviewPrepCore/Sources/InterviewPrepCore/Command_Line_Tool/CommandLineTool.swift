@@ -9,7 +9,7 @@ public struct CommandLineTool {
     // Methods
     public func run() {
         let bigOExercises = BigOExercises()
-        let result = bigOExercises.integerSquareRoot(number: 100)
+        let result = bigOExercises.integerSquareRoot2(number: 16)
         print(result as Any)
         print("-----")
     }

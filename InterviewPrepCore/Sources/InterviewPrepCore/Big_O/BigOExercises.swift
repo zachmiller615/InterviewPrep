@@ -56,6 +56,19 @@ struct BigOExercises {
         print("-----") // O(1)
         return self.integerSquareRoot(number: number, min: 1, max: number) // O(log number)
     }
+
+    func integerSquareRoot2(number: Int) -> Int? { // O(squareRoot(number))
+        print("-----") // O(1)
+        var guess = 1 // O(1)
+        while (guess * guess <= number) { // O(squareRoot(number))
+            print("Guess: \(guess)") // O(1)
+            if (guess * guess == number) { // O(1)
+                return guess // O(1)
+            }
+            guess += 1 // O(1)
+        }
+        return nil // O(1)
+    }
 }
 
 // Private Methods
