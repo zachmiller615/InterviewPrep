@@ -118,6 +118,19 @@ struct BigOExercises {
     func printSortedStrings(stringLength: Int) {
         self.printSortedStrings(remainingStringLength: stringLength, prefix: "")
     }
+
+    func findIntersectingElements(array1: [Int], array2: [Int]) -> Set<Int> { // O((array2 log array2) + (array1 log array2))
+        let sorter = Sorter() // O(1)
+        let searcher = Searcher() // O(1)
+        let sortedArray2 = sorter.mergeSort(array2) // (array2 log array2)
+        var intersectingElements = Set<Int>() // O(1)
+        for value in array1 { // O(array1)
+            if let index = searcher.binarySearchIterative(sortedArray: sortedArray2, target: value) { // O(log sortedArray2)
+                intersectingElements.insert(sortedArray2[index]) // O(1)
+            }
+        }
+        return intersectingElements // O(1)
+    }
 }
 
 // Private Methods

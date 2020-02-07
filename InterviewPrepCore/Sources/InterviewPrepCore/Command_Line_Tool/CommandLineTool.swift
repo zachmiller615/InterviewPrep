@@ -8,9 +8,5 @@ public struct CommandLineTool {
 
     // Methods
     public func run() {
-        let bigOExercises = BigOExercises()
-        print("-----")
-        bigOExercises.printSortedStrings(stringLength: 3)
-        print("-----")
     }
 }
