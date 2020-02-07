@@ -10,7 +10,7 @@ public struct CommandLineTool {
     public func run() {
         let bigOExercises = BigOExercises()
         print("-----")
-        let result = bigOExercises.repeatedlyCopyElements(array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        let result = bigOExercises.sumDigits(input: 35250)
         print("Result: \(result)")
         print("-----")
     }

@@ -101,6 +101,17 @@ struct BigOExercises {
         }
         return copy // O(1)
     }
+
+    func sumDigits(input: Int) -> Int { // O(log input)
+        var number = input // O(1)
+        var sum = 0 // O(1)
+        while (number > 0) { // O(log input)
+            print("Number: \(number)") // O(1)
+            sum += (number % 10) // O(1)
+            number /= 10 // O(1)
+        }
+        return sum // O(1)
+    }
 }
 
 // Private Methods
