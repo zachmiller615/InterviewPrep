@@ -9,6 +9,6 @@ public struct CommandLineTool {
     // Methods
     public func run() {
         let bigOExercises = BigOExercises()
-        bigOExercises.searchUnbalancedBinarySearchTree()
+        bigOExercises.searchUnorderedBinaryTree()
     }
 }

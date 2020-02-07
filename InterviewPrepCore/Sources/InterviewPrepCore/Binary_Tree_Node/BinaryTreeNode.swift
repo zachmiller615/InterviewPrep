@@ -24,6 +24,20 @@ class BinaryTreeNode<Element> {
     }
 }
 
+extension BinaryTreeNode where Element: Equatable {
+    func contains(_ data: Element) -> Bool {
+        if (self.data == data) {
+            return true
+        } else if let leftChildContainsData = self.leftChild?.contains(data), leftChildContainsData {
+            return true
+        } else if let rightChildContainsData = self.rightChild?.contains(data), rightChildContainsData {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
 // Private Methods
 private extension BinaryTreeNode {
     func listOfDepths(depth: Int, resultLists: inout [LinkedList<Element>]) {

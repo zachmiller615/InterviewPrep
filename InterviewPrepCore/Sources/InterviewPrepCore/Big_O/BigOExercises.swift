@@ -79,6 +79,19 @@ struct BigOExercises {
         }
         let _ = binarySearchTree.contains(targetElement) // O(sortedElements.count)
     }
+
+    func searchUnorderedBinaryTree() {
+        let node1 = BinaryTreeNode(data: 1)
+        let node2 = BinaryTreeNode(data: 2)
+        let node3 = BinaryTreeNode(data: 3)
+        let node4 = BinaryTreeNode(data: 4)
+        let node5 = BinaryTreeNode(data: 5)
+        node1.leftChild = node4
+        node1.rightChild = node2
+        node4.leftChild = node5
+        node2.leftChild = node3
+        let _ = node1.contains(6) // O(numberOfNodes)
+    }
 }
 
 // Private Methods
