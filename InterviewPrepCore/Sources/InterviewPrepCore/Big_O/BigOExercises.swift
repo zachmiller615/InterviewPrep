@@ -69,6 +69,16 @@ struct BigOExercises {
         }
         return nil // O(1)
     }
+
+    func searchUnbalancedBinarySearchTree() {
+        let sortedElements = [1, 2, 3, 4, 5, 7, 8, 9, 10]
+        let targetElement = 25
+        let binarySearchTree = BinarySearchTree<Int>()
+        for element in sortedElements {
+            binarySearchTree.insert(element)
+        }
+        let _ = binarySearchTree.contains(targetElement) // O(sortedElements.count)
+    }
 }
 
 // Private Methods
