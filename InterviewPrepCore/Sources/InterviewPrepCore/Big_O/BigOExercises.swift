@@ -92,6 +92,15 @@ struct BigOExercises {
         node2.leftChild = node3
         let _ = node1.contains(6) // O(numberOfNodes)
     }
+
+    func repeatedlyCopyElements(array: [Int]) -> [Int] { // O(array.count ^ 2)
+        var copy: [Int] = [] // O(1)
+        for value in array { // O(array.count)
+            print("Original Array Iteration - Value: \(value)") // O(1)
+            copy = self.copyAndAppendToNew(array: copy, value: value) // O(copy.count)
+        }
+        return copy // O(1)
+    }
 }
 
 // Private Methods
@@ -109,5 +118,16 @@ private extension BigOExercises {
         } else { // O(1)
             return self.integerSquareRoot(number: number, min: min, max: (guess - 1)) // O(log number)
         }
+    }
+
+    func copyAndAppendToNew(array: [Int], value: Int) -> [Int] { // O(array.count)
+        var copy: [Int] = [] // O(1)
+        for number in array { // O(array.count)
+            print("Copy: \(number)") // O(1)
+            copy.append(number) // O(1) [amortized]
+        }
+        print("Append: \(value)") // O(1)
+        copy.append(value) // O(1) [amortized]
+        return copy // O(1)
     }
 }
