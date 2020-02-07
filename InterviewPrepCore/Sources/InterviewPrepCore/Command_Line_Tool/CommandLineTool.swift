@@ -10,8 +10,7 @@ public struct CommandLineTool {
     public func run() {
         let bigOExercises = BigOExercises()
         print("-----")
-        let result = bigOExercises.sumDigits(input: 35250)
-        print("Result: \(result)")
+        bigOExercises.printSortedStrings(stringLength: 3)
         print("-----")
     }
 }

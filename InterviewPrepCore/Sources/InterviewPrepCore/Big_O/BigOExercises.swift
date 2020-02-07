@@ -112,6 +112,12 @@ struct BigOExercises {
         }
         return sum // O(1)
     }
+
+    // O(alphabetLength ^ stringLength) [all possible strings] * O(stringLength) [check if sorted]
+    // O(stringLength * (alphabetLength ^ stringLength))
+    func printSortedStrings(stringLength: Int) {
+        self.printSortedStrings(remainingStringLength: stringLength, prefix: "")
+    }
 }
 
 // Private Methods
@@ -140,5 +146,37 @@ private extension BigOExercises {
         print("Append: \(value)") // O(1)
         copy.append(value) // O(1) [amortized]
         return copy // O(1)
+    }
+
+    func printSortedStrings(remainingStringLength: Int, prefix: String) {
+        if (remainingStringLength == 0) {
+            if let isInOrder = self.isInOrder(text: prefix), isInOrder {
+                print("Sorted String: \(prefix)")
+            }
+        } else {
+            let asciiFirst = 97
+            let asciiLast = 122
+            for index in (asciiFirst...asciiLast) {
+                if let asciiValue = UnicodeScalar(index) {
+                    let character = Character(asciiValue)
+                    self.printSortedStrings(remainingStringLength: (remainingStringLength - 1), prefix: (prefix + String(character)))
+                }
+            }
+        }
+    }
+
+    func isInOrder(text: String) -> Bool? { // O(text.count)
+        guard !text.isEmpty else { // O(1)
+            return nil // O(1)
+        }
+        for index in (1..<text.count) { // O(text.count)
+            let stringIndex = String.Index(utf16Offset: index, in: text) // O(1)
+            let currentCharacter = text[stringIndex] // O(1)
+            let previousCharacter = text[text.index(before: stringIndex)] // O(1)
+            if (previousCharacter > currentCharacter) { // O(1)
+                return false // O(1)
+            }
+        }
+        return true // O(1)
     }
 }
