@@ -88,3 +88,62 @@ extension BinaryTreeNodeTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Is Balanced
+extension BinaryTreeNodeTests {
+    func test_IsBalanced_True() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1)
+        let node2 = BinaryTreeNode(data: 2)
+        let node3 = BinaryTreeNode(data: 3)
+        let node4 = BinaryTreeNode(data: 4)
+        let node5 = BinaryTreeNode(data: 5)
+        let node6 = BinaryTreeNode(data: 6)
+        let node7 = BinaryTreeNode(data: 7)
+        let node8 = BinaryTreeNode(data: 8)
+        let node9 = BinaryTreeNode(data: 9)
+        node1.leftChild = node2
+        node1.rightChild = node3
+        node2.leftChild = node4
+        node2.rightChild = node5
+        node3.leftChild = node6
+        node3.rightChild = node7
+        node5.leftChild = node8
+        node6.rightChild = node9
+
+        // When
+        let computedResult = node1.isBalanced()
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsBalanced_False() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1)
+        let node2 = BinaryTreeNode(data: 2)
+        let node3 = BinaryTreeNode(data: 3)
+        let node4 = BinaryTreeNode(data: 4)
+        let node5 = BinaryTreeNode(data: 5)
+        let node6 = BinaryTreeNode(data: 6)
+        let node7 = BinaryTreeNode(data: 7)
+        let node8 = BinaryTreeNode(data: 8)
+        let node9 = BinaryTreeNode(data: 9)
+        let node10 = BinaryTreeNode(data: 9)
+        node1.leftChild = node2
+        node1.rightChild = node3
+        node2.leftChild = node4
+        node2.rightChild = node5
+        node3.leftChild = node6
+        node3.rightChild = node7
+        node5.leftChild = node8
+        node6.rightChild = node9
+        node8.rightChild = node10
+
+        // When
+        let computedResult = node1.isBalanced()
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+}

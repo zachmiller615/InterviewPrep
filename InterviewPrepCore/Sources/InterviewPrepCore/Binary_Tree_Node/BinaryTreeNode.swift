@@ -22,6 +22,13 @@ class BinaryTreeNode<Element> {
         self.listOfDepths(depth: 0, resultLists: &resultLists)
         return resultLists
     }
+
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// Implement a function to check if a binary tree is balanced.
+    /// For the purposes of this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any node never differ by more than one.
+    func isBalanced() -> Bool {
+        (self.heightIfBalanced() != nil)
+    }
 }
 
 extension BinaryTreeNode where Element: Equatable {
@@ -50,5 +57,23 @@ private extension BinaryTreeNode {
         }
         self.leftChild?.listOfDepths(depth: (depth + 1), resultLists: &resultLists)
         self.rightChild?.listOfDepths(depth: (depth + 1), resultLists: &resultLists)
+    }
+
+    func heightIfBalanced() -> Int? {
+        let leftHeightIfBalanced = (self.leftChild != nil) ? self.leftChild!.heightIfBalanced() : -1
+        guard let leftHeight = leftHeightIfBalanced else {
+            return nil // Left subtree is unbalanced
+        }
+
+        let rightHeightIfBalanced = (self.rightChild != nil) ? self.rightChild!.heightIfBalanced() : -1
+        guard let rightHeight = rightHeightIfBalanced else {
+            return nil // Right subtree is unbalanced
+        }
+
+        if (abs(leftHeight - rightHeight) > 1) {
+            return nil // Current node is unbalanced
+        } else {
+            return (max(leftHeight, rightHeight) + 1) // Current node is balanced; propagate current height
+        }
     }
 }
