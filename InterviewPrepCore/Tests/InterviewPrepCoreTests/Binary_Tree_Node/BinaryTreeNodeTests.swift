@@ -147,3 +147,58 @@ extension BinaryTreeNodeTests {
         XCTAssertFalse(computedResult)
     }
 }
+
+// Test Cases for Is Binary Search Tree
+extension BinaryTreeNodeTests {
+    func test_IsBinarySearchTree_BasicCase_True() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1)
+        let node2 = BinaryTreeNode(data: 2)
+        let node3 = BinaryTreeNode(data: 3)
+        let node4 = BinaryTreeNode(data: 4)
+        let node5 = BinaryTreeNode(data: 5)
+        let node6 = BinaryTreeNode(data: 6)
+        let node7 = BinaryTreeNode(data: 7)
+        let node8 = BinaryTreeNode(data: 8)
+        let node9 = BinaryTreeNode(data: 9)
+        node4.leftChild = node2
+        node4.rightChild = node6
+        node2.leftChild = node1
+        node2.rightChild = node3
+        node6.leftChild = node5
+        node6.rightChild = node7
+        node7.rightChild = node8
+        node8.rightChild = node9
+
+        // When
+        let computedResult = node4.isBinarySearchTree()
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsBinarySearchTree_BasicCase_False() {
+        // When
+        let computedResult = self.binaryTreeRoot.isBinarySearchTree()
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_IsBinarySearchTree_ComplexCase_False() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1)
+        let node2 = BinaryTreeNode(data: 2)
+        let node3 = BinaryTreeNode(data: 3)
+        let node4 = BinaryTreeNode(data: 4)
+        node2.leftChild = node1
+        node2.rightChild = node4
+        node1.rightChild = node3
+
+        // When
+        let computedResult = node2.isBinarySearchTree()
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+}

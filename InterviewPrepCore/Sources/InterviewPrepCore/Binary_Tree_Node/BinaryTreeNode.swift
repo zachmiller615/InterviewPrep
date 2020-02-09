@@ -45,6 +45,12 @@ extension BinaryTreeNode where Element: Equatable {
     }
 }
 
+extension BinaryTreeNode where Element: Comparable {
+    func isBinarySearchTree() -> Bool {
+        (self.rangeIfBinarySearchTree() != nil)
+    }
+}
+
 // Private Methods
 private extension BinaryTreeNode {
     func listOfDepths(depth: Int, resultLists: inout [LinkedList<Element>]) {
@@ -75,5 +81,36 @@ private extension BinaryTreeNode {
         } else {
             return (max(leftHeight, rightHeight) + 1) // Current node is balanced; propagate current height
         }
+    }
+}
+
+private extension BinaryTreeNode where Element: Comparable {
+    func rangeIfBinarySearchTree() -> ClosedRange<Element>? {
+        let leftSubtreeExists = (self.leftChild != nil)
+        let rightSubtreeExists = (self.rightChild != nil)
+
+        let leftSubtreeRange = self.leftChild?.rangeIfBinarySearchTree()
+        if (leftSubtreeExists && (leftSubtreeRange == nil)) {
+            return nil // Left subtree is not a binary search tree
+        }
+
+        let rightSubtreeRange = self.rightChild?.rangeIfBinarySearchTree()
+        if (rightSubtreeExists && (rightSubtreeRange == nil)) {
+            return nil // Right subtree is not a binary search tree
+        }
+
+        // When leftSubtreeExists, we can force unwrap leftSubtreeRange
+        // When rightSubtreeExists, we can force unwrap rightSubtreeRange
+        let currentTreeIsBST_ToTheLeft = leftSubtreeExists ? (leftSubtreeRange!.upperBound <= self.data) : true
+        let currentTreeIsBST_ToTheRight = rightSubtreeExists ? (self.data < rightSubtreeRange!.lowerBound) : true
+
+        let currentTreeIsBST = (currentTreeIsBST_ToTheLeft && currentTreeIsBST_ToTheRight)
+        guard currentTreeIsBST else {
+            return nil // Current tree is not a binary search tree
+        }
+
+        let currentTreeMin = leftSubtreeExists ? leftSubtreeRange!.lowerBound : self.data
+        let currentTreeMax = rightSubtreeExists ? rightSubtreeRange!.upperBound : self.data
+        return (currentTreeMin...currentTreeMax)
     }
 }
