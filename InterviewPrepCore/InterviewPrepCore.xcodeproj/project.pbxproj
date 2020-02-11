@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		284FEB69E9C702C017A7EBD5 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */; };
 		284FEC10D1F7C2AF7AD55D55 /* BinaryTreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA43C05AC9F2AD1D3EB5 /* BinaryTreeNodeTests.swift */; };
+		284FEFF69AE6044DC79DC71D /* BinaryTreeNodeChildDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */; };
 		OBJ_118 /* BigOExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BigOExamples.swift */; };
 		OBJ_119 /* BigOExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* BigOExercises.swift */; };
 		OBJ_120 /* DropTheConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* DropTheConstants.swift */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 		284FEA43C05AC9F2AD1D3EB5 /* BinaryTreeNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeTests.swift; sourceTree = "<group>"; };
+		284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeChildDirection.swift; sourceTree = "<group>"; };
 		"InterviewPrepCore::InterviewPrepCore::Product" /* InterviewPrepCore.framework */ = {isa = PBXFileReference; path = InterviewPrepCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"InterviewPrepCore::InterviewPrepCoreTests::Product" /* InterviewPrepCoreTests.xctest */ = {isa = PBXFileReference; path = InterviewPrepCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* BigOExamples.swift */ = {isa = PBXFileReference; path = BigOExamples.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_20 /* BinaryTreeNode.swift */,
+				284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */,
 			);
 			name = Binary_Tree_Node;
 			path = Binary_Tree_Node;
@@ -744,6 +747,7 @@
 				OBJ_151 /* StringBuilder.swift in Sources */,
 				OBJ_152 /* Trie.swift in Sources */,
 				OBJ_153 /* TrieSearchType.swift in Sources */,
+				284FEFF69AE6044DC79DC71D /* BinaryTreeNodeChildDirection.swift in Sources */,
 			);
 		};
 		OBJ_159 /* Sources */ = {

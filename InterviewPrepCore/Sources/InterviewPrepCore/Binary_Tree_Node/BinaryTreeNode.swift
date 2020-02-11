@@ -7,6 +7,7 @@ class BinaryTreeNode<Element> {
     let data: Element
     var leftChild: BinaryTreeNode?
     var rightChild: BinaryTreeNode?
+    weak var parent: BinaryTreeNode?
 
     // Initializer
     init(data: Element) {

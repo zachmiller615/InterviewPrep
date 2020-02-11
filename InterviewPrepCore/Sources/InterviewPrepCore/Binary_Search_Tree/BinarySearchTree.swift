@@ -27,6 +27,17 @@ class BinarySearchTree<Element> where Element: Comparable {
         return self.depth(of: data, in: root)
     }
 
+    func min() -> Element? {
+        guard let root = self.root else {
+            return nil
+        }
+        return self.min(in: root)
+    }
+
+    func inOrderSuccessor(of data: Element) -> Element? {
+        self.inOrderSuccessor(of: data, in: self.root)
+    }
+
     func printTraversal(with traversalType: BinaryTreeTraversalType) {
         guard let root = self.root else { return }
         print("----------")
@@ -71,14 +82,25 @@ private extension BinarySearchTree {
             if let leftChild = node.leftChild {
                 self.insert(data, into: leftChild)
             } else {
-                node.leftChild = BinaryTreeNode(data: data)
+                self.createNewNode(with: data, ontoParent: node, inDirection: .left)
             }
         } else {
             if let rightChild = node.rightChild {
                 self.insert(data, into: rightChild)
             } else {
-                node.rightChild = BinaryTreeNode(data: data)
+                self.createNewNode(with: data, ontoParent: node, inDirection: .right)
             }
+        }
+    }
+
+    func createNewNode(with data: Element, ontoParent parent: BinaryTreeNode<Element>, inDirection direction: BinaryTreeNodeChildDirection) {
+        let newNode = BinaryTreeNode(data: data)
+        newNode.parent = parent
+        switch direction {
+        case .left:
+            parent.leftChild = newNode
+        case .right:
+            parent.rightChild = newNode
         }
     }
 
@@ -116,6 +138,42 @@ private extension BinarySearchTree {
                 return nil
             }
         }
+    }
+
+    func min(in node: BinaryTreeNode<Element>) -> Element {
+        if let leftChild = node.leftChild {
+            return self.min(in: leftChild)
+        } else {
+            return node.data
+        }
+    }
+
+    func inOrderSuccessor(of targetData: Element, in optionalCurrentNode: BinaryTreeNode<Element>?) -> Element? {
+        guard let currentNode = optionalCurrentNode else {
+            return nil // Target data does not exist in binary search tree
+        }
+        if (targetData < currentNode.data) {
+            return self.inOrderSuccessor(of: targetData, in: currentNode.leftChild)
+        } else if (targetData > currentNode.data) {
+            return self.inOrderSuccessor(of: targetData, in: currentNode.rightChild)
+        }
+
+        // At this point, targetData == currentNode.data
+        if let rightChild = currentNode.rightChild {
+            return self.min(in: rightChild)
+        }
+
+        var optionalPossibleSuccessor = currentNode.parent
+        while let possibleSuccessor = optionalPossibleSuccessor {
+            if (possibleSuccessor.data > targetData) {
+                return possibleSuccessor.data
+            } else {
+                optionalPossibleSuccessor = possibleSuccessor.parent
+            }
+        }
+
+        // At this point, targetData is the greatest element in the binary search tree
+        return nil
     }
 
     func printInOrderTraversal(of node: BinaryTreeNode<Element>) {
