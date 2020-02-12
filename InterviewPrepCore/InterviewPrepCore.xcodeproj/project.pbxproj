@@ -71,7 +71,7 @@
 		OBJ_179 /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* LinkedListTests.swift */; };
 		OBJ_180 /* PrimeNumberCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* PrimeNumberCheckerTests.swift */; };
 		OBJ_181 /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* QueueTests.swift */; };
-		OBJ_183 /* Searcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Searcher.swift */; };
+		OBJ_183 /* SearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* SearcherTests.swift */; };
 		OBJ_184 /* RestaurantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* RestaurantTests.swift */; };
 		OBJ_185 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* Person.swift */; };
 		OBJ_186 /* SorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* SorterTests.swift */; };
@@ -143,7 +143,7 @@
 		OBJ_87 /* LinkedListTests.swift */ = {isa = PBXFileReference; path = LinkedListTests.swift; sourceTree = "<group>"; };
 		OBJ_89 /* PrimeNumberCheckerTests.swift */ = {isa = PBXFileReference; path = PrimeNumberCheckerTests.swift; sourceTree = "<group>"; };
 		OBJ_91 /* QueueTests.swift */ = {isa = PBXFileReference; path = QueueTests.swift; sourceTree = "<group>"; };
-		OBJ_95 /* Searcher.swift */ = {isa = PBXFileReference; path = Searcher.swift; sourceTree = "<group>"; };
+		OBJ_95 /* SearcherTests.swift */ = {isa = PBXFileReference; path = SearcherTests.swift; sourceTree = "<group>"; };
 		OBJ_97 /* RestaurantTests.swift */ = {isa = PBXFileReference; path = RestaurantTests.swift; sourceTree = "<group>"; };
 		OBJ_99 /* Person.swift */ = {isa = PBXFileReference; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -611,7 +611,7 @@
 		OBJ_94 /* Searching */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_95 /* Searcher.swift */,
+				OBJ_95 /* SearcherTests.swift */,
 			);
 			name = Searching;
 			path = Searching;
@@ -770,7 +770,7 @@
 				OBJ_179 /* LinkedListTests.swift in Sources */,
 				OBJ_180 /* PrimeNumberCheckerTests.swift in Sources */,
 				OBJ_181 /* QueueTests.swift in Sources */,
-				OBJ_183 /* Searcher.swift in Sources */,
+				OBJ_183 /* SearcherTests.swift in Sources */,
 				OBJ_184 /* RestaurantTests.swift in Sources */,
 				OBJ_185 /* Person.swift in Sources */,
 				OBJ_186 /* SorterTests.swift in Sources */,
