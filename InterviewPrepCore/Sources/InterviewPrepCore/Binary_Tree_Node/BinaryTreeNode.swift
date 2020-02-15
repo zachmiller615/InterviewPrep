@@ -44,11 +44,25 @@ extension BinaryTreeNode where Element: Equatable {
             return false
         }
     }
+
+    func firstCommonAncestor(of child1: Element, and child2: Element) -> Element? {
+        let commonAncestorInfo = self.commonAncestorInfo(targetChild1: child1, targetChild2: child2)
+        return commonAncestorInfo.firstCommonAncestor
+    }
 }
 
 extension BinaryTreeNode where Element: Comparable {
     func isBinarySearchTree() -> Bool {
         (self.rangeIfBinarySearchTree() != nil)
+    }
+}
+
+// Private Inner Data Structures
+private extension BinaryTreeNode {
+    struct CommonAncestorInfo {
+        let foundTargetChild1: Bool
+        let foundTargetChild2: Bool
+        let firstCommonAncestor: Element?
     }
 }
 
@@ -81,6 +95,58 @@ private extension BinaryTreeNode {
             return nil // Current node is unbalanced
         } else {
             return (max(leftHeight, rightHeight) + 1) // Current node is balanced; propagate current height
+        }
+    }
+}
+
+private extension BinaryTreeNode where Element: Equatable {
+    func commonAncestorInfo(targetChild1: Element, targetChild2: Element) -> CommonAncestorInfo {
+        var foundTarget1 = (self.data == targetChild1)
+        var foundTarget2 = (self.data == targetChild2)
+        if let leftSubtreeInfo = self.leftChild?.commonAncestorInfo(targetChild1: targetChild1, targetChild2: targetChild2) {
+            if (leftSubtreeInfo.firstCommonAncestor != nil) {
+                return leftSubtreeInfo // The left subtree has already found the first common ancestor
+            }
+            if leftSubtreeInfo.foundTargetChild1 {
+                foundTarget1 = true
+            }
+            if leftSubtreeInfo.foundTargetChild2 {
+                foundTarget2 = true
+            }
+            if let commonAncestorInfoAfterCheckingSubtree = self.commonAncestorInfoAfterCheckingSubtree(targetChild1: targetChild1, targetChild2: targetChild2, foundTarget1: foundTarget1, foundTarget2: foundTarget2) {
+                return commonAncestorInfoAfterCheckingSubtree
+            }
+        }
+
+        // At this point, we have not found a common ancestor, so we need to check the right subtree
+        if let rightSubtreeInfo = self.rightChild?.commonAncestorInfo(targetChild1: targetChild1, targetChild2: targetChild2) {
+            if (rightSubtreeInfo.firstCommonAncestor != nil) {
+                return rightSubtreeInfo // The right subtree has already found the first common ancestor
+            }
+            if rightSubtreeInfo.foundTargetChild1 {
+                foundTarget1 = true
+            }
+            if rightSubtreeInfo.foundTargetChild2 {
+                foundTarget2 = true
+            }
+            if let commonAncestorInfoAfterCheckingSubtree = self.commonAncestorInfoAfterCheckingSubtree(targetChild1: targetChild1, targetChild2: targetChild2, foundTarget1: foundTarget1, foundTarget2: foundTarget2) {
+                return commonAncestorInfoAfterCheckingSubtree
+            }
+        }
+
+        // At this point, a common ancestor has not yet been found
+        return CommonAncestorInfo(foundTargetChild1: foundTarget1, foundTargetChild2: foundTarget2, firstCommonAncestor: nil)
+    }
+
+    func commonAncestorInfoAfterCheckingSubtree(targetChild1: Element, targetChild2: Element, foundTarget1: Bool, foundTarget2: Bool) -> CommonAncestorInfo? {
+        guard (foundTarget1 && foundTarget2) else {
+            return nil // The common ancestor has not yet been found
+        }
+        let parentIsFirstCommonAncestor = ((self.data == targetChild1) || (self.data == targetChild2))
+        if parentIsFirstCommonAncestor {
+            return CommonAncestorInfo(foundTargetChild1: true, foundTargetChild2: true, firstCommonAncestor: nil)
+        } else {
+            return CommonAncestorInfo(foundTargetChild1: true, foundTargetChild2: true, firstCommonAncestor: self.data) // Self is first common ancestor
         }
     }
 }
