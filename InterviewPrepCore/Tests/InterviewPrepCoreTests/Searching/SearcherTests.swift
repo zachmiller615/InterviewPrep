@@ -195,3 +195,44 @@ extension SearcherTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Find Magic Index
+extension SearcherTests {
+    func test_FindMagicIndex_ExistsLeft() {
+        // Given
+        let searcher = Searcher()
+        let sortedArray = [-1, 1, 3, 4, 5]
+        let expectedResult = 1
+
+        // When
+        let computedResult = searcher.findMagicIndex(in: sortedArray)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_FindMagicIndex_ExistsRight() {
+        // Given
+        let searcher = Searcher()
+        let sortedArray = [-1, 0, 1, 3, 5]
+        let expectedResult = 3
+
+        // When
+        let computedResult = searcher.findMagicIndex(in: sortedArray)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_FindMagicIndex_DoesNotExist() {
+        // Given
+        let searcher = Searcher()
+        let sortedArray = [5, 6, 7, 8, 9]
+
+        // When
+        let computedResult = searcher.findMagicIndex(in: sortedArray)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+}

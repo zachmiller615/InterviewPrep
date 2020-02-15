@@ -54,6 +54,26 @@ struct Searcher {
         }
         return nil
     }
+
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// A magic index in an array A[0...n-1] is defined to be an index such that A[i] = i.
+    /// Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.
+    func findMagicIndex(in sortedArray: [Int]) -> Int? {
+        var low = 0
+        var high = (sortedArray.count - 1)
+        var middle = ((low + high) / 2)
+        while (low <= high) {
+            middle = ((low + high) / 2)
+            if (sortedArray[middle] == middle) {
+                return middle
+            } else if (sortedArray[middle] > middle) {
+                high = (middle - 1) // Search left
+            } else {
+                low = (middle + 1) // Search right
+            }
+        }
+        return nil // No magic index found
+    }
 }
 
 // Private Methods
