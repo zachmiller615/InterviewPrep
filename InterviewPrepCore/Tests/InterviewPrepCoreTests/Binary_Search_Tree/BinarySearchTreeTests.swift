@@ -270,6 +270,44 @@ extension BinarySearchTreeTests {
     }
 }
 
+// Test Cases for Creation Sequences
+extension BinarySearchTreeTests {
+    func test_CreationSequences_EmptyCase() {
+        // Given
+        let binarySearchTree = BinarySearchTree<Int>()
+        let expectedResult: [[Int]] = []
+
+        // When
+        let computedResult = binarySearchTree.creationSequences()
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_CreationSequences_BasicCase() {
+        // Given
+        let elements = [50, 75, 62, 25, 12]
+        let binarySearchTree = BinarySearchTree<Int>()
+        for element in elements {
+            binarySearchTree.insert(element)
+        }
+        let expectedResult = [
+            [50, 75, 62, 25, 12],
+            [50, 75, 25, 62, 12],
+            [50, 75, 25, 12, 62],
+            [50, 25, 75, 62, 12],
+            [50, 25, 75, 12, 62],
+            [50, 25, 12, 75, 62]
+        ]
+
+        // When
+        let computedResult = binarySearchTree.creationSequences()
+
+        // Then
+        XCTAssertEqual(Set(computedResult), Set(expectedResult))
+    }
+}
+
 // Test Cases for Create With Minimal Height
 extension BinarySearchTreeTests {
     func test_CreateWithMinimalHeight_OddNumberOfElements() {

@@ -38,8 +38,20 @@ class BinarySearchTree<Element> where Element: Comparable {
         self.inOrderSuccessor(of: data, in: self.root)
     }
 
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// A binary search tree was created by traversing through an array from left to right and inserting each element.
+    /// Given a binary search tree with distinct elements, print all possible arrays that could have led to this tree.
+    func creationSequences() -> [[Element]] {
+        guard let root = self.root else {
+            return []
+        }
+        return self.creationSequences(of: root)
+    }
+
     func printTraversal(with traversalType: BinaryTreeTraversalType) {
-        guard let root = self.root else { return }
+        guard let root = self.root else {
+            return
+        }
         print("----------")
         switch traversalType {
         case .inOrder:
@@ -174,6 +186,44 @@ private extension BinarySearchTree {
 
         // At this point, targetData is the greatest element in the binary search tree
         return nil
+    }
+
+    func creationSequences(of node: BinaryTreeNode<Element>) -> [[Element]] {
+        let arrayMerger = ArrayMerger()
+        var leftTreeSequences: [[Element]] = []
+        var rightTreeSequences: [[Element]] = []
+        var currentTreeSequences: [[Element]] = []
+
+        // Get child tree sequences
+        if let leftChild = node.leftChild {
+            leftTreeSequences = self.creationSequences(of: leftChild)
+        }
+        if let rightChild = node.rightChild {
+            rightTreeSequences = self.creationSequences(of: rightChild)
+        }
+
+        // Merge child tree sequences
+        if leftTreeSequences.isEmpty {
+            currentTreeSequences.append(contentsOf: rightTreeSequences)
+        } else if rightTreeSequences.isEmpty {
+            currentTreeSequences.append(contentsOf: leftTreeSequences)
+        } else {
+            for leftTreeSequence in leftTreeSequences {
+                for rightTreeSequence in rightTreeSequences {
+                    let mergedSequences = arrayMerger.combinationsKeepingRespectiveOrders(array1: leftTreeSequence, array2: rightTreeSequence)
+                    currentTreeSequences.append(contentsOf: mergedSequences)
+                }
+            }
+        }
+
+        // Add current node.data to the sequences
+        if currentTreeSequences.isEmpty {
+            return [[node.data]]
+        } else {
+            return (currentTreeSequences.map {
+                [node.data] + $0
+            })
+        }
     }
 
     func printInOrderTraversal(of node: BinaryTreeNode<Element>) {
