@@ -27,6 +27,8 @@
 		284FE9227BACBA6FAF6C41AB /* ProjectDependencyGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA7CD488E3B9AF74303E /* ProjectDependencyGraphTests.swift */; };
 		284FEB69E9C702C017A7EBD5 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */; };
 		284FEC10D1F7C2AF7AD55D55 /* BinaryTreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA43C05AC9F2AD1D3EB5 /* BinaryTreeNodeTests.swift */; };
+		284FED8E054D29AA2075652E /* ArrayMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE584B361B4FB5D18F4F5 /* ArrayMerger.swift */; };
+		284FEE5A1FC12E71A0420E45 /* ArrayMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA9BC1A232C2496B8C0C /* ArrayMergerTests.swift */; };
 		284FEFF69AE6044DC79DC71D /* BinaryTreeNodeChildDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */; };
 		OBJ_118 /* BigOExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BigOExamples.swift */; };
 		OBJ_119 /* BigOExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* BigOExercises.swift */; };
@@ -90,10 +92,12 @@
 /* Begin PBXFileReference section */
 		284FE3DE3FE750AE3EEA76BE /* ListyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListyTests.swift; sourceTree = "<group>"; };
 		284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
+		284FE584B361B4FB5D18F4F5 /* ArrayMerger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayMerger.swift; sourceTree = "<group>"; };
 		284FE629EBB1096D43C9A7D3 /* Listy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listy.swift; sourceTree = "<group>"; };
 		284FE6944722439773FF3B6A /* ProjectDependencyGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDependencyGraph.swift; sourceTree = "<group>"; };
 		284FEA43C05AC9F2AD1D3EB5 /* BinaryTreeNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeTests.swift; sourceTree = "<group>"; };
 		284FEA7CD488E3B9AF74303E /* ProjectDependencyGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDependencyGraphTests.swift; sourceTree = "<group>"; };
+		284FEA9BC1A232C2496B8C0C /* ArrayMergerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayMergerTests.swift; sourceTree = "<group>"; };
 		284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeChildDirection.swift; sourceTree = "<group>"; };
 		"InterviewPrepCore::InterviewPrepCore::Product" /* InterviewPrepCore.framework */ = {isa = PBXFileReference; path = InterviewPrepCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"InterviewPrepCore::InterviewPrepCoreTests::Product" /* InterviewPrepCoreTests.xctest */ = {isa = PBXFileReference; path = InterviewPrepCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,12 +175,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		284FE1D379FA19EE288D7116 /* Array_Merger */ = {
+			isa = PBXGroup;
+			children = (
+				284FEA9BC1A232C2496B8C0C /* ArrayMergerTests.swift */,
+			);
+			path = Array_Merger;
+			sourceTree = "<group>";
+		};
 		284FE20635525C44E9D33D80 /* Binary_Tree_Node */ = {
 			isa = PBXGroup;
 			children = (
 				284FEA43C05AC9F2AD1D3EB5 /* BinaryTreeNodeTests.swift */,
 			);
 			path = Binary_Tree_Node;
+			sourceTree = "<group>";
+		};
+		284FEB7C4799F08B9DAA90F2 /* Array_Merger */ = {
+			isa = PBXGroup;
+			children = (
+				284FE584B361B4FB5D18F4F5 /* ArrayMerger.swift */,
+			);
+			path = Array_Merger;
 			sourceTree = "<group>";
 		};
 		OBJ_101 /* Stack */ = {
@@ -460,6 +480,7 @@
 				OBJ_106 /* Trie */,
 				OBJ_108 /* XCTestManifests.swift */,
 				284FE20635525C44E9D33D80 /* Binary_Tree_Node */,
+				284FE1D379FA19EE288D7116 /* Array_Merger */,
 			);
 			name = InterviewPrepCoreTests;
 			path = Tests/InterviewPrepCoreTests;
@@ -545,6 +566,7 @@
 				OBJ_60 /* Stack */,
 				OBJ_63 /* String_Builder */,
 				OBJ_65 /* Trie */,
+				284FEB7C4799F08B9DAA90F2 /* Array_Merger */,
 			);
 			name = InterviewPrepCore;
 			path = Sources/InterviewPrepCore;
@@ -762,6 +784,7 @@
 				284FEFF69AE6044DC79DC71D /* BinaryTreeNodeChildDirection.swift in Sources */,
 				284FE4E8FDC5BCCDB2D19040 /* ProjectDependencyGraph.swift in Sources */,
 				284FE77EF9DD34401636DFE6 /* Listy.swift in Sources */,
+				284FED8E054D29AA2075652E /* ArrayMerger.swift in Sources */,
 			);
 		};
 		OBJ_159 /* Sources */ = {
@@ -797,6 +820,7 @@
 				284FEC10D1F7C2AF7AD55D55 /* BinaryTreeNodeTests.swift in Sources */,
 				284FE9227BACBA6FAF6C41AB /* ProjectDependencyGraphTests.swift in Sources */,
 				284FE1EC86C1C0AF414B4A91 /* ListyTests.swift in Sources */,
+				284FEE5A1FC12E71A0420E45 /* ArrayMergerTests.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
