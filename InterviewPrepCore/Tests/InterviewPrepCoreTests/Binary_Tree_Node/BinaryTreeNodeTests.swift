@@ -158,6 +158,116 @@ extension BinaryTreeNodeTests {
     }
 }
 
+// Test Cases for Contains Subtree
+extension BinaryTreeNodeTests {
+    func test_ContainsSubtree_True() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1), node2 = BinaryTreeNode(data: 2), node3 = BinaryTreeNode(data: 3), node4 = BinaryTreeNode(data: 4), node5 = BinaryTreeNode(data: 5), node6 = BinaryTreeNode(data: 6),
+                node7 = BinaryTreeNode(data: 7), node8 = BinaryTreeNode(data: 8), node9 = BinaryTreeNode(data: 9), node10 = BinaryTreeNode(data: 10), node11 = BinaryTreeNode(data: 11), node12 = BinaryTreeNode(data: 12),
+                node13 = BinaryTreeNode(data: 13), node14 = BinaryTreeNode(data: 14), node15 = BinaryTreeNode(data: 15), node16 = BinaryTreeNode(data: 16), node17 = BinaryTreeNode(data: 17),
+                node18 = BinaryTreeNode(data: 18), node19 = BinaryTreeNode(data: 19), node20 = BinaryTreeNode(data: 20), node21 = BinaryTreeNode(data: 21), node22 = BinaryTreeNode(data: 22),
+                node23 = BinaryTreeNode(data: 23), node24 = BinaryTreeNode(data: 24), node25 = BinaryTreeNode(data: 25), node26 = BinaryTreeNode(data: 26), node27 = BinaryTreeNode(data: 27),
+                node28 = BinaryTreeNode(data: 28), node29 = BinaryTreeNode(data: 29), node30 = BinaryTreeNode(data: 30)
+        node1.leftChild = node2; node1.rightChild = node3; node2.leftChild = node4; node2.rightChild = node5; node3.leftChild = node6; node3.rightChild = node7; node4.leftChild = node16; node5.leftChild = node8
+        node6.rightChild = node9; node7.rightChild = node13; node8.leftChild = node10; node9.leftChild = node12; node10.leftChild = node20; node10.rightChild = node11; node11.leftChild = node15; node11.rightChild = node19
+        node12.leftChild = node22; node12.rightChild = node14; node13.rightChild = node18; node14.leftChild = node27; node14.rightChild = node17; node15.rightChild = node21; node17.rightChild = node24
+        node18.leftChild = node28; node18.rightChild = node23; node19.leftChild = node30; node20.leftChild = node29; node24.leftChild = node25; node25.rightChild = node26
+
+        let t2_node12 = BinaryTreeNode(data: 12), t2_node14 = BinaryTreeNode(data: 14), t2_node17 = BinaryTreeNode(data: 17), t2_node22 = BinaryTreeNode(data: 22), t2_node24 = BinaryTreeNode(data: 24),
+                t2_node25 = BinaryTreeNode(data: 25), t2_node26 = BinaryTreeNode(data: 26), t2_node27 = BinaryTreeNode(data: 27)
+        t2_node12.leftChild = t2_node22; t2_node12.rightChild = t2_node14; t2_node14.leftChild = t2_node27; t2_node14.rightChild = t2_node17; t2_node17.rightChild = t2_node24; t2_node24.leftChild = t2_node25
+        t2_node25.rightChild = t2_node26
+
+        // When
+        let computedResult = node1.containsSubtree(t2_node12)
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_ContainsSubtree_False_SameNodesDifferentStructure() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1), node2 = BinaryTreeNode(data: 2), node3 = BinaryTreeNode(data: 3), node4 = BinaryTreeNode(data: 4), node5 = BinaryTreeNode(data: 5), node6 = BinaryTreeNode(data: 6),
+                node7 = BinaryTreeNode(data: 7), node8 = BinaryTreeNode(data: 8), node9 = BinaryTreeNode(data: 9), node10 = BinaryTreeNode(data: 10), node11 = BinaryTreeNode(data: 11), node12 = BinaryTreeNode(data: 12),
+                node13 = BinaryTreeNode(data: 13), node14 = BinaryTreeNode(data: 14), node15 = BinaryTreeNode(data: 15), node16 = BinaryTreeNode(data: 16), node17 = BinaryTreeNode(data: 17),
+                node18 = BinaryTreeNode(data: 18), node19 = BinaryTreeNode(data: 19), node20 = BinaryTreeNode(data: 20), node21 = BinaryTreeNode(data: 21), node22 = BinaryTreeNode(data: 22),
+                node23 = BinaryTreeNode(data: 23), node24 = BinaryTreeNode(data: 24), node25 = BinaryTreeNode(data: 25), node26 = BinaryTreeNode(data: 26), node27 = BinaryTreeNode(data: 27),
+                node28 = BinaryTreeNode(data: 28), node29 = BinaryTreeNode(data: 29), node30 = BinaryTreeNode(data: 30)
+        node1.leftChild = node2; node1.rightChild = node3; node2.leftChild = node4; node2.rightChild = node5; node3.leftChild = node6; node3.rightChild = node7; node4.leftChild = node16; node5.leftChild = node8
+        node6.rightChild = node9; node7.rightChild = node13; node8.leftChild = node10; node9.leftChild = node12; node10.leftChild = node20; node10.rightChild = node11; node11.leftChild = node15; node11.rightChild = node19
+        node12.leftChild = node22; node12.rightChild = node14; node13.rightChild = node18; node14.leftChild = node27; node14.rightChild = node17; node15.rightChild = node21; node17.rightChild = node24
+        node18.leftChild = node28; node18.rightChild = node23; node19.leftChild = node30; node20.leftChild = node29; node24.leftChild = node25
+
+        let t2_node12 = BinaryTreeNode(data: 12), t2_node14 = BinaryTreeNode(data: 14), t2_node17 = BinaryTreeNode(data: 17), t2_node22 = BinaryTreeNode(data: 22), t2_node24 = BinaryTreeNode(data: 24),
+                t2_node25 = BinaryTreeNode(data: 25), t2_node26 = BinaryTreeNode(data: 26), t2_node27 = BinaryTreeNode(data: 27)
+        t2_node12.leftChild = t2_node22; t2_node12.rightChild = t2_node14; t2_node14.leftChild = t2_node27; t2_node14.rightChild = t2_node17; t2_node17.rightChild = t2_node24; t2_node24.leftChild = t2_node25
+
+        // Different structure
+        node25.leftChild = node26
+        t2_node25.rightChild = t2_node26
+
+        // When
+        let computedResult = node1.containsSubtree(t2_node12)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_ContainsSubtree_False_ExtraNodeInLargerTree() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1), node2 = BinaryTreeNode(data: 2), node3 = BinaryTreeNode(data: 3), node4 = BinaryTreeNode(data: 4), node5 = BinaryTreeNode(data: 5), node6 = BinaryTreeNode(data: 6),
+                node7 = BinaryTreeNode(data: 7), node8 = BinaryTreeNode(data: 8), node9 = BinaryTreeNode(data: 9), node10 = BinaryTreeNode(data: 10), node11 = BinaryTreeNode(data: 11), node12 = BinaryTreeNode(data: 12),
+                node13 = BinaryTreeNode(data: 13), node14 = BinaryTreeNode(data: 14), node15 = BinaryTreeNode(data: 15), node16 = BinaryTreeNode(data: 16), node17 = BinaryTreeNode(data: 17),
+                node18 = BinaryTreeNode(data: 18), node19 = BinaryTreeNode(data: 19), node20 = BinaryTreeNode(data: 20), node21 = BinaryTreeNode(data: 21), node22 = BinaryTreeNode(data: 22),
+                node23 = BinaryTreeNode(data: 23), node24 = BinaryTreeNode(data: 24), node25 = BinaryTreeNode(data: 25), node26 = BinaryTreeNode(data: 26), node27 = BinaryTreeNode(data: 27),
+                node28 = BinaryTreeNode(data: 28), node29 = BinaryTreeNode(data: 29), node30 = BinaryTreeNode(data: 30)
+        node1.leftChild = node2; node1.rightChild = node3; node2.leftChild = node4; node2.rightChild = node5; node3.leftChild = node6; node3.rightChild = node7; node4.leftChild = node16; node5.leftChild = node8
+        node6.rightChild = node9; node7.rightChild = node13; node8.leftChild = node10; node9.leftChild = node12; node10.leftChild = node20; node10.rightChild = node11; node11.leftChild = node15; node11.rightChild = node19
+        node12.leftChild = node22; node12.rightChild = node14; node13.rightChild = node18; node14.leftChild = node27; node14.rightChild = node17; node15.rightChild = node21; node17.rightChild = node24
+        node18.leftChild = node28; node18.rightChild = node23; node19.leftChild = node30; node20.leftChild = node29; node24.leftChild = node25; node25.rightChild = node26
+
+        let t2_node12 = BinaryTreeNode(data: 12), t2_node14 = BinaryTreeNode(data: 14), t2_node17 = BinaryTreeNode(data: 17), t2_node22 = BinaryTreeNode(data: 22), t2_node24 = BinaryTreeNode(data: 24),
+                t2_node25 = BinaryTreeNode(data: 25), t2_node26 = BinaryTreeNode(data: 26), t2_node27 = BinaryTreeNode(data: 27)
+        t2_node12.leftChild = t2_node22; t2_node12.rightChild = t2_node14; t2_node14.leftChild = t2_node27; t2_node14.rightChild = t2_node17; t2_node17.rightChild = t2_node24; t2_node24.leftChild = t2_node25
+        t2_node25.rightChild = t2_node26
+
+        node17.leftChild = BinaryTreeNode(data: 31) // Extra node
+
+        // When
+        let computedResult = node1.containsSubtree(t2_node12)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_ContainsSubtree_False_ExtraNodeInSmallerTree() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1), node2 = BinaryTreeNode(data: 2), node3 = BinaryTreeNode(data: 3), node4 = BinaryTreeNode(data: 4), node5 = BinaryTreeNode(data: 5), node6 = BinaryTreeNode(data: 6),
+                node7 = BinaryTreeNode(data: 7), node8 = BinaryTreeNode(data: 8), node9 = BinaryTreeNode(data: 9), node10 = BinaryTreeNode(data: 10), node11 = BinaryTreeNode(data: 11), node12 = BinaryTreeNode(data: 12),
+                node13 = BinaryTreeNode(data: 13), node14 = BinaryTreeNode(data: 14), node15 = BinaryTreeNode(data: 15), node16 = BinaryTreeNode(data: 16), node17 = BinaryTreeNode(data: 17),
+                node18 = BinaryTreeNode(data: 18), node19 = BinaryTreeNode(data: 19), node20 = BinaryTreeNode(data: 20), node21 = BinaryTreeNode(data: 21), node22 = BinaryTreeNode(data: 22),
+                node23 = BinaryTreeNode(data: 23), node24 = BinaryTreeNode(data: 24), node25 = BinaryTreeNode(data: 25), node26 = BinaryTreeNode(data: 26), node27 = BinaryTreeNode(data: 27),
+                node28 = BinaryTreeNode(data: 28), node29 = BinaryTreeNode(data: 29), node30 = BinaryTreeNode(data: 30)
+        node1.leftChild = node2; node1.rightChild = node3; node2.leftChild = node4; node2.rightChild = node5; node3.leftChild = node6; node3.rightChild = node7; node4.leftChild = node16; node5.leftChild = node8
+        node6.rightChild = node9; node7.rightChild = node13; node8.leftChild = node10; node9.leftChild = node12; node10.leftChild = node20; node10.rightChild = node11; node11.leftChild = node15; node11.rightChild = node19
+        node12.leftChild = node22; node12.rightChild = node14; node13.rightChild = node18; node14.leftChild = node27; node14.rightChild = node17; node15.rightChild = node21; node17.rightChild = node24
+        node18.leftChild = node28; node18.rightChild = node23; node19.leftChild = node30; node20.leftChild = node29; node24.leftChild = node25; node25.rightChild = node26
+
+        let t2_node12 = BinaryTreeNode(data: 12), t2_node14 = BinaryTreeNode(data: 14), t2_node17 = BinaryTreeNode(data: 17), t2_node22 = BinaryTreeNode(data: 22), t2_node24 = BinaryTreeNode(data: 24),
+                t2_node25 = BinaryTreeNode(data: 25), t2_node26 = BinaryTreeNode(data: 26), t2_node27 = BinaryTreeNode(data: 27)
+        t2_node12.leftChild = t2_node22; t2_node12.rightChild = t2_node14; t2_node14.leftChild = t2_node27; t2_node14.rightChild = t2_node17; t2_node17.rightChild = t2_node24; t2_node24.leftChild = t2_node25
+        t2_node25.rightChild = t2_node26
+
+        t2_node17.leftChild = BinaryTreeNode(data: 31) // Extra node
+
+        // When
+        let computedResult = node1.containsSubtree(t2_node12)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+}
+
 // Test Cases for List of Depths
 extension BinaryTreeNodeTests {
     func test_ListOfDepths() {
@@ -297,5 +407,38 @@ extension BinaryTreeNodeTests {
 
         // Then
         XCTAssertFalse(computedResult)
+    }
+}
+
+// Test Cases for Pre Order Traversal With Nil Nodes
+extension BinaryTreeNodeTests {
+    func test_PreOrderTraversalWithNilNodes_Case1() {
+        // Given
+        let node12 = BinaryTreeNode(data: 12), node14 = BinaryTreeNode(data: 14), node17 = BinaryTreeNode(data: 17), node22 = BinaryTreeNode(data: 22), node24 = BinaryTreeNode(data: 24), node25 = BinaryTreeNode(data: 25),
+                node26 = BinaryTreeNode(data: 26), node27 = BinaryTreeNode(data: 27)
+        node12.leftChild = node22; node12.rightChild = node14; node14.leftChild = node27; node14.rightChild = node17; node17.rightChild = node24; node24.leftChild = node25; node25.rightChild = node26
+
+        let expectedResult = [12, 22, nil, nil, 14, 27, nil, nil, 17, nil, 24, 25, nil, 26, nil, nil, nil]
+
+        // When
+        let computedResult = BinaryTreeNode.preOrderTraversalWithNilNodes(root: node12)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_PreOrderTraversalWithNilNodes_Case2() {
+        // Given
+        let node12 = BinaryTreeNode(data: 12), node14 = BinaryTreeNode(data: 14), node17 = BinaryTreeNode(data: 17), node22 = BinaryTreeNode(data: 22), node24 = BinaryTreeNode(data: 24), node25 = BinaryTreeNode(data: 25),
+                node26 = BinaryTreeNode(data: 26), node27 = BinaryTreeNode(data: 27)
+        node12.leftChild = node22; node12.rightChild = node14; node14.leftChild = node27; node14.rightChild = node17; node17.rightChild = node24; node24.leftChild = node25; node25.leftChild = node26
+
+        let expectedResult = [12, 22, nil, nil, 14, 27, nil, nil, 17, nil, 24, 25, 26, nil, nil, nil, nil]
+
+        // When
+        let computedResult = BinaryTreeNode.preOrderTraversalWithNilNodes(root: node12)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
     }
 }

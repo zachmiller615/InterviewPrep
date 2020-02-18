@@ -30,6 +30,13 @@ class BinaryTreeNode<Element> {
     func isBalanced() -> Bool {
         (self.heightIfBalanced() != nil)
     }
+
+    // Static Functions
+    static func preOrderTraversalWithNilNodes(root: BinaryTreeNode<Element>) -> [Element?] {
+        var traversal: [Element?] = []
+        BinaryTreeNode.preOrderTraversalWithNilNodes(currentNode: root, traversal: &traversal)
+        return traversal
+    }
 }
 
 extension BinaryTreeNode where Element: Equatable {
@@ -48,6 +55,27 @@ extension BinaryTreeNode where Element: Equatable {
     func firstCommonAncestor(of child1: Element, and child2: Element) -> Element? {
         let commonAncestorInfo = self.commonAncestorInfo(targetChild1: child1, targetChild2: child2)
         return commonAncestorInfo.firstCommonAncestor
+    }
+
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// T1 and T2 are two very large binary trees, with T1 much bigger than T2.
+    /// Create an algorithm to determine if T2 is a subtree of T1.
+    /// A tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical to T2.
+    /// That is, if you cut off the tree at node n, the two trees would be identical.
+    func containsSubtree(_ possibleSubtree: BinaryTreeNode<Element>) -> Bool {
+        if (self.data == possibleSubtree.data) {
+            let possibleSubtreeTraversal = BinaryTreeNode.preOrderTraversalWithNilNodes(root: possibleSubtree)
+            let currentNodeTraversal = BinaryTreeNode.preOrderTraversalWithNilNodes(root: self)
+            if (possibleSubtreeTraversal == currentNodeTraversal) {
+                return true
+            }
+        }
+        let leftSideContainsSubtree = (self.leftChild?.containsSubtree(possibleSubtree) ?? false)
+        if leftSideContainsSubtree {
+            return true
+        }
+        let rightSideContainsSubtree = (self.rightChild?.containsSubtree(possibleSubtree) ?? false)
+        return rightSideContainsSubtree
     }
 }
 
@@ -179,5 +207,22 @@ private extension BinaryTreeNode where Element: Comparable {
         let currentTreeMin = leftSubtreeExists ? leftSubtreeRange!.lowerBound : self.data
         let currentTreeMax = rightSubtreeExists ? rightSubtreeRange!.upperBound : self.data
         return (currentTreeMin...currentTreeMax)
+    }
+}
+
+// Private Static Functions
+private extension BinaryTreeNode {
+    static func preOrderTraversalWithNilNodes(currentNode: BinaryTreeNode, traversal: inout [Element?]) {
+        traversal.append(currentNode.data)
+        if let leftChild = currentNode.leftChild {
+            BinaryTreeNode.preOrderTraversalWithNilNodes(currentNode: leftChild, traversal: &traversal)
+        } else {
+            traversal.append(nil)
+        }
+        if let rightChild = currentNode.rightChild {
+            BinaryTreeNode.preOrderTraversalWithNilNodes(currentNode: rightChild, traversal: &traversal)
+        } else {
+            traversal.append(nil)
+        }
     }
 }
