@@ -442,3 +442,44 @@ extension BinaryTreeNodeTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Paths With Sum
+extension BinaryTreeNodeTests {
+    func test_PathsWithSum_BasicCase() {
+        // Given
+        let node1 = BinaryTreeNode(data: 1), node2 = BinaryTreeNode(data: 2), node3 = BinaryTreeNode(data: 3), node4 = BinaryTreeNode(data: 4), node5 = BinaryTreeNode(data: 5), node6 = BinaryTreeNode(data: 6),
+                node7 = BinaryTreeNode(data: 7), node0 = BinaryTreeNode(data: 0), nodeMinus2 = BinaryTreeNode(data: -2), nodeMinus3 = BinaryTreeNode(data: -3), nodeMinus1 = BinaryTreeNode(data: -1),
+                nodeMinus4 = BinaryTreeNode(data: -4), node8 = BinaryTreeNode(data: 8), nodeMinus5 = BinaryTreeNode(data: -5)
+        node1.leftChild = node2; node1.rightChild = node3; node2.leftChild = node4; node2.rightChild = node5; node3.leftChild = node6; node3.rightChild = node7; node4.leftChild = node0; node5.rightChild = nodeMinus2
+        node6.leftChild = nodeMinus3; node0.rightChild = nodeMinus1; nodeMinus3.leftChild = nodeMinus4; nodeMinus3.rightChild = node8; node8.leftChild = nodeMinus5
+
+        let targetSum = 10
+        let expectedResult = 3
+
+        // When
+        let computedResult = node1.pathsWithSum(targetSum: targetSum)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_PathsWithSum_LargerInput() {
+        // Given
+        let node100 = BinaryTreeNode(data: 100), node300 = BinaryTreeNode(data: 300), node17 = BinaryTreeNode(data: 17), node100_2 = BinaryTreeNode(data: 100), node2 = BinaryTreeNode(data: 2),
+                node6 = BinaryTreeNode(data: 6), nodeMinus14 = BinaryTreeNode(data: -14), node14 = BinaryTreeNode(data: 14), node4 = BinaryTreeNode(data: 4), node5 = BinaryTreeNode(data: 5),
+                node30 = BinaryTreeNode(data: 30), node2_2 = BinaryTreeNode(data: 2), nodeMinus5 = BinaryTreeNode(data: -5), node3 = BinaryTreeNode(data: 3), node5_2 = BinaryTreeNode(data: 5),
+                node11 = BinaryTreeNode(data: 11), nodeMinus1 = BinaryTreeNode(data: -1)
+        node100.leftChild = node300; node100.rightChild = node17; node300.leftChild = node100_2; node17.leftChild = node2; node17.rightChild = node6; node100_2.leftChild = nodeMinus14; node100_2.rightChild = node14
+        node6.leftChild = node4; node14.leftChild = node5; node4.leftChild = node30; node5.rightChild = node2_2; node30.leftChild = nodeMinus5; node2_2.leftChild = node3; nodeMinus5.rightChild = node5_2
+        node5_2.leftChild = node11; node11.rightChild = nodeMinus1
+
+        let targetSum = 10
+        let expectedResult = 4
+
+        // When
+        let computedResult = node100.pathsWithSum(targetSum: targetSum)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}

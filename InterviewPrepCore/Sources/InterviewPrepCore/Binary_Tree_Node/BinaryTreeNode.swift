@@ -85,6 +85,38 @@ extension BinaryTreeNode where Element: Comparable {
     }
 }
 
+extension BinaryTreeNode where Element: AdditiveArithmetic {
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// You are given a binary tree in which each node contains an integer value (which might be positive or negative).
+    /// Design an algorithm to count the number of paths that sum to a given value.
+    /// The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).
+    func pathsWithSum(targetSum: Element) -> Int {
+        self.pathsWithSumInfo(targetSum: targetSum).numberOfValidPaths
+    }
+
+    private struct PathsWithSumInfo {
+        let numberOfValidPaths: Int
+        let pathSums: [Element]
+    }
+
+    private func pathsWithSumInfo(targetSum: Element) -> PathsWithSumInfo {
+        let defaultPathsInfo = PathsWithSumInfo(numberOfValidPaths: 0, pathSums: [])
+        let leftSubtreeInfo = (self.leftChild?.pathsWithSumInfo(targetSum: targetSum) ?? defaultPathsInfo)
+        let rightSubtreeInfo = (self.rightChild?.pathsWithSumInfo(targetSum: targetSum) ?? defaultPathsInfo)
+        let numberOfValidPathsInChildren = (leftSubtreeInfo.numberOfValidPaths + rightSubtreeInfo.numberOfValidPaths)
+        var pathSums = (leftSubtreeInfo.pathSums + rightSubtreeInfo.pathSums)
+        pathSums = pathSums.map { (pathSum: Element) in
+            pathSum + self.data
+        }
+        pathSums.append(self.data)
+        let numberOfValidPathsWithSelf = pathSums.filter { (pathSum: Element) in
+            (pathSum == targetSum)
+        }.count
+        let numberOfTotalValidPaths = (numberOfValidPathsInChildren + numberOfValidPathsWithSelf)
+        return PathsWithSumInfo(numberOfValidPaths: numberOfTotalValidPaths, pathSums: pathSums)
+    }
+}
+
 // Private Inner Data Structures
 private extension BinaryTreeNode {
     struct CommonAncestorInfo {
