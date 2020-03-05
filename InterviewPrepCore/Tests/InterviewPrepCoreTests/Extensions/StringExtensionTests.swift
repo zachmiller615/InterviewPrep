@@ -59,3 +59,18 @@ extension StringExtensionTests {
         XCTAssertFalse(computedResult)
     }
 }
+
+// Test Cases for Replace Spaces With Percent 20
+extension StringExtensionTests {
+    func test_ReplaceSpacesWithPercent20() {
+        // Given
+        var string = "Mr John Smith    "
+        let expectedResult = "Mr%20John%20Smith"
+
+        // When
+        string.replaceSpacesWithPercent20(trueLength: 13)
+
+        // Then
+        XCTAssertEqual(string, expectedResult)
+    }
+}
