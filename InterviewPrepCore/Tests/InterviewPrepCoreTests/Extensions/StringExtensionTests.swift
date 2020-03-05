@@ -47,7 +47,7 @@ extension StringExtensionTests {
         XCTAssertTrue(computedResult)
     }
 
-    func test_Permutation_False() {
+    func test_IsPermutation_False() {
         // Given
         let string = "excellent"
         let otherString = "lecnexlea"
@@ -72,5 +72,41 @@ extension StringExtensionTests {
 
         // Then
         XCTAssertEqual(string, expectedResult)
+    }
+}
+
+// Test Cases for Is Permutation of Palindrome
+extension StringExtensionTests {
+    func test_IsPermutationOfPalindrome_True_EvenCount() {
+        // Given
+        let string = "abab"
+
+        // When
+        let computedResult = string.isPermutationOfPalindrome()
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsPermutationOfPalindrome_True_OddCount() {
+        // Given
+        let string = "tactcoa"
+
+        // When
+        let computedResult = string.isPermutationOfPalindrome()
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsPermutationOfPalindrome_False() {
+        // Given
+        let string = "abcabd"
+
+        // When
+        let computedResult = string.isPermutationOfPalindrome()
+
+        // Then
+        XCTAssertFalse(computedResult)
     }
 }

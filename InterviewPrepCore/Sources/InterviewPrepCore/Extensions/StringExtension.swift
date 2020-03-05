@@ -65,4 +65,16 @@ extension String {
             } // Else, the for-loop will end
         }
     }
+
+    func isPermutationOfPalindrome() -> Bool {
+        var unmatchedCharacters = Set<Character>()
+        for character in self {
+            if unmatchedCharacters.contains(character) {
+                unmatchedCharacters.remove(character)
+            } else {
+                unmatchedCharacters.insert(character)
+            }
+        }
+        return (unmatchedCharacters.count < 2)
+    }
 }
