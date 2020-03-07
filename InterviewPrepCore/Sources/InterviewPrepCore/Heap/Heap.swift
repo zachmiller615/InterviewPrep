@@ -13,6 +13,10 @@ class Heap<ElementType> where ElementType: Comparable {
     }
 
     // Methods
+    func isEmpty() -> Bool {
+        self.data.isEmpty
+    }
+
     func peek() -> ElementType? {
         self.data.first
     }
@@ -35,6 +39,9 @@ class Heap<ElementType> where ElementType: Comparable {
         }
         let elementToReturn = self.data.first
         let lastElement = self.data.removeLast()
+        if (self.data.isEmpty) {
+            return elementToReturn
+        }
         self.data[0] = lastElement
         var parentIndex = 0
         var leftChildIndex = self.leftChildIndex(parentIndex: parentIndex)
