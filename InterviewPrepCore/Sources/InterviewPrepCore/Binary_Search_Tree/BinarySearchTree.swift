@@ -48,22 +48,6 @@ class BinarySearchTree<Element> where Element: Comparable {
         return self.creationSequences(of: root)
     }
 
-    func printTraversal(with traversalType: BinaryTreeTraversalType) {
-        guard let root = self.root else {
-            return
-        }
-        print("----------")
-        switch traversalType {
-        case .inOrder:
-            self.printInOrderTraversal(of: root)
-        case .preOrder:
-            self.printPreOrderTraversal(of: root)
-        case .postOrder:
-            self.printPostOrderTraversal(of: root)
-        }
-        print("----------")
-    }
-
     // Static Functions
     static func createWithMinimalHeight(sortedElements: [Element]) -> BinarySearchTree<Element> {
         let binarySearchTree = BinarySearchTree()
@@ -224,36 +208,6 @@ private extension BinarySearchTree {
                 [node.data] + $0
             })
         }
-    }
-
-    func printInOrderTraversal(of node: BinaryTreeNode<Element>) {
-        if let leftChild = node.leftChild {
-            self.printInOrderTraversal(of: leftChild)
-        }
-        print(node.data)
-        if let rightChild = node.rightChild {
-            self.printInOrderTraversal(of: rightChild)
-        }
-    }
-
-    func printPreOrderTraversal(of node: BinaryTreeNode<Element>) {
-        print(node.data)
-        if let leftChild = node.leftChild {
-            self.printPreOrderTraversal(of: leftChild)
-        }
-        if let rightChild = node.rightChild {
-            self.printPreOrderTraversal(of: rightChild)
-        }
-    }
-
-    func printPostOrderTraversal(of node: BinaryTreeNode<Element>) {
-        if let leftChild = node.leftChild {
-            self.printPostOrderTraversal(of: leftChild)
-        }
-        if let rightChild = node.rightChild {
-            self.printPostOrderTraversal(of: rightChild)
-        }
-        print(node.data)
     }
 }
 

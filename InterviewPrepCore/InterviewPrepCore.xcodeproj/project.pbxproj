@@ -41,17 +41,10 @@
 		284FEE5A1FC12E71A0420E45 /* ArrayMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA9BC1A232C2496B8C0C /* ArrayMergerTests.swift */; };
 		284FEF3BC2DAE89A03D50889 /* DiscreteMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEBB865EABC2324710E3D /* DiscreteMath.swift */; };
 		284FEFF69AE6044DC79DC71D /* BinaryTreeNodeChildDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */; };
-		OBJ_118 /* BigOExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BigOExamples.swift */; };
-		OBJ_119 /* BigOExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* BigOExercises.swift */; };
-		OBJ_120 /* DropTheConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* DropTheConstants.swift */; };
-		OBJ_121 /* FunctionCallStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* FunctionCallStack.swift */; };
-		OBJ_122 /* MultiPartAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* MultiPartAlgorithms.swift */; };
-		OBJ_123 /* RecursiveRunTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* RecursiveRunTimes.swift */; };
 		OBJ_124 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* BinarySearchTree.swift */; };
 		OBJ_125 /* BinaryTreeTraversalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* BinaryTreeTraversalType.swift */; };
 		OBJ_126 /* BinaryTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* BinaryTreeNode.swift */; };
 		OBJ_127 /* BitManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* BitManipulator.swift */; };
-		OBJ_128 /* CommandLineTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* CommandLineTool.swift */; };
 		OBJ_129 /* DynamicProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* DynamicProgramming.swift */; };
 		OBJ_130 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* ArrayExtension.swift */; };
 		OBJ_131 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* IntExtension.swift */; };
@@ -100,6 +93,23 @@
 		OBJ_193 /* InterviewPrepCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "InterviewPrepCore::InterviewPrepCore::Product" /* InterviewPrepCore.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FE9CB977241BBD9600F45817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "InterviewPrepCore::InterviewPrepCore";
+			remoteInfo = InterviewPrepCore;
+		};
+		FE9CB978241BBD9800F45817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "InterviewPrepCore::InterviewPrepCoreTests";
+			remoteInfo = InterviewPrepCoreTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		284FE1AEC6854DB433DBE80C /* AdjacencyMatrixError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjacencyMatrixError.swift; sourceTree = "<group>"; };
 		284FE26B7BE80A370607579A /* RecursionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursionTests.swift; sourceTree = "<group>"; };
@@ -121,78 +131,75 @@
 		284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeChildDirection.swift; sourceTree = "<group>"; };
 		284FEDB6313543FCA2E37DEE /* WeightedAdjacencyMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedAdjacencyMatrix.swift; sourceTree = "<group>"; };
 		284FEDD6EBF61EA6A30055EE /* AdjacencyMatrixTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjacencyMatrixTests.swift; sourceTree = "<group>"; };
-		"InterviewPrepCore::InterviewPrepCore::Product" /* InterviewPrepCore.framework */ = {isa = PBXFileReference; path = InterviewPrepCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"InterviewPrepCore::InterviewPrepCoreTests::Product" /* InterviewPrepCoreTests.xctest */ = {isa = PBXFileReference; path = InterviewPrepCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_10 /* BigOExamples.swift */ = {isa = PBXFileReference; path = BigOExamples.swift; sourceTree = "<group>"; };
-		OBJ_100 /* SorterTests.swift */ = {isa = PBXFileReference; path = SorterTests.swift; sourceTree = "<group>"; };
-		OBJ_102 /* StackTests.swift */ = {isa = PBXFileReference; path = StackTests.swift; sourceTree = "<group>"; };
-		OBJ_103 /* StackWithMinTests.swift */ = {isa = PBXFileReference; path = StackWithMinTests.swift; sourceTree = "<group>"; };
-		OBJ_105 /* StringBuilderTests.swift */ = {isa = PBXFileReference; path = StringBuilderTests.swift; sourceTree = "<group>"; };
-		OBJ_107 /* TrieTests.swift */ = {isa = PBXFileReference; path = TrieTests.swift; sourceTree = "<group>"; };
-		OBJ_108 /* XCTestManifests.swift */ = {isa = PBXFileReference; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_11 /* BigOExercises.swift */ = {isa = PBXFileReference; path = BigOExercises.swift; sourceTree = "<group>"; };
-		OBJ_112 /* README.md */ = {isa = PBXFileReference; path = README.md; sourceTree = "<group>"; };
-		OBJ_12 /* DropTheConstants.swift */ = {isa = PBXFileReference; path = DropTheConstants.swift; sourceTree = "<group>"; };
-		OBJ_13 /* FunctionCallStack.swift */ = {isa = PBXFileReference; path = FunctionCallStack.swift; sourceTree = "<group>"; };
-		OBJ_14 /* MultiPartAlgorithms.swift */ = {isa = PBXFileReference; path = MultiPartAlgorithms.swift; sourceTree = "<group>"; };
-		OBJ_15 /* RecursiveRunTimes.swift */ = {isa = PBXFileReference; path = RecursiveRunTimes.swift; sourceTree = "<group>"; };
-		OBJ_17 /* BinarySearchTree.swift */ = {isa = PBXFileReference; path = BinarySearchTree.swift; sourceTree = "<group>"; };
-		OBJ_18 /* BinaryTreeTraversalType.swift */ = {isa = PBXFileReference; path = BinaryTreeTraversalType.swift; sourceTree = "<group>"; };
-		OBJ_20 /* BinaryTreeNode.swift */ = {isa = PBXFileReference; path = BinaryTreeNode.swift; sourceTree = "<group>"; };
-		OBJ_22 /* BitManipulator.swift */ = {isa = PBXFileReference; path = BitManipulator.swift; sourceTree = "<group>"; };
-		OBJ_24 /* CommandLineTool.swift */ = {isa = PBXFileReference; path = CommandLineTool.swift; sourceTree = "<group>"; };
-		OBJ_26 /* DynamicProgramming.swift */ = {isa = PBXFileReference; path = DynamicProgramming.swift; sourceTree = "<group>"; };
-		OBJ_28 /* ArrayExtension.swift */ = {isa = PBXFileReference; path = ArrayExtension.swift; sourceTree = "<group>"; };
-		OBJ_29 /* IntExtension.swift */ = {isa = PBXFileReference; path = IntExtension.swift; sourceTree = "<group>"; };
-		OBJ_30 /* StringExtension.swift */ = {isa = PBXFileReference; path = StringExtension.swift; sourceTree = "<group>"; };
-		OBJ_32 /* CardGame.swift */ = {isa = PBXFileReference; path = CardGame.swift; sourceTree = "<group>"; };
-		OBJ_34 /* EdgeDirectionType.swift */ = {isa = PBXFileReference; path = EdgeDirectionType.swift; sourceTree = "<group>"; };
-		OBJ_35 /* Graph.swift */ = {isa = PBXFileReference; path = Graph.swift; sourceTree = "<group>"; };
-		OBJ_37 /* GridPath.swift */ = {isa = PBXFileReference; path = GridPath.swift; sourceTree = "<group>"; };
-		OBJ_38 /* GridPoint.swift */ = {isa = PBXFileReference; path = GridPoint.swift; sourceTree = "<group>"; };
-		OBJ_40 /* HashTable.swift */ = {isa = PBXFileReference; path = HashTable.swift; sourceTree = "<group>"; };
-		OBJ_42 /* Heap.swift */ = {isa = PBXFileReference; path = Heap.swift; sourceTree = "<group>"; };
-		OBJ_43 /* HeapType.swift */ = {isa = PBXFileReference; path = HeapType.swift; sourceTree = "<group>"; };
-		OBJ_45 /* LinkedList.swift */ = {isa = PBXFileReference; path = LinkedList.swift; sourceTree = "<group>"; };
-		OBJ_47 /* ListNode.swift */ = {isa = PBXFileReference; path = ListNode.swift; sourceTree = "<group>"; };
-		OBJ_49 /* PrimeNumberChecker.swift */ = {isa = PBXFileReference; path = PrimeNumberChecker.swift; sourceTree = "<group>"; };
-		OBJ_51 /* Queue.swift */ = {isa = PBXFileReference; path = Queue.swift; sourceTree = "<group>"; };
-		OBJ_55 /* Searcher.swift */ = {isa = PBXFileReference; path = Searcher.swift; sourceTree = "<group>"; };
-		OBJ_57 /* Restaurant.swift */ = {isa = PBXFileReference; path = Restaurant.swift; sourceTree = "<group>"; };
-		OBJ_59 /* Sorter.swift */ = {isa = PBXFileReference; path = Sorter.swift; sourceTree = "<group>"; };
+		"InterviewPrepCore::InterviewPrepCore::Product" /* InterviewPrepCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = InterviewPrepCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"InterviewPrepCore::InterviewPrepCoreTests::Product" /* InterviewPrepCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterviewPrepCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_100 /* SorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorterTests.swift; sourceTree = "<group>"; };
+		OBJ_102 /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		OBJ_103 /* StackWithMinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackWithMinTests.swift; sourceTree = "<group>"; };
+		OBJ_105 /* StringBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringBuilderTests.swift; sourceTree = "<group>"; };
+		OBJ_107 /* TrieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieTests.swift; sourceTree = "<group>"; };
+		OBJ_108 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_112 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_17 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
+		OBJ_18 /* BinaryTreeTraversalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeTraversalType.swift; sourceTree = "<group>"; };
+		OBJ_20 /* BinaryTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeNode.swift; sourceTree = "<group>"; };
+		OBJ_22 /* BitManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitManipulator.swift; sourceTree = "<group>"; };
+		OBJ_26 /* DynamicProgramming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProgramming.swift; sourceTree = "<group>"; };
+		OBJ_28 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		OBJ_29 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		OBJ_30 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		OBJ_32 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		OBJ_34 /* EdgeDirectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeDirectionType.swift; sourceTree = "<group>"; };
+		OBJ_35 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		OBJ_37 /* GridPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPath.swift; sourceTree = "<group>"; };
+		OBJ_38 /* GridPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
+		OBJ_40 /* HashTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
+		OBJ_42 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		OBJ_43 /* HeapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapType.swift; sourceTree = "<group>"; };
+		OBJ_45 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		OBJ_47 /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
+		OBJ_49 /* PrimeNumberChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeNumberChecker.swift; sourceTree = "<group>"; };
+		OBJ_51 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		OBJ_55 /* Searcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searcher.swift; sourceTree = "<group>"; };
+		OBJ_57 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		OBJ_59 /* Sorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorter.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_61 /* Stack.swift */ = {isa = PBXFileReference; path = Stack.swift; sourceTree = "<group>"; };
-		OBJ_62 /* StackWithMin.swift */ = {isa = PBXFileReference; path = StackWithMin.swift; sourceTree = "<group>"; };
-		OBJ_64 /* StringBuilder.swift */ = {isa = PBXFileReference; path = StringBuilder.swift; sourceTree = "<group>"; };
-		OBJ_66 /* Trie.swift */ = {isa = PBXFileReference; path = Trie.swift; sourceTree = "<group>"; };
-		OBJ_67 /* TrieSearchType.swift */ = {isa = PBXFileReference; path = TrieSearchType.swift; sourceTree = "<group>"; };
-		OBJ_71 /* BinarySearchTreeTests.swift */ = {isa = PBXFileReference; path = BinarySearchTreeTests.swift; sourceTree = "<group>"; };
-		OBJ_73 /* BitManipulatorTests.swift */ = {isa = PBXFileReference; path = BitManipulatorTests.swift; sourceTree = "<group>"; };
-		OBJ_75 /* DynamicProgrammingTests.swift */ = {isa = PBXFileReference; path = DynamicProgrammingTests.swift; sourceTree = "<group>"; };
-		OBJ_77 /* StringExtensionTests.swift */ = {isa = PBXFileReference; path = StringExtensionTests.swift; sourceTree = "<group>"; };
-		OBJ_79 /* CardGameTests.swift */ = {isa = PBXFileReference; path = CardGameTests.swift; sourceTree = "<group>"; };
-		OBJ_81 /* GraphTests.swift */ = {isa = PBXFileReference; path = GraphTests.swift; sourceTree = "<group>"; };
-		OBJ_83 /* HashTableTests.swift */ = {isa = PBXFileReference; path = HashTableTests.swift; sourceTree = "<group>"; };
-		OBJ_85 /* HeapTests.swift */ = {isa = PBXFileReference; path = HeapTests.swift; sourceTree = "<group>"; };
-		OBJ_87 /* LinkedListTests.swift */ = {isa = PBXFileReference; path = LinkedListTests.swift; sourceTree = "<group>"; };
-		OBJ_89 /* PrimeNumberCheckerTests.swift */ = {isa = PBXFileReference; path = PrimeNumberCheckerTests.swift; sourceTree = "<group>"; };
-		OBJ_91 /* QueueTests.swift */ = {isa = PBXFileReference; path = QueueTests.swift; sourceTree = "<group>"; };
-		OBJ_95 /* SearcherTests.swift */ = {isa = PBXFileReference; path = SearcherTests.swift; sourceTree = "<group>"; };
-		OBJ_97 /* RestaurantTests.swift */ = {isa = PBXFileReference; path = RestaurantTests.swift; sourceTree = "<group>"; };
-		OBJ_99 /* Person.swift */ = {isa = PBXFileReference; path = Person.swift; sourceTree = "<group>"; };
+		OBJ_61 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		OBJ_62 /* StackWithMin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackWithMin.swift; sourceTree = "<group>"; };
+		OBJ_64 /* StringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringBuilder.swift; sourceTree = "<group>"; };
+		OBJ_66 /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
+		OBJ_67 /* TrieSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieSearchType.swift; sourceTree = "<group>"; };
+		OBJ_71 /* BinarySearchTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeTests.swift; sourceTree = "<group>"; };
+		OBJ_73 /* BitManipulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitManipulatorTests.swift; sourceTree = "<group>"; };
+		OBJ_75 /* DynamicProgrammingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProgrammingTests.swift; sourceTree = "<group>"; };
+		OBJ_77 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		OBJ_79 /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
+		OBJ_81 /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
+		OBJ_83 /* HashTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTableTests.swift; sourceTree = "<group>"; };
+		OBJ_85 /* HeapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapTests.swift; sourceTree = "<group>"; };
+		OBJ_87 /* LinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListTests.swift; sourceTree = "<group>"; };
+		OBJ_89 /* PrimeNumberCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeNumberCheckerTests.swift; sourceTree = "<group>"; };
+		OBJ_91 /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
+		OBJ_95 /* SearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherTests.swift; sourceTree = "<group>"; };
+		OBJ_97 /* RestaurantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTests.swift; sourceTree = "<group>"; };
+		OBJ_99 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		OBJ_154 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		OBJ_192 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
 			files = (
 				OBJ_193 /* InterviewPrepCore.framework in Frameworks */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -259,7 +266,6 @@
 				OBJ_102 /* StackTests.swift */,
 				OBJ_103 /* StackWithMinTests.swift */,
 			);
-			name = Stack;
 			path = Stack;
 			sourceTree = "<group>";
 		};
@@ -268,7 +274,6 @@
 			children = (
 				OBJ_105 /* StringBuilderTests.swift */,
 			);
-			name = String_Builder;
 			path = String_Builder;
 			sourceTree = "<group>";
 		};
@@ -277,7 +282,6 @@
 			children = (
 				OBJ_107 /* TrieTests.swift */,
 			);
-			name = Trie;
 			path = Trie;
 			sourceTree = "<group>";
 		};
@@ -288,7 +292,6 @@
 				"InterviewPrepCore::InterviewPrepCoreTests::Product" /* InterviewPrepCoreTests.xctest */,
 			);
 			name = Products;
-			path = "";
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		OBJ_16 /* Binary_Search_Tree */ = {
@@ -297,7 +300,6 @@
 				OBJ_17 /* BinarySearchTree.swift */,
 				OBJ_18 /* BinaryTreeTraversalType.swift */,
 			);
-			name = Binary_Search_Tree;
 			path = Binary_Search_Tree;
 			sourceTree = "<group>";
 		};
@@ -307,7 +309,6 @@
 				OBJ_20 /* BinaryTreeNode.swift */,
 				284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */,
 			);
-			name = Binary_Tree_Node;
 			path = Binary_Tree_Node;
 			sourceTree = "<group>";
 		};
@@ -316,17 +317,7 @@
 			children = (
 				OBJ_22 /* BitManipulator.swift */,
 			);
-			name = Bit_Manipulation;
 			path = Bit_Manipulation;
-			sourceTree = "<group>";
-		};
-		OBJ_23 /* Command_Line_Tool */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_24 /* CommandLineTool.swift */,
-			);
-			name = Command_Line_Tool;
-			path = Command_Line_Tool;
 			sourceTree = "<group>";
 		};
 		OBJ_25 /* Dynamic_Programming */ = {
@@ -334,7 +325,6 @@
 			children = (
 				OBJ_26 /* DynamicProgramming.swift */,
 			);
-			name = Dynamic_Programming;
 			path = Dynamic_Programming;
 			sourceTree = "<group>";
 		};
@@ -345,7 +335,6 @@
 				OBJ_29 /* IntExtension.swift */,
 				OBJ_30 /* StringExtension.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -354,7 +343,6 @@
 			children = (
 				OBJ_32 /* CardGame.swift */,
 			);
-			name = Factory_Method;
 			path = Factory_Method;
 			sourceTree = "<group>";
 		};
@@ -370,7 +358,6 @@
 				284FEDB6313543FCA2E37DEE /* WeightedAdjacencyMatrix.swift */,
 				284FE75A631A629E635B2160 /* DijkstrasAlgorithmHeapElement.swift */,
 			);
-			name = Graph;
 			path = Graph;
 			sourceTree = "<group>";
 		};
@@ -380,7 +367,6 @@
 				OBJ_37 /* GridPath.swift */,
 				OBJ_38 /* GridPoint.swift */,
 			);
-			name = Grid;
 			path = Grid;
 			sourceTree = "<group>";
 		};
@@ -389,7 +375,6 @@
 			children = (
 				OBJ_40 /* HashTable.swift */,
 			);
-			name = Hash_Table;
 			path = Hash_Table;
 			sourceTree = "<group>";
 		};
@@ -399,7 +384,6 @@
 				OBJ_42 /* Heap.swift */,
 				OBJ_43 /* HeapType.swift */,
 			);
-			name = Heap;
 			path = Heap;
 			sourceTree = "<group>";
 		};
@@ -408,7 +392,6 @@
 			children = (
 				OBJ_45 /* LinkedList.swift */,
 			);
-			name = Linked_List;
 			path = Linked_List;
 			sourceTree = "<group>";
 		};
@@ -417,7 +400,6 @@
 			children = (
 				OBJ_47 /* ListNode.swift */,
 			);
-			name = List_Node;
 			path = List_Node;
 			sourceTree = "<group>";
 		};
@@ -426,7 +408,6 @@
 			children = (
 				OBJ_49 /* PrimeNumberChecker.swift */,
 			);
-			name = Prime_Numbers;
 			path = Prime_Numbers;
 			sourceTree = "<group>";
 		};
@@ -439,7 +420,7 @@
 				OBJ_109 /* Products */,
 				OBJ_112 /* README.md */,
 			);
-			path = "";
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Queue */ = {
@@ -447,7 +428,6 @@
 			children = (
 				OBJ_51 /* Queue.swift */,
 			);
-			name = Queue;
 			path = Queue;
 			sourceTree = "<group>";
 		};
@@ -457,7 +437,6 @@
 				OBJ_55 /* Searcher.swift */,
 				284FE629EBB1096D43C9A7D3 /* Listy.swift */,
 			);
-			name = Searching;
 			path = Searching;
 			sourceTree = "<group>";
 		};
@@ -466,7 +445,6 @@
 			children = (
 				OBJ_57 /* Restaurant.swift */,
 			);
-			name = Singleton_Class;
 			path = Singleton_Class;
 			sourceTree = "<group>";
 		};
@@ -475,7 +453,6 @@
 			children = (
 				OBJ_59 /* Sorter.swift */,
 			);
-			name = Sorting;
 			path = Sorting;
 			sourceTree = "<group>";
 		};
@@ -485,7 +462,6 @@
 				OBJ_61 /* Stack.swift */,
 				OBJ_62 /* StackWithMin.swift */,
 			);
-			name = Stack;
 			path = Stack;
 			sourceTree = "<group>";
 		};
@@ -494,7 +470,6 @@
 			children = (
 				OBJ_64 /* StringBuilder.swift */,
 			);
-			name = String_Builder;
 			path = String_Builder;
 			sourceTree = "<group>";
 		};
@@ -504,7 +479,6 @@
 				OBJ_66 /* Trie.swift */,
 				OBJ_67 /* TrieSearchType.swift */,
 			);
-			name = Trie;
 			path = Trie;
 			sourceTree = "<group>";
 		};
@@ -514,7 +488,6 @@
 				OBJ_69 /* InterviewPrepCoreTests */,
 			);
 			name = Tests;
-			path = "";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_69 /* InterviewPrepCoreTests */ = {
@@ -553,7 +526,6 @@
 				OBJ_8 /* InterviewPrepCore */,
 			);
 			name = Sources;
-			path = "";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_70 /* Binary_Search_Tree */ = {
@@ -561,7 +533,6 @@
 			children = (
 				OBJ_71 /* BinarySearchTreeTests.swift */,
 			);
-			name = Binary_Search_Tree;
 			path = Binary_Search_Tree;
 			sourceTree = "<group>";
 		};
@@ -570,7 +541,6 @@
 			children = (
 				OBJ_73 /* BitManipulatorTests.swift */,
 			);
-			name = Bit_Manipulation;
 			path = Bit_Manipulation;
 			sourceTree = "<group>";
 		};
@@ -579,7 +549,6 @@
 			children = (
 				OBJ_75 /* DynamicProgrammingTests.swift */,
 			);
-			name = Dynamic_Programming;
 			path = Dynamic_Programming;
 			sourceTree = "<group>";
 		};
@@ -589,7 +558,6 @@
 				OBJ_77 /* StringExtensionTests.swift */,
 				284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -598,18 +566,15 @@
 			children = (
 				OBJ_79 /* CardGameTests.swift */,
 			);
-			name = Factory_Method;
 			path = Factory_Method;
 			sourceTree = "<group>";
 		};
 		OBJ_8 /* InterviewPrepCore */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* Big_O */,
 				OBJ_16 /* Binary_Search_Tree */,
 				OBJ_19 /* Binary_Tree_Node */,
 				OBJ_21 /* Bit_Manipulation */,
-				OBJ_23 /* Command_Line_Tool */,
 				OBJ_25 /* Dynamic_Programming */,
 				OBJ_27 /* Extensions */,
 				OBJ_31 /* Factory_Method */,
@@ -643,7 +608,6 @@
 				284FEDD6EBF61EA6A30055EE /* AdjacencyMatrixTests.swift */,
 				284FE399FA9B34078691CA0D /* WeightedAdjacencyMatrixTests.swift */,
 			);
-			name = Graph;
 			path = Graph;
 			sourceTree = "<group>";
 		};
@@ -652,7 +616,6 @@
 			children = (
 				OBJ_83 /* HashTableTests.swift */,
 			);
-			name = Hash_Table;
 			path = Hash_Table;
 			sourceTree = "<group>";
 		};
@@ -661,7 +624,6 @@
 			children = (
 				OBJ_85 /* HeapTests.swift */,
 			);
-			name = Heap;
 			path = Heap;
 			sourceTree = "<group>";
 		};
@@ -670,7 +632,6 @@
 			children = (
 				OBJ_87 /* LinkedListTests.swift */,
 			);
-			name = Linked_List;
 			path = Linked_List;
 			sourceTree = "<group>";
 		};
@@ -679,22 +640,7 @@
 			children = (
 				OBJ_89 /* PrimeNumberCheckerTests.swift */,
 			);
-			name = Prime_Numbers;
 			path = Prime_Numbers;
-			sourceTree = "<group>";
-		};
-		OBJ_9 /* Big_O */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_10 /* BigOExamples.swift */,
-				OBJ_11 /* BigOExercises.swift */,
-				OBJ_12 /* DropTheConstants.swift */,
-				OBJ_13 /* FunctionCallStack.swift */,
-				OBJ_14 /* MultiPartAlgorithms.swift */,
-				OBJ_15 /* RecursiveRunTimes.swift */,
-			);
-			name = Big_O;
-			path = Big_O;
 			sourceTree = "<group>";
 		};
 		OBJ_90 /* Queue */ = {
@@ -702,7 +648,6 @@
 			children = (
 				OBJ_91 /* QueueTests.swift */,
 			);
-			name = Queue;
 			path = Queue;
 			sourceTree = "<group>";
 		};
@@ -712,7 +657,6 @@
 				OBJ_95 /* SearcherTests.swift */,
 				284FE3DE3FE750AE3EEA76BE /* ListyTests.swift */,
 			);
-			name = Searching;
 			path = Searching;
 			sourceTree = "<group>";
 		};
@@ -721,7 +665,6 @@
 			children = (
 				OBJ_97 /* RestaurantTests.swift */,
 			);
-			name = Singleton_Class;
 			path = Singleton_Class;
 			sourceTree = "<group>";
 		};
@@ -731,7 +674,6 @@
 				OBJ_99 /* Person.swift */,
 				OBJ_100 /* SorterTests.swift */,
 			);
-			name = Sorting;
 			path = Sorting;
 			sourceTree = "<group>";
 		};
@@ -744,6 +686,8 @@
 			buildPhases = (
 				OBJ_117 /* Sources */,
 				OBJ_154 /* Frameworks */,
+			);
+			buildRules = (
 			);
 			dependencies = (
 			);
@@ -759,6 +703,8 @@
 				OBJ_170 /* Sources */,
 				OBJ_192 /* Frameworks */,
 			);
+			buildRules = (
+			);
 			dependencies = (
 				OBJ_194 /* PBXTargetDependency */,
 			);
@@ -772,6 +718,8 @@
 			buildConfigurationList = OBJ_156 /* Build configuration list for PBXNativeTarget "InterviewPrepCorePackageDescription" */;
 			buildPhases = (
 				OBJ_159 /* Sources */,
+			);
+			buildRules = (
 			);
 			dependencies = (
 			);
@@ -797,7 +745,8 @@
 			);
 			mainGroup = OBJ_5 /*  */;
 			productRefGroup = OBJ_109 /* Products */;
-			projectDirPath = .;
+			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				"InterviewPrepCore::InterviewPrepCore" /* InterviewPrepCore */,
 				"InterviewPrepCore::SwiftPMPackageDescription" /* InterviewPrepCorePackageDescription */,
@@ -810,18 +759,12 @@
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_117 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
 			files = (
-				OBJ_118 /* BigOExamples.swift in Sources */,
-				OBJ_119 /* BigOExercises.swift in Sources */,
-				OBJ_120 /* DropTheConstants.swift in Sources */,
-				OBJ_121 /* FunctionCallStack.swift in Sources */,
-				OBJ_122 /* MultiPartAlgorithms.swift in Sources */,
-				OBJ_123 /* RecursiveRunTimes.swift in Sources */,
 				OBJ_124 /* BinarySearchTree.swift in Sources */,
 				OBJ_125 /* BinaryTreeTraversalType.swift in Sources */,
 				OBJ_126 /* BinaryTreeNode.swift in Sources */,
 				OBJ_127 /* BitManipulator.swift in Sources */,
-				OBJ_128 /* CommandLineTool.swift in Sources */,
 				OBJ_129 /* DynamicProgramming.swift in Sources */,
 				OBJ_130 /* ArrayExtension.swift in Sources */,
 				OBJ_131 /* IntExtension.swift in Sources */,
@@ -858,15 +801,19 @@
 				284FE15E22C5B466633E4264 /* WeightedAdjacencyMatrix.swift in Sources */,
 				284FED3BC9A1C7AFA18AB917 /* DijkstrasAlgorithmHeapElement.swift in Sources */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		OBJ_159 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
 			files = (
 				OBJ_160 /* Package.swift in Sources */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		OBJ_170 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
 			files = (
 				OBJ_171 /* BinarySearchTreeTests.swift in Sources */,
 				OBJ_172 /* BitManipulatorTests.swift in Sources */,
@@ -898,6 +845,7 @@
 				284FE1E1E8A235B5DD87D3A4 /* AdjacencyMatrixTests.swift in Sources */,
 				284FE3A088EC342893F1D934 /* WeightedAdjacencyMatrixTests.swift in Sources */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -905,10 +853,12 @@
 		OBJ_165 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "InterviewPrepCore::InterviewPrepCoreTests" /* InterviewPrepCoreTests */;
+			targetProxy = FE9CB978241BBD9800F45817 /* PBXContainerItemProxy */;
 		};
 		OBJ_194 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "InterviewPrepCore::InterviewPrepCore" /* InterviewPrepCore */;
+			targetProxy = FE9CB977241BBD9600F45817 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -921,32 +871,19 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InterviewPrepCore.xcodeproj/InterviewPrepCore_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-				);
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = InterviewPrepCore;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = InterviewPrepCore;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -962,32 +899,19 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InterviewPrepCore.xcodeproj/InterviewPrepCore_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-				);
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = InterviewPrepCore;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = InterviewPrepCore;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -999,18 +923,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = (
-					"-swift-version",
-					5,
-					"-I",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-					"-target",
-					"x86_64-apple-macosx10.10",
-					"-sdk",
-					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk,
-					"-package-description-version",
-					5.1,
-				);
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1019,18 +932,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = (
-					"-swift-version",
-					5,
-					"-I",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-					"-target",
-					"x86_64-apple-macosx10.10",
-					"-sdk",
-					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk,
-					"-package-description-version",
-					5.1,
-				);
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1056,29 +958,15 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InterviewPrepCore.xcodeproj/InterviewPrepCoreTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@loader_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-				);
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-				);
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = InterviewPrepCoreTests;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1095,29 +983,15 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InterviewPrepCore.xcodeproj/InterviewPrepCoreTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@loader_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-				);
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-				);
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = InterviewPrepCoreTests;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1142,26 +1016,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-DXcode",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = (
-					macosx,
-					iphoneos,
-					iphonesimulator,
-					appletvos,
-					appletvsimulator,
-					watchos,
-					watchsimulator,
-				);
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					SWIFT_PACKAGE,
-					DEBUG,
-				);
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
 			};
@@ -1181,25 +1040,11 @@
 					"SWIFT_PACKAGE=1",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-DXcode",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = (
-					macosx,
-					iphoneos,
-					iphonesimulator,
-					appletvos,
-					appletvsimulator,
-					watchos,
-					watchsimulator,
-				);
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					SWIFT_PACKAGE,
-				);
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				USE_HEADERMAP = NO;
 			};
