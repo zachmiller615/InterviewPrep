@@ -140,9 +140,17 @@ extension BinarySearchTreeTests {
         XCTAssertNil(computedResult)
     }
 
-    func test_Depth_FullTree_Nil() {
+    func test_Depth_FullTree_Nil_9() {
         // When
         let computedResult = self.fullBinarySearchTree.depth(of: 9)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+
+    func test_Depth_FullTree_Nil_0() {
+        // When
+        let computedResult = self.fullBinarySearchTree.depth(of: 0)
 
         // Then
         XCTAssertNil(computedResult)

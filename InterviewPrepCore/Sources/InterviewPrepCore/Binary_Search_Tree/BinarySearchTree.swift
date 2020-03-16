@@ -119,27 +119,24 @@ private extension BinarySearchTree {
     func depth(of data: Element, in node: BinaryTreeNode<Element>) -> Int? {
         if (data == node.data) {
             return 0
-        } else if self.shouldSearchLeft(data: data, in: node) {
+        }
+        if self.shouldSearchLeft(data: data, in: node) {
             if let leftChild = node.leftChild, let leftDepth = self.depth(of: data, in: leftChild) {
                 return (1 + leftDepth)
-            } else {
-                return nil
             }
-        } else {
-            if let rightChild = node.rightChild, let rightDepth = self.depth(of: data, in: rightChild) {
-                return (1 + rightDepth)
-            } else {
-                return nil
-            }
+            return nil
         }
+        if let rightChild = node.rightChild, let rightDepth = self.depth(of: data, in: rightChild) {
+            return (1 + rightDepth)
+        }
+        return nil
     }
 
     func min(in node: BinaryTreeNode<Element>) -> Element {
         if let leftChild = node.leftChild {
             return self.min(in: leftChild)
-        } else {
-            return node.data
         }
+        return node.data
     }
 
     func inOrderSuccessor(of targetData: Element, in optionalCurrentNode: BinaryTreeNode<Element>?) -> Element? {
@@ -201,11 +198,10 @@ private extension BinarySearchTree {
         // Add current node.data to the sequences
         if currentTreeSequences.isEmpty {
             return [[node.data]]
-        } else {
-            return (currentTreeSequences.map {
-                [node.data] + $0
-            })
         }
+        return (currentTreeSequences.map {
+            [node.data] + $0
+        })
     }
 }
 
