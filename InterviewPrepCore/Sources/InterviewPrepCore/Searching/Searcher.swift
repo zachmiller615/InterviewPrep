@@ -10,12 +10,12 @@ struct Searcher {
         var middle = ((low + high) / 2)
         while (low <= high) {
             middle = ((low + high) / 2)
-            if (target < sortedArray[middle]) {
-                high = (middle - 1) // Search left
-            } else if (target > sortedArray[middle]) {
-                low = (middle + 1) // Search right
-            } else {
+            if (target == sortedArray[middle]) {
                 return middle
+            } else if (target < sortedArray[middle]) {
+                high = (middle - 1) // Search left
+            } else {
+                low = (middle + 1) // Search right
             }
         }
         return nil
@@ -85,10 +85,10 @@ private extension Searcher {
         let middle = ((low + high) / 2)
         if (target < sortedArray[middle]) {
             return self.binarySearchRecursive(sortedArray: sortedArray, target: target, low: 0, high: (middle - 1)) // Search left
-        } else if (target > sortedArray[middle]) {
-            return self.binarySearchRecursive(sortedArray: sortedArray, target: target, low: (middle + 1), high: high) // Search right
-        } else {
-            return middle
         }
+        if (target > sortedArray[middle]) {
+            return self.binarySearchRecursive(sortedArray: sortedArray, target: target, low: (middle + 1), high: high) // Search right
+        }
+        return middle
     }
 }

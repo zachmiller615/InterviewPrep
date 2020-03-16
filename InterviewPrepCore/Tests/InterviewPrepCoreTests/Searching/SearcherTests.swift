@@ -14,8 +14,8 @@ extension SearcherTests {
         // Given
         let searcher = Searcher()
         let sortedArray = [1, 2, 3, 4, 5, 6, 7]
-        let target = 6
-        let expectedResult = 5
+        let target = 5
+        let expectedResult = 4
 
         // When
         let computedResult = searcher.binarySearchIterative(sortedArray: sortedArray, target: target)
@@ -44,8 +44,8 @@ extension SearcherTests {
         // Given
         let searcher = Searcher()
         let sortedArray = [1, 2, 3, 4, 5, 6, 7]
-        let target = 6
-        let expectedResult = 5
+        let target = 5
+        let expectedResult = 4
 
         // When
         let computedResult = searcher.binarySearchRecursive(sortedArray: sortedArray, target: target)
