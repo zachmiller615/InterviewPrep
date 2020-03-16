@@ -8,6 +8,32 @@ import XCTest
 class HeapTests: XCTestCase {
 }
 
+// Test Cases for Is Empty
+extension HeapTests {
+    func test_IsEmpty_True() {
+        // Given
+        let heap = Heap<Int>(type: .min)
+
+        // When
+        let computedResult = heap.isEmpty()
+
+        // Then
+        XCTAssertTrue(computedResult)
+    }
+
+    func test_IsEmpty_False() {
+        // Given
+        let heap = Heap<Int>(type: .min)
+        heap.push(1)
+
+        // When
+        let computedResult = heap.isEmpty()
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+}
+
 // Test Cases for Peek
 extension HeapTests {
     func test_Peek_NilCase() {

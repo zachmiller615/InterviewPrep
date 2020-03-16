@@ -26,7 +26,7 @@ class Heap<ElementType> where ElementType: Comparable {
         var childIndex = (self.data.count - 1)
         var parentIndex = self.parentIndex(childIndex: childIndex)
         while (self.parentExists(childIndex: childIndex) &&
-                self.heapInvariantIsBroken(childIndex: childIndex, parentIndex: parentIndex)) {
+                self.heapInvariantIsBroken(validChildIndex: childIndex, validParentIndex: parentIndex)) {
             self.data.swapElements(index1: childIndex, index2: parentIndex)
             childIndex = parentIndex
             parentIndex = self.parentIndex(childIndex: childIndex)
@@ -46,11 +46,8 @@ class Heap<ElementType> where ElementType: Comparable {
         var parentIndex = 0
         var leftChildIndex = self.leftChildIndex(parentIndex: parentIndex)
         var rightChildIndex = self.rightChildIndex(parentIndex: parentIndex)
-        while (self.leftChildExists(parentIndex: parentIndex)) {
-            guard let preferredChildIndex = self.preferredChildIndexForSinkDown(leftChildIndex: leftChildIndex, rightChildIndex: rightChildIndex) else {
-                break
-            }
-            if self.heapInvariantIsBroken(childIndex: preferredChildIndex, parentIndex: parentIndex) {
+        while let preferredChildIndex = self.preferredChildIndexForSinkDown(leftChildIndex: leftChildIndex, rightChildIndex: rightChildIndex) {
+            if self.heapInvariantIsBroken(validChildIndex: preferredChildIndex, validParentIndex: parentIndex) {
                 self.data.swapElements(index1: preferredChildIndex, index2: parentIndex)
                 parentIndex = preferredChildIndex
                 leftChildIndex = self.leftChildIndex(parentIndex: parentIndex)
@@ -65,15 +62,12 @@ class Heap<ElementType> where ElementType: Comparable {
 
 // Private Methods
 private extension Heap {
-    func heapInvariantIsBroken(childIndex: Int, parentIndex: Int) -> Bool {
-        guard (self.data.indexIsValid(childIndex) && self.data.indexIsValid(parentIndex)) else {
-            return false
-        }
+    func heapInvariantIsBroken(validChildIndex: Int, validParentIndex: Int) -> Bool {
         switch self.type {
         case .min:
-            return (self.data[childIndex] < self.data[parentIndex])
+            return (self.data[validChildIndex] < self.data[validParentIndex])
         case .max:
-            return (self.data[childIndex] > self.data[parentIndex])
+            return (self.data[validChildIndex] > self.data[validParentIndex])
         }
     }
 
@@ -108,15 +102,5 @@ private extension Heap {
     func parentExists(childIndex: Int) -> Bool {
         let potentialParentIndex = self.parentIndex(childIndex: childIndex)
         return ((childIndex > 0) && self.data.indexIsValid(potentialParentIndex))
-    }
-
-    func leftChildExists(parentIndex: Int) -> Bool {
-        let potentialLeftChildIndex = self.leftChildIndex(parentIndex: parentIndex)
-        return self.data.indexIsValid(potentialLeftChildIndex)
-    }
-
-    func rightChildExists(parentIndex: Int) -> Bool {
-        let potentialRightChildIndex = self.rightChildIndex(parentIndex: parentIndex)
-        return self.data.indexIsValid(potentialRightChildIndex)
     }
 }
