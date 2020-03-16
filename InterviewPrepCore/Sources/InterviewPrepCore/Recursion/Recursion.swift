@@ -13,10 +13,7 @@ struct Recursion {
         if (operand2 == 0) {
             return 0
         }
-        if let recursiveResult = self.multiply(positiveOperand1: operand1, positiveOperand2: (operand2 - 1)) {
-            return operand1 + recursiveResult
-        } else {
-            return nil
-        }
+        let recursiveResult = self.multiply(positiveOperand1: operand1, positiveOperand2: (operand2 - 1))!
+        return operand1 + recursiveResult
     }
 }
