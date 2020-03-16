@@ -140,7 +140,7 @@ extension LinkedListTests {
 
 // Test Cases for Remove Duplicates
 extension LinkedListTests {
-    func test_RemoveDuplicates() {
+    func test_RemoveDuplicates_BasicCase() {
         // Given
         let linkedList = LinkedList<String>()
         for letter in ["A", "B", "C", "A", "B", "C", "D", "A"] {
@@ -155,11 +155,24 @@ extension LinkedListTests {
         // Then
         XCTAssertEqual(computedResult, expectedResult)
     }
+
+    func test_RemoveDuplicates_EmptyList() {
+        // Given
+        let linkedList = LinkedList<String>()
+        let expectedResult: [String] = []
+
+        // When
+        linkedList.removeDuplicates()
+        let computedResult = linkedList.toArray()
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
 }
 
 // Test Cases for Element From Last
 extension LinkedListTests {
-    func test_ElementFromLast() {
+    func test_ElementFromLast_BasicCase() {
         // Given
         let linkedList = LinkedList<String>()
         for letter in ["A", "B", "C", "D", "E", "F", "G"] {
@@ -169,10 +182,36 @@ extension LinkedListTests {
         let expectedResult = "E"
 
         // When
-        linkedList.removeDuplicates()
         let computedResult = linkedList.elementFromLast(offsetFromLastElement: offsetFromLastElement)
 
         // Then
         XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_ElementFromLast_EmptyList() {
+        // Given
+        let linkedList = LinkedList<String>()
+        let offsetFromLastElement = 0
+
+        // When
+        let computedResult = linkedList.elementFromLast(offsetFromLastElement: offsetFromLastElement)
+
+        // Then
+        XCTAssertNil(computedResult)
+    }
+
+    func test_ElementFromLast_InvalidOffset() {
+        // Given
+        let linkedList = LinkedList<String>()
+        for letter in ["A", "B", "C", "D", "E", "F", "G"] {
+            linkedList.append(letter)
+        }
+        let offsetFromLastElement = 10
+
+        // When
+        let computedResult = linkedList.elementFromLast(offsetFromLastElement: offsetFromLastElement)
+
+        // Then
+        XCTAssertNil(computedResult)
     }
 }
