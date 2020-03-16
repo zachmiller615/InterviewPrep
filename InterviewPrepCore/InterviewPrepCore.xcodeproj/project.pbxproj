@@ -43,7 +43,6 @@
 		284FEF3BC2DAE89A03D50889 /* DiscreteMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEBB865EABC2324710E3D /* DiscreteMath.swift */; };
 		284FEFF69AE6044DC79DC71D /* BinaryTreeNodeChildDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */; };
 		OBJ_124 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* BinarySearchTree.swift */; };
-		OBJ_125 /* BinaryTreeTraversalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* BinaryTreeTraversalType.swift */; };
 		OBJ_126 /* BinaryTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* BinaryTreeNode.swift */; };
 		OBJ_127 /* BitManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* BitManipulator.swift */; };
 		OBJ_129 /* DynamicProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* DynamicProgramming.swift */; };
@@ -143,7 +142,6 @@
 		OBJ_108 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_112 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_17 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
-		OBJ_18 /* BinaryTreeTraversalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeTraversalType.swift; sourceTree = "<group>"; };
 		OBJ_20 /* BinaryTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeNode.swift; sourceTree = "<group>"; };
 		OBJ_22 /* BitManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitManipulator.swift; sourceTree = "<group>"; };
 		OBJ_26 /* DynamicProgramming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProgramming.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_17 /* BinarySearchTree.swift */,
-				OBJ_18 /* BinaryTreeTraversalType.swift */,
 			);
 			path = Binary_Search_Tree;
 			sourceTree = "<group>";
@@ -765,7 +762,6 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_124 /* BinarySearchTree.swift in Sources */,
-				OBJ_125 /* BinaryTreeTraversalType.swift in Sources */,
 				OBJ_126 /* BinaryTreeNode.swift in Sources */,
 				OBJ_127 /* BitManipulator.swift in Sources */,
 				OBJ_129 /* DynamicProgramming.swift in Sources */,
