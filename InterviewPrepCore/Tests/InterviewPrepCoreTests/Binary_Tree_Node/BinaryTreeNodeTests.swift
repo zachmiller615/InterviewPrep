@@ -96,6 +96,39 @@ extension BinaryTreeNodeTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 
+    func test_FirstCommonAncestor_BothTargetsToTheLeft() {
+        // Given
+        let node50 = BinaryTreeNode(data: 50)
+        let node60 = BinaryTreeNode(data: 60)
+        let node55 = BinaryTreeNode(data: 55)
+        let node15 = BinaryTreeNode(data: 15)
+        let node7 = BinaryTreeNode(data: 7)
+        let node100 = BinaryTreeNode(data: 100)
+        let node25 = BinaryTreeNode(data: 25)
+        let node10 = BinaryTreeNode(data: 10)
+        let node40 = BinaryTreeNode(data: 40)
+        let node53 = BinaryTreeNode(data: 53)
+        let node26 = BinaryTreeNode(data: 26)
+        node50.leftChild = node60
+        node50.rightChild = node55
+        node60.leftChild = node15
+        node60.rightChild = node7
+        node55.leftChild = node100
+        node55.rightChild = node25
+        node15.leftChild = node10
+        node7.rightChild = node40
+        node25.leftChild = node53
+        node40.leftChild = node26
+
+        let expectedResult = 60
+
+        // When
+        let computedResult = node50.firstCommonAncestor(of: node10.data, and: node15.data)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
     func test_FirstCommonAncestor_LargeTree() {
         // Given
         let node1 = BinaryTreeNode(data: 1)

@@ -43,13 +43,14 @@ extension BinaryTreeNode where Element: Equatable {
     func contains(_ data: Element) -> Bool {
         if (self.data == data) {
             return true
-        } else if let leftChildContainsData = self.leftChild?.contains(data), leftChildContainsData {
-            return true
-        } else if let rightChildContainsData = self.rightChild?.contains(data), rightChildContainsData {
-            return true
-        } else {
-            return false
         }
+        if let leftChildContainsData = self.leftChild?.contains(data), leftChildContainsData {
+            return true
+        }
+        if let rightChildContainsData = self.rightChild?.contains(data), rightChildContainsData {
+            return true
+        }
+        return false
     }
 
     func firstCommonAncestor(of child1: Element, and child2: Element) -> Element? {
@@ -153,9 +154,8 @@ private extension BinaryTreeNode {
 
         if (abs(leftHeight - rightHeight) > 1) {
             return nil // Current node is unbalanced
-        } else {
-            return (max(leftHeight, rightHeight) + 1) // Current node is balanced; propagate current height
         }
+        return (max(leftHeight, rightHeight) + 1) // Current node is balanced; propagate current height
     }
 }
 
@@ -205,9 +205,8 @@ private extension BinaryTreeNode where Element: Equatable {
         let parentIsFirstCommonAncestor = ((self.data == targetChild1) || (self.data == targetChild2))
         if parentIsFirstCommonAncestor {
             return CommonAncestorInfo(foundTargetChild1: true, foundTargetChild2: true, firstCommonAncestor: nil)
-        } else {
-            return CommonAncestorInfo(foundTargetChild1: true, foundTargetChild2: true, firstCommonAncestor: self.data) // Self is first common ancestor
         }
+        return CommonAncestorInfo(foundTargetChild1: true, foundTargetChild2: true, firstCommonAncestor: self.data) // Self is first common ancestor
     }
 }
 
