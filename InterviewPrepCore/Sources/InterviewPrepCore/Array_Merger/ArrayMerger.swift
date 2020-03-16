@@ -8,7 +8,6 @@ struct ArrayMerger {
         guard (!array1.isEmpty || !array2.isEmpty) else {
             return []
         }
-
         return self.orderCombinationsHelper(array1: array1, array2: array2, combinationArray: [])
     }
 }
