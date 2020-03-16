@@ -8,6 +8,39 @@ import XCTest
 class AdjacencyMatrixTests: XCTestCase {
 }
 
+// Test Cases for Add Edge
+extension AdjacencyMatrixTests {
+    func test_AddEdge_InvalidTargetVertex() {
+        // Given
+        let adjacencyMatrix = AdjacencyMatrix(edgeDirectionType: .undirected, numberOfVertices: 3)
+        let source = 0
+        let target = 3
+
+        // Then
+        XCTAssertThrowsError(try adjacencyMatrix.addEdge(from: source, to: target))
+    }
+
+    func test_AddEdge_InvalidSourceVertex() {
+        // Given
+        let adjacencyMatrix = AdjacencyMatrix(edgeDirectionType: .undirected, numberOfVertices: 3)
+        let source = 3
+        let target = 0
+
+        // Then
+        XCTAssertThrowsError(try adjacencyMatrix.addEdge(from: source, to: target))
+    }
+
+    func test_AddEdge_ValidVertices() {
+        // Given
+        let adjacencyMatrix = AdjacencyMatrix(edgeDirectionType: .undirected, numberOfVertices: 3)
+        let source = 0
+        let target = 2
+
+        // Then
+        XCTAssertNoThrow(try adjacencyMatrix.addEdge(from: source, to: target))
+    }
+}
+
 // Test Cases for Topological Sort
 extension AdjacencyMatrixTests {
     func test_TopologicalSort_BasicCase() {

@@ -19,7 +19,7 @@ class WeightedAdjacencyMatrix {
     // Methods
     func addEdge(source: Int, target: Int, weight: Double) throws {
         guard ((source < numberOfVertices) && (target < numberOfVertices)) else {
-            let invalidVertex = (source < numberOfVertices) ? source : target
+            let invalidVertex = (source < numberOfVertices) ? target : source
             let errorMessage = "Vertex \(invalidVertex) must be less than number of vertices of \(self.numberOfVertices)"
             throw AdjacencyMatrixError.invalidVertex(message: errorMessage)
         }
@@ -42,12 +42,11 @@ class WeightedAdjacencyMatrix {
         var removedVertices = Set<Int>()
 
         // Graph traversal
-        while !remainingElements.isEmpty() {
-            guard let currentHeapElement = remainingElements.poll() else {
-                break // Unexpected code path
-            }
+        var optionalCurrentHeapElement = remainingElements.poll()
+        while let currentHeapElement = optionalCurrentHeapElement {
             let currentVertex = currentHeapElement.vertex
             if (removedVertices.contains(currentVertex)) {
+                optionalCurrentHeapElement = remainingElements.poll()
                 continue // Due to the unideal way of updating heap elements below, the current vertex could be outdated.
             }
             let neighbors = self.getNeighbors(of: currentVertex)
@@ -55,9 +54,7 @@ class WeightedAdjacencyMatrix {
                 if removedVertices.contains(neighbor) {
                     continue // A shorter path to neighbor already exists.
                 }
-                guard let edgeWeight = self.matrix[currentVertex][neighbor] else {
-                    continue // Unexpected code path
-                }
+                let edgeWeight = self.matrix[currentVertex][neighbor]!
                 let potentialDistance = (currentHeapElement.pathWeight + edgeWeight)
                 if (potentialDistance < pathWeights[neighbor]) {
                     pathWeights[neighbor] = potentialDistance
@@ -75,6 +72,7 @@ class WeightedAdjacencyMatrix {
                 }
             }
             removedVertices.insert(currentVertex)
+            optionalCurrentHeapElement = remainingElements.poll()
         }
 
         // Discover path

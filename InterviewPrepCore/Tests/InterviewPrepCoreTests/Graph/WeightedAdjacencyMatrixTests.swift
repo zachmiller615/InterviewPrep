@@ -8,6 +8,42 @@ import XCTest
 class WeightedAdjacencyMatrixTests: XCTestCase {
 }
 
+// Test Cases for Add Edge
+extension WeightedAdjacencyMatrixTests {
+    func test_AddEdge_InvalidTargetVertex() {
+        // Given
+        let adjacencyMatrix = WeightedAdjacencyMatrix(edgeDirectionType: .undirected, numberOfVertices: 3)
+        let source = 0
+        let target = 3
+        let weight = 2.0
+
+        // Then
+        XCTAssertThrowsError(try adjacencyMatrix.addEdge(source: source, target: target, weight: weight))
+    }
+
+    func test_AddEdge_InvalidSourceVertex() {
+        // Given
+        let adjacencyMatrix = WeightedAdjacencyMatrix(edgeDirectionType: .undirected, numberOfVertices: 3)
+        let source = 3
+        let target = 0
+        let weight = 2.0
+
+        // Then
+        XCTAssertThrowsError(try adjacencyMatrix.addEdge(source: source, target: target, weight: weight))
+    }
+
+    func test_AddEdge_ValidVertices() {
+        // Given
+        let adjacencyMatrix = WeightedAdjacencyMatrix(edgeDirectionType: .undirected, numberOfVertices: 3)
+        let source = 0
+        let target = 2
+        let weight = 2.0
+
+        // Then
+        XCTAssertNoThrow(try adjacencyMatrix.addEdge(source: source, target: target, weight: weight))
+    }
+}
+
 // Test Cases for Find Minimum Path
 extension WeightedAdjacencyMatrixTests {
     func test_FindMinimumPath_BasicCase() {

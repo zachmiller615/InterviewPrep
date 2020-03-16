@@ -19,7 +19,7 @@ class AdjacencyMatrix {
     // Methods
     func addEdge(from source: Int, to target: Int) throws {
         guard ((source < numberOfVertices) && (target < numberOfVertices)) else {
-            let invalidVertex = (source < numberOfVertices) ? source : target
+            let invalidVertex = (source < numberOfVertices) ? target : source
             let errorMessage = "Vertex \(invalidVertex) must be less than number of vertices of \(self.numberOfVertices)"
             throw AdjacencyMatrixError.invalidVertex(message: errorMessage)
         }
@@ -36,9 +36,6 @@ class AdjacencyMatrix {
         for vertex in (0..<self.numberOfVertices) {
             do {
                 try self.topologicalSort(currentVertex: vertex, visitedVertices: &visitedVertices, visitingVertices: &visitingVertices, sortOrderStack: &sortOrderStack)
-            } catch TopologicalSortError.cycleDetected {
-                print("Error: cycle detected")
-                return nil
             } catch {
                 print(error)
                 return nil
