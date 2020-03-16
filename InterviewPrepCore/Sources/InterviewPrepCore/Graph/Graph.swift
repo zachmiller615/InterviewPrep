@@ -27,12 +27,11 @@ class Graph<Element> where Element: Hashable {
     }
 
     func hasPath_DepthFirstSearch(from sourceData: Element, to targetData: Element) -> Bool {
-        if let sourceVertex = self.getVertex(withData: sourceData), let targetVertex = self.getVertex(withData: targetData) {
-            var visitedVertices = Set<Vertex<Element>>()
-            return self.hasPath_DepthFirstSearch_Recursive(from: sourceVertex, to: targetVertex, visitedVertices: &visitedVertices)
-        } else {
+        guard let sourceVertex = self.getVertex(withData: sourceData), let targetVertex = self.getVertex(withData: targetData) else {
             return false
         }
+        var visitedVertices = Set<Vertex<Element>>()
+        return self.hasPath_DepthFirstSearch_Recursive(from: sourceVertex, to: targetVertex, visitedVertices: &visitedVertices)
     }
 
     func hasPath_BreadthFirstSearch(from sourceData: Element, to targetData: Element) -> Bool {
@@ -42,20 +41,20 @@ class Graph<Element> where Element: Hashable {
         var visitedVertices = Set<Vertex<Element>>()
         let verticesToProcess = Queue<Vertex<Element>>()
         verticesToProcess.enqueue(sourceVertex)
-        while (!verticesToProcess.isEmpty()) {
-            guard let currentVertex = verticesToProcess.dequeue() else {
-                break
-            }
+        var optionalCurrentVertex = verticesToProcess.dequeue()
+        while let currentVertex = optionalCurrentVertex {
             if (currentVertex == targetVertex) {
                 return true
             }
             if (visitedVertices.contains(currentVertex)) {
+                optionalCurrentVertex = verticesToProcess.dequeue()
                 continue
             }
             visitedVertices.insert(currentVertex)
             for neighbor in currentVertex.neighbors {
                 verticesToProcess.enqueue(neighbor)
             }
+            optionalCurrentVertex = verticesToProcess.dequeue()
         }
         return false
     }
@@ -106,22 +105,5 @@ extension Vertex: Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.data)
-    }
-}
-
-// Graph Debug Representation
-extension Graph: CustomDebugStringConvertible {
-    var debugDescription: String {
-        var description = "Graph:"
-        for vertex in self.vertices {
-            description += "\n\(vertex.data):"
-            for neighbor in vertex.neighbors {
-                description += " \(neighbor.data),"
-            }
-            if (description.last == ",") {
-                description.removeLast()
-            }
-        }
-        return description
     }
 }

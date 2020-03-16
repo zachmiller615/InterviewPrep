@@ -88,6 +88,14 @@ extension GraphTests {
         // Then
         XCTAssertFalse(computedResult)
     }
+
+    func test_HasPathDepthFirstSearch_Directed_False_InvalidVertex() {
+        // When
+        let computedResult = self.directedGraph.hasPath_DepthFirstSearch(from: 1, to: 0)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
 }
 
 // Test Cases for Has Path Breadth First Search
@@ -119,6 +127,14 @@ extension GraphTests {
     func test_HasPathBreadthFirstSearch_Directed_False() {
         // When
         let computedResult = self.directedGraph.hasPath_BreadthFirstSearch(from: 1, to: 6)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_HasPathBreadthFirstSearch_Directed_False_InvalidVertex() {
+        // When
+        let computedResult = self.directedGraph.hasPath_BreadthFirstSearch(from: 1, to: 0)
 
         // Then
         XCTAssertFalse(computedResult)
