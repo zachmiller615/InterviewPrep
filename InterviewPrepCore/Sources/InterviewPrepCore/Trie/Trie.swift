@@ -70,8 +70,7 @@ private extension Trie {
         if (shouldRemoveChildLink) {
             currentNode.children[letter] = nil
             return currentNode.children.isEmpty // Decide if the current node can be deleted as well
-        } else {
-            return false // All necessary child links have been removed or word was not in the trie
         }
+        return false // All necessary child links have been removed or word was not in the trie
     }
 }

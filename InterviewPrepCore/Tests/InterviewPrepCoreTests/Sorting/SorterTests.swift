@@ -256,6 +256,19 @@ extension SorterTests {
         // Then
         XCTAssertNil(computedResult)
     }
+
+    func test_RadixSort_EmptyList() {
+        // Given
+        let sorter = Sorter()
+        let array = [Int]()
+        let expectedResult = [Int]()
+
+        // When
+        let computedResult = sorter.radixSort(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
 }
 
 // Test Cases for Sorted Merge

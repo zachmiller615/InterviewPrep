@@ -96,7 +96,7 @@ struct Sorter {
             }
         }
         guard let max = originalArray.max() else {
-            return nil
+            return originalArray
         }
         let maxNumberOfDigits = max.numberOfDigits
         var resultArray = originalArray
