@@ -27,12 +27,12 @@ struct Listy<Element: Comparable> {
                 highIndex = (middleIndex - 1) // Go left
                 continue
             }
-            if (targetElement < middleElement) {
-                highIndex = (middleIndex - 1) // Go left
-            } else if (targetElement > middleElement) {
-                lowIndex = (middleIndex + 1) // Go right
-            } else {
+            if (targetElement == middleElement) {
                 return middleIndex
+            } else if (targetElement < middleElement) {
+                highIndex = (middleIndex - 1) // Go left
+            } else {
+                lowIndex = (middleIndex + 1) // Go right
             }
         }
         return nil
@@ -44,9 +44,8 @@ private extension Listy {
     func elementAt(index: Int) -> Element? {
         if (index < self.data.count) {
             return self.data[index]
-        } else {
-            return nil
         }
+        return nil
     }
 
     func getApproximateSize() -> Int {
