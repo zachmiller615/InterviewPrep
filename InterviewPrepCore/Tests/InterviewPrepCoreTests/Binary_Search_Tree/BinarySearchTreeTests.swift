@@ -69,9 +69,17 @@ extension BinarySearchTreeTests {
         XCTAssertTrue(computedResult)
     }
 
-    func test_Contains_BasicCase_False() {
+    func test_Contains_BasicCase_False_9() {
         // When
         let computedResult = self.fullBinarySearchTree.contains(9)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_Contains_BasicCase_False_0() {
+        // When
+        let computedResult = self.fullBinarySearchTree.contains(0)
 
         // Then
         XCTAssertFalse(computedResult)

@@ -103,19 +103,17 @@ private extension BinarySearchTree {
     func contains(_ data: Element, in node: BinaryTreeNode<Element>) -> Bool {
         if (data == node.data) {
             return true
-        } else if self.shouldSearchLeft(data: data, in: node) {
+        }
+        if self.shouldSearchLeft(data: data, in: node) {
             if let leftChild = node.leftChild {
                 return self.contains(data, in: leftChild)
-            } else {
-                return false
             }
-        } else {
-            if let rightChild = node.rightChild {
-                return self.contains(data, in: rightChild)
-            } else {
-                return false
-            }
+            return false
         }
+        if let rightChild = node.rightChild {
+            return self.contains(data, in: rightChild)
+        }
+        return false
     }
 
     func depth(of data: Element, in node: BinaryTreeNode<Element>) -> Int? {
