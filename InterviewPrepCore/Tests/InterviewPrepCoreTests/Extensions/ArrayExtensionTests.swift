@@ -24,3 +24,30 @@ extension ArrayExtensionTests {
         XCTAssertEqual(computedResult, expectedResult)
     }
 }
+
+// Test Cases for Swap Elements
+extension ArrayExtensionTests {
+    func test_SwapElements_BasicCase() {
+        // Given
+        var array = [1, 2]
+        let expectedResult = [2, 1]
+
+        // When
+        array.swapElements(index1: 0, index2: 1)
+
+        // Then
+        XCTAssertEqual(array, expectedResult)
+    }
+
+    func test_SwapElements_InvalidIndices() {
+        // Given
+        var array = [1, 2]
+        let expectedResult = [1, 2]
+
+        // When
+        array.swapElements(index1: 0, index2: 2)
+
+        // Then
+        XCTAssertEqual(array, expectedResult)
+    }
+}

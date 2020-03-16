@@ -47,10 +47,22 @@ extension StringExtensionTests {
         XCTAssertTrue(computedResult)
     }
 
-    func test_IsPermutation_False() {
+    func test_IsPermutation_False_SameLength() {
         // Given
         let string = "excellent"
         let otherString = "lecnexlea"
+
+        // When
+        let computedResult = string.isPermutation(of: otherString)
+
+        // Then
+        XCTAssertFalse(computedResult)
+    }
+
+    func test_IsPermutation_False_DifferentLength() {
+        // Given
+        let string = "excellent"
+        let otherString = "lecnexleta"
 
         // When
         let computedResult = string.isPermutation(of: otherString)

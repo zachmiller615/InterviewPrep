@@ -29,6 +29,7 @@
 		284FE40AD9CAF9A1E66F2C04 /* TopologicalSortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE98D876456F39E2D28CA /* TopologicalSortError.swift */; };
 		284FE428A885CE0960BF264B /* AdjacencyMatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE1AEC6854DB433DBE80C /* AdjacencyMatrixError.swift */; };
 		284FE4E8FDC5BCCDB2D19040 /* ProjectDependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE6944722439773FF3B6A /* ProjectDependencyGraph.swift */; };
+		284FE509AFC51B4C18ADE6CC /* IntExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE2C99F64EF9A1F1B84BD /* IntExtensionTests.swift */; };
 		284FE77EF9DD34401636DFE6 /* Listy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE629EBB1096D43C9A7D3 /* Listy.swift */; };
 		284FE9227BACBA6FAF6C41AB /* ProjectDependencyGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA7CD488E3B9AF74303E /* ProjectDependencyGraphTests.swift */; };
 		284FEB69E9C702C017A7EBD5 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */; };
@@ -98,14 +99,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "InterviewPrepCore::InterviewPrepCore";
+			remoteGlobalIDString = InterviewPrepCore::InterviewPrepCore;
 			remoteInfo = InterviewPrepCore;
 		};
 		FE9CB978241BBD9800F45817 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "InterviewPrepCore::InterviewPrepCoreTests";
+			remoteGlobalIDString = InterviewPrepCore::InterviewPrepCoreTests;
 			remoteInfo = InterviewPrepCoreTests;
 		};
 /* End PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 /* Begin PBXFileReference section */
 		284FE1AEC6854DB433DBE80C /* AdjacencyMatrixError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjacencyMatrixError.swift; sourceTree = "<group>"; };
 		284FE26B7BE80A370607579A /* RecursionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursionTests.swift; sourceTree = "<group>"; };
+		284FE2C99F64EF9A1F1B84BD /* IntExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionTests.swift; sourceTree = "<group>"; };
 		284FE399FA9B34078691CA0D /* WeightedAdjacencyMatrixTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedAdjacencyMatrixTests.swift; sourceTree = "<group>"; };
 		284FE3DE3FE750AE3EEA76BE /* ListyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListyTests.swift; sourceTree = "<group>"; };
 		284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 			children = (
 				OBJ_77 /* StringExtensionTests.swift */,
 				284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */,
+				284FE2C99F64EF9A1F1B84BD /* IntExtensionTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				284FEE08EE466D22C9D289EF /* RecursionTests.swift in Sources */,
 				284FE1E1E8A235B5DD87D3A4 /* AdjacencyMatrixTests.swift in Sources */,
 				284FE3A088EC342893F1D934 /* WeightedAdjacencyMatrixTests.swift in Sources */,
+				284FE509AFC51B4C18ADE6CC /* IntExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
