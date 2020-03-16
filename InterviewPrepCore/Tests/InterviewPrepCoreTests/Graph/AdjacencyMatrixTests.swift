@@ -13,21 +13,15 @@ extension AdjacencyMatrixTests {
     func test_TopologicalSort_BasicCase() {
         // Given
         let adjacencyMatrix = AdjacencyMatrix(edgeDirectionType: .directed, numberOfVertices: 8)
-        do {
-            try adjacencyMatrix.addEdge(from: 0, to: 4)
-            try adjacencyMatrix.addEdge(from: 1, to: 0)
-            try adjacencyMatrix.addEdge(from: 1, to: 4)
-            try adjacencyMatrix.addEdge(from: 1, to: 7)
-            try adjacencyMatrix.addEdge(from: 2, to: 0)
-            try adjacencyMatrix.addEdge(from: 3, to: 6)
-            try adjacencyMatrix.addEdge(from: 5, to: 0)
-            try adjacencyMatrix.addEdge(from: 5, to: 1)
-            try adjacencyMatrix.addEdge(from: 5, to: 2)
-        } catch let AdjacencyMatrixError.invalidVertex(message) {
-            print("Error: \(message)")
-        } catch {
-            print("Unexpected error: \(error)")
-        }
+        try! adjacencyMatrix.addEdge(from: 0, to: 4)
+        try! adjacencyMatrix.addEdge(from: 1, to: 0)
+        try! adjacencyMatrix.addEdge(from: 1, to: 4)
+        try! adjacencyMatrix.addEdge(from: 1, to: 7)
+        try! adjacencyMatrix.addEdge(from: 2, to: 0)
+        try! adjacencyMatrix.addEdge(from: 3, to: 6)
+        try! adjacencyMatrix.addEdge(from: 5, to: 0)
+        try! adjacencyMatrix.addEdge(from: 5, to: 1)
+        try! adjacencyMatrix.addEdge(from: 5, to: 2)
 
         // When
         let computedResult = adjacencyMatrix.topologicalSort()
@@ -48,22 +42,16 @@ extension AdjacencyMatrixTests {
     func test_TopologicalSort_NilCase() {
         // Given
         let adjacencyMatrix = AdjacencyMatrix(edgeDirectionType: .directed, numberOfVertices: 8)
-        do {
-            try adjacencyMatrix.addEdge(from: 0, to: 4)
-            try adjacencyMatrix.addEdge(from: 1, to: 0)
-            try adjacencyMatrix.addEdge(from: 1, to: 4)
-            try adjacencyMatrix.addEdge(from: 1, to: 7)
-            try adjacencyMatrix.addEdge(from: 2, to: 0)
-            try adjacencyMatrix.addEdge(from: 3, to: 6)
-            try adjacencyMatrix.addEdge(from: 5, to: 0)
-            try adjacencyMatrix.addEdge(from: 5, to: 1)
-            try adjacencyMatrix.addEdge(from: 5, to: 2)
-            try adjacencyMatrix.addEdge(from: 4, to: 2) // Creates a cycle
-        } catch let AdjacencyMatrixError.invalidVertex(message) {
-            print("Error: \(message)")
-        } catch {
-            print("Unexpected error: \(error)")
-        }
+        try! adjacencyMatrix.addEdge(from: 0, to: 4)
+        try! adjacencyMatrix.addEdge(from: 1, to: 0)
+        try! adjacencyMatrix.addEdge(from: 1, to: 4)
+        try! adjacencyMatrix.addEdge(from: 1, to: 7)
+        try! adjacencyMatrix.addEdge(from: 2, to: 0)
+        try! adjacencyMatrix.addEdge(from: 3, to: 6)
+        try! adjacencyMatrix.addEdge(from: 5, to: 0)
+        try! adjacencyMatrix.addEdge(from: 5, to: 1)
+        try! adjacencyMatrix.addEdge(from: 5, to: 2)
+        try! adjacencyMatrix.addEdge(from: 4, to: 2) // Creates a cycle
 
         // When
         let computedResult = adjacencyMatrix.topologicalSort()
