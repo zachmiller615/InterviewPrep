@@ -18,30 +18,35 @@ struct DiscreteMath {
         }
     }
 
-    func permutations<Element>(of inputSet: Set<Element>) -> [[Element]] {
-        if inputSet.isEmpty {
+    func permutations<Element>(of inputArray: [Element]) -> Set<[Element]> {
+        if inputArray.isEmpty {
             return [[]]
         }
-        if (inputSet.count == 1) {
-            return [Array(inputSet)]
+        if (inputArray.count == 1) {
+            return [inputArray]
         }
-        var tail = inputSet
+        var tail = inputArray
         let head = tail.removeFirst()
         let tailPermutations = self.permutations(of: tail)
-        return tailPermutations.reduce(into: []) { (accumulator: inout [[Element]], permutationWithoutHead: [Element]) in
+        return tailPermutations.reduce(into: []) { (accumulator: inout Set<[Element]>, permutationWithoutHead: [Element]) in
             let permutationsWithHead = self.insertIntoEachLocation(elementToInsert: head, otherElements: permutationWithoutHead)
-            accumulator.append(contentsOf: permutationsWithHead)
+            for permutationWithHead in permutationsWithHead {
+                accumulator.insert(permutationWithHead)
+            }
         }
     }
 }
 
 // Private Methods
 private extension DiscreteMath {
-    func insertIntoEachLocation<Element>(elementToInsert: Element, otherElements: [Element]) -> [[Element]] {
+    func insertIntoEachLocation<Element>(elementToInsert: Element, otherElements: [Element]) -> Set<[Element]> {
         let indexRange = (otherElements.startIndex...otherElements.endIndex)
-        return indexRange.map { middleIndex in
+        var result = Set<[Element]>()
+        for middleIndex in indexRange {
             let newArraySlice = otherElements[otherElements.startIndex..<middleIndex] + [elementToInsert] + otherElements[middleIndex..<otherElements.endIndex]
-            return Array(newArraySlice)
+            let newArray = Array(newArraySlice)
+            result.insert(newArray)
         }
+        return result
     }
 }

@@ -95,8 +95,8 @@ extension DiscreteMathTests {
     func test_Permutations_InputSize0() {
         // Given
         let discreteMath = DiscreteMath()
-        let set: Set<Character> = []
-        let expectedResult: [[Character]] = [[]]
+        let set: [Character] = []
+        let expectedResult: Set<[Character]> = [[]]
 
         // When
         let computedResult = discreteMath.permutations(of: set)
@@ -108,8 +108,8 @@ extension DiscreteMathTests {
     func test_Permutations_InputSize1() {
         // Given
         let discreteMath = DiscreteMath()
-        let set: Set<Character> = ["a"]
-        let expectedResult: [[Character]] = [["a"]]
+        let set: [Character] = ["a"]
+        let expectedResult: Set<[Character]> = [["a"]]
 
         // When
         let computedResult = discreteMath.permutations(of: set)
@@ -121,8 +121,8 @@ extension DiscreteMathTests {
     func test_Permutations_InputSize2() {
         // Given
         let discreteMath = DiscreteMath()
-        let set: Set<Character> = ["a", "b"]
-        let expectedResult: [[Character]] = [
+        let set: [Character] = ["a", "b"]
+        let expectedResult: Set<[Character]> = [
             ["a", "b"],
             ["b", "a"]
         ]
@@ -131,14 +131,14 @@ extension DiscreteMathTests {
         let computedResult = discreteMath.permutations(of: set)
 
         // Then
-        XCTAssertEqual(Set(computedResult), Set(expectedResult))
+        XCTAssertEqual(computedResult, expectedResult)
     }
 
     func test_Permutations_InputSize3() {
         // Given
         let discreteMath = DiscreteMath()
-        let set: Set<Character> = ["a", "b", "c"]
-        let expectedResult: [[Character]] = [
+        let set: [Character] = ["a", "b", "c"]
+        let expectedResult: Set<[Character]> = [
             ["a", "b", "c"],
             ["a", "c", "b"],
             ["b", "a", "c"],
@@ -151,14 +151,14 @@ extension DiscreteMathTests {
         let computedResult = discreteMath.permutations(of: set)
 
         // Then
-        XCTAssertEqual(Set(computedResult), Set(expectedResult))
+        XCTAssertEqual(computedResult, expectedResult)
     }
 
     func test_Permutations_InputSize4() {
         // Given
         let discreteMath = DiscreteMath()
-        let set: Set<Character> = ["a", "b", "c", "d"]
-        let expectedResult: [[Character]] = [
+        let set: [Character] = ["a", "b", "c", "d"]
+        let expectedResult: Set<[Character]> = [
             ["d", "a", "b", "c"],
             ["a", "d", "b", "c"],
             ["a", "b", "d", "c"],
@@ -189,6 +189,23 @@ extension DiscreteMathTests {
         let computedResult = discreteMath.permutations(of: set)
 
         // Then
-        XCTAssertEqual(Set(computedResult), Set(expectedResult))
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+
+    func test_Permutations_InputWithDuplicates() {
+        // Given
+        let discreteMath = DiscreteMath()
+        let set: [Character] = ["a", "b", "a"]
+        let expectedResult: Set<[Character]> = [
+            ["a", "b", "a"],
+            ["b", "a", "a"],
+            ["a", "a", "b"]
+        ]
+
+        // When
+        let computedResult = discreteMath.permutations(of: set)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
     }
 }
