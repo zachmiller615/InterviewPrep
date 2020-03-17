@@ -146,6 +146,32 @@ struct Sorter {
             $0
         }
     }
+
+    /// Question from "Cracking the Coding Interview" by Gayle Laakmann Mcdowell:
+    /// In an array of integers, a "peak" is an element which is greater than or equal to the adjacent integers and a "valley" is an element which is less than or equal to the adjacent integers.
+    /// For example, in the array [5, 8, 6, 2, 3, 4, 6], {8, 6} are peaks and {5, 2} are valleys.
+    /// Given an array of integers, sort the array into an alternating sequence of peaks and valleys.
+    func peaksAndValleys<Element: Comparable>(_ inputArray: [Element]) -> [Element] {
+        let sortedInput = inputArray.sorted()
+        var indexLow = 0
+        var indexHigh = (sortedInput.count - 1)
+        var resultArray: [Element] = []
+        var shouldUseIndexLow = false
+        while (indexLow <= indexHigh) {
+            let elementToInsert: Element
+            if (shouldUseIndexLow) {
+                elementToInsert = sortedInput[indexLow]
+                indexLow += 1
+                shouldUseIndexLow = false
+            } else {
+                elementToInsert = sortedInput[indexHigh]
+                indexHigh -= 1
+                shouldUseIndexLow = true
+            }
+            resultArray.append(elementToInsert)
+        }
+        return resultArray
+    }
 }
 
 // Private Methods - Merge Sort

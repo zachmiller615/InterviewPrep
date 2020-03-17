@@ -327,3 +327,19 @@ extension SorterTests {
         }
     }
 }
+
+// Test Cases for Peaks and Valleys
+extension SorterTests {
+    func test_PeaksAndValleys() {
+        // Given
+        let sorter = Sorter()
+        let array = [5, 3, 1, 2, 3]
+        let expectedResult = [5, 1, 3, 2, 3]
+
+        // When
+        let computedResult = sorter.peaksAndValleys(array)
+
+        // Then
+        XCTAssertEqual(computedResult, expectedResult)
+    }
+}
