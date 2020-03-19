@@ -24,6 +24,7 @@
 		284FE15E22C5B466633E4264 /* WeightedAdjacencyMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEDB6313543FCA2E37DEE /* WeightedAdjacencyMatrix.swift */; };
 		284FE1E1E8A235B5DD87D3A4 /* AdjacencyMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEDD6EBF61EA6A30055EE /* AdjacencyMatrixTests.swift */; };
 		284FE1EC86C1C0AF414B4A91 /* ListyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE3DE3FE750AE3EEA76BE /* ListyTests.swift */; };
+		284FE2CAEC858B54AC1C75BA /* OneAwayChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEC51E321D6E73602F836 /* OneAwayChecker.swift */; };
 		284FE2FC4AF74D20E493FEF6 /* AdjacencyMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE84B0EBC142B98EEEA7A /* AdjacencyMatrix.swift */; };
 		284FE3A088EC342893F1D934 /* WeightedAdjacencyMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE399FA9B34078691CA0D /* WeightedAdjacencyMatrixTests.swift */; };
 		284FE40AD9CAF9A1E66F2C04 /* TopologicalSortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE98D876456F39E2D28CA /* TopologicalSortError.swift */; };
@@ -34,6 +35,7 @@
 		284FE9227BACBA6FAF6C41AB /* ProjectDependencyGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA7CD488E3B9AF74303E /* ProjectDependencyGraphTests.swift */; };
 		284FEB69E9C702C017A7EBD5 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE495ACBDB14B316FF125 /* ArrayExtensionTests.swift */; };
 		284FEBC41154D04526D4297D /* DiscreteMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE69B21AF73DC2973CD65 /* DiscreteMathTests.swift */; };
+		284FEBF0B1DC9F92E08B586B /* OneAwayCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE04B5BBFAB5A2A434CFE /* OneAwayCheckerTests.swift */; };
 		284FEC10D1F7C2AF7AD55D55 /* BinaryTreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FEA43C05AC9F2AD1D3EB5 /* BinaryTreeNodeTests.swift */; };
 		284FED3BC9A1C7AFA18AB917 /* DijkstrasAlgorithmHeapElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE75A631A629E635B2160 /* DijkstrasAlgorithmHeapElement.swift */; };
 		284FED8E054D29AA2075652E /* ArrayMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE584B361B4FB5D18F4F5 /* ArrayMerger.swift */; };
@@ -111,6 +113,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		284FE04B5BBFAB5A2A434CFE /* OneAwayCheckerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneAwayCheckerTests.swift; sourceTree = "<group>"; };
 		284FE1AEC6854DB433DBE80C /* AdjacencyMatrixError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjacencyMatrixError.swift; sourceTree = "<group>"; };
 		284FE26B7BE80A370607579A /* RecursionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursionTests.swift; sourceTree = "<group>"; };
 		284FE2C99F64EF9A1F1B84BD /* IntExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionTests.swift; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 		284FEA7CD488E3B9AF74303E /* ProjectDependencyGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDependencyGraphTests.swift; sourceTree = "<group>"; };
 		284FEA9BC1A232C2496B8C0C /* ArrayMergerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayMergerTests.swift; sourceTree = "<group>"; };
 		284FEBB865EABC2324710E3D /* DiscreteMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscreteMath.swift; sourceTree = "<group>"; };
+		284FEC51E321D6E73602F836 /* OneAwayChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneAwayChecker.swift; sourceTree = "<group>"; };
 		284FED61A17E1B48EE529AB8 /* Recursion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursion.swift; sourceTree = "<group>"; };
 		284FED7C9960E67410687803 /* BinaryTreeNodeChildDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeChildDirection.swift; sourceTree = "<group>"; };
 		284FEDB6313543FCA2E37DEE /* WeightedAdjacencyMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedAdjacencyMatrix.swift; sourceTree = "<group>"; };
@@ -236,12 +240,28 @@
 			path = Discrete_Math;
 			sourceTree = "<group>";
 		};
+		284FE619391C6AB3D9397008 /* OneAwayCheckerTests */ = {
+			isa = PBXGroup;
+			children = (
+				284FE04B5BBFAB5A2A434CFE /* OneAwayCheckerTests.swift */,
+			);
+			name = OneAwayCheckerTests;
+			sourceTree = "<group>";
+		};
 		284FE82C3B3CCE307D7276E8 /* Discrete_Math */ = {
 			isa = PBXGroup;
 			children = (
 				284FEBB865EABC2324710E3D /* DiscreteMath.swift */,
 			);
 			path = Discrete_Math;
+			sourceTree = "<group>";
+		};
+		284FE9941DAE0465B918BC33 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				284FEC51E321D6E73602F836 /* OneAwayChecker.swift */,
+			);
+			name = Strings;
 			sourceTree = "<group>";
 		};
 		284FEA555E4AC494A2284D31 /* Recursion */ = {
@@ -514,6 +534,7 @@
 				284FE1D379FA19EE288D7116 /* Array_Merger */,
 				284FE4108C8C900D071D1AE2 /* Discrete_Math */,
 				284FEA555E4AC494A2284D31 /* Recursion */,
+				284FE619391C6AB3D9397008 /* OneAwayCheckerTests */,
 			);
 			name = InterviewPrepCoreTests;
 			path = Tests/InterviewPrepCoreTests;
@@ -595,6 +616,7 @@
 				284FEB7C4799F08B9DAA90F2 /* Array_Merger */,
 				284FE82C3B3CCE307D7276E8 /* Discrete_Math */,
 				284FE147CC30CBE52ED2EF83 /* Recursion */,
+				284FE9941DAE0465B918BC33 /* Strings */,
 			);
 			name = InterviewPrepCore;
 			path = Sources/InterviewPrepCore;
@@ -799,6 +821,7 @@
 				284FE40AD9CAF9A1E66F2C04 /* TopologicalSortError.swift in Sources */,
 				284FE15E22C5B466633E4264 /* WeightedAdjacencyMatrix.swift in Sources */,
 				284FED3BC9A1C7AFA18AB917 /* DijkstrasAlgorithmHeapElement.swift in Sources */,
+				284FE2CAEC858B54AC1C75BA /* OneAwayChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +867,7 @@
 				284FE1E1E8A235B5DD87D3A4 /* AdjacencyMatrixTests.swift in Sources */,
 				284FE3A088EC342893F1D934 /* WeightedAdjacencyMatrixTests.swift in Sources */,
 				284FE509AFC51B4C18ADE6CC /* IntExtensionTests.swift in Sources */,
+				284FEBF0B1DC9F92E08B586B /* OneAwayCheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
